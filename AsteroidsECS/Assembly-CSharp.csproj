@@ -46,7 +46,28 @@
     <Analyzer Include="F:\UnityEditor\6000.0.54f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Components\FollowComponent.cs" />
+    <Compile Include="Assets\Scripts\Aspects\ShipAspect.cs" />
+    <Compile Include="Assets\Scripts\Components\MovableComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\ShipComponent.cs" />
+    <Compile Include="Assets\Scripts\Aspects\GameAspect.cs" />
+    <Compile Include="Assets\Scripts\Systems\GameInitSystem.cs" />
+    <Compile Include="Assets\Scripts\Aspects\InputEventAspect.cs" />
+    <Compile Include="Assets\Scripts\EcsStartup.cs" />
+    <Compile Include="Assets\Scripts\Inputs\IInputSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\AccelerationSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\AccelerationMoveSystem.cs" />
+    <Compile Include="Assets\Scripts\Components\AccelerationComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\InputEventComponent.cs" />
+    <Compile Include="Assets\Scripts\Systems\ShipInputSystem.cs" />
+    <Compile Include="Assets\Scripts\Configs\ShipConfig.cs" />
+    <Compile Include="Assets\Scripts\Aspects\FollowAspect.cs" />
+    <Compile Include="Assets\Scripts\Systems\ShipViewSystem.cs" />
+    <Compile Include="Assets\Scripts\Aspects\MovableAspect.cs" />
+    <Compile Include="Assets\Scripts\DeltaTimeUtils.cs" />
     <Compile Include="Assets\Scripts\Inputs\InputSystem.cs" />
+    <Compile Include="Assets\Scripts\ShipDataViewProvider.cs" />
+    <Compile Include="Assets\Scripts\Aspects\AccelerationAspect.cs" />
     <Reference Include="UnityEngine">
       <HintPath>F:\UnityEditor\6000.0.54f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

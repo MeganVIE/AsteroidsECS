@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Inputs
 {
-    public class InputSystem : MonoBehaviour
+    public class InputSystem : MonoBehaviour, IInputSystem
     {
         #region Activation
         [SerializeField] private InputActionAsset m_actionAsset;    
@@ -13,8 +12,6 @@ namespace Inputs
         {
             if (m_actionAsset != null)
                 m_actionAsset.Enable();
-
-            Init();
         }
         #endregion
 
@@ -24,32 +21,9 @@ namespace Inputs
         [SerializeField] private InputActionReference m_gunUse;
         [SerializeField] private InputActionReference m_laserUse;
 
+        public bool MovePressing => m_moveForward.action.phase == InputActionPhase.Performed;
         public float RotationValue => m_rotate.action.ReadValue<float>();
-        public InputActionPhase MoveForwardPhase => m_moveForward.action.phase;
-
-        public Action onGunUse { get; set; }
-        public Action onLaserUse { get; set; }
-
-        private void Init()
-        {
-            m_gunUse.action.performed += GunUsePerformed;
-            m_laserUse.action.performed += LaserUsePerformed;
-        }
-
-        private void OnDestroy()
-        {
-            m_gunUse.action.performed -= GunUsePerformed;
-            m_laserUse.action.performed -= LaserUsePerformed;
-        }
-
-        private void LaserUsePerformed(InputAction.CallbackContext obj)
-        {
-            onLaserUse?.Invoke();
-        }
-
-        private void GunUsePerformed(InputAction.CallbackContext obj)
-        {
-            onGunUse?.Invoke();
-        }
+        public bool GunUsing => m_gunUse.action.phase == InputActionPhase.Performed;
+        public bool LaserUsing => m_laserUse.action.phase == InputActionPhase.Performed;
     }
 }

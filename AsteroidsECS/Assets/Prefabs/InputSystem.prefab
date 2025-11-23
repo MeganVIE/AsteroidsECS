@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce16af4bf29e3b41b351853ffef7c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionAsset: {fileID: -944628639613478452, guid: ea2088da09e3fce41ba0d2c03f572d3f, type: 3}
-  _moveForward: {fileID: -8854207096684954264, guid: ea2088da09e3fce41ba0d2c03f572d3f, type: 3}
-  _rotate: {fileID: 6966898303472436213, guid: ea2088da09e3fce41ba0d2c03f572d3f, type: 3}
-  _gunUse: {fileID: 5999530811563897647, guid: ea2088da09e3fce41ba0d2c03f572d3f, type: 3}
-  _laserUse: {fileID: -1096931982131733233, guid: ea2088da09e3fce41ba0d2c03f572d3f, type: 3}
+  m_actionAsset: {fileID: -944628639613478452, guid: ea2088da09e3fce41ba0d2c03f572d3f, type: 3}
+  m_moveForward: {fileID: -8854207096684954264, guid: ea2088da09e3fce41ba0d2c03f572d3f, type: 3}
+  m_rotate: {fileID: 6966898303472436213, guid: ea2088da09e3fce41ba0d2c03f572d3f, type: 3}
+  m_gunUse: {fileID: 5999530811563897647, guid: ea2088da09e3fce41ba0d2c03f572d3f, type: 3}
+  m_laserUse: {fileID: -1096931982131733233, guid: ea2088da09e3fce41ba0d2c03f572d3f, type: 3}

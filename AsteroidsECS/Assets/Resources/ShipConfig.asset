@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b3770c7a034ae1b4d644da0bc1075e, type: 3}
+  m_Name: ShipConfig
+  m_EditorClassIdentifier: 
+  ViewPrefab: {fileID: 8384767448420170059, guid: 080c7af911c65db4e909eb04d573a010, type: 3}
+  MaxSpeed: 0.015
+  AccelerationSpeed: 0.005
+  SlowdownSpeed: 1
+  StartPosition: {x: 0, y: 0}
+  StartRotation: 0
+  StartAcceleration: {x: 0, y: 0}
