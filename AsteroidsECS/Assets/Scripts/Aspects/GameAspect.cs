@@ -16,6 +16,7 @@ namespace Aspects
             _world = world;
             _aspects = new List<IProtoAspect>();
             
+            _aspects.Add(new CameraDataAspect());
             _aspects.Add(new MoveInputEventAspect());
             _aspects.Add(new ShipAspect());
             

@@ -4,8 +4,9 @@ using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
 using UnityEngine;
+using Utils;
 
-namespace Systems
+namespace Moving.Systems
 {
     public class MoveSystem : IProtoRunSystem, IProtoInitSystem
     {

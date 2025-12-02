@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: ShipConfig
   m_EditorClassIdentifier: 
   ViewPrefab: {fileID: 8384767448420170059, guid: 080c7af911c65db4e909eb04d573a010, type: 3}
-  MaxAcceleration: 0.015
   AccelerationSpeed: 0.005
-  SlowdownSpeed: 1
+  MaxMoveSpeed: 0.015
+  SlowdownSpeed: 0.004
+  RotationSpeed: 90
   StartPosition: {x: 0, y: 0}
   StartRotation: 0
-  StartAcceleration: 0
+  StartMoveSpeed: 0

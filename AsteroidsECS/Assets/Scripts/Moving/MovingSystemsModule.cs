@@ -2,7 +2,6 @@ using System;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Systems;
-using Systems;
 
 namespace Moving
 {
@@ -14,7 +13,8 @@ namespace Moving
                 .AddSystem(new RotationByInputSystem())
                 .AddSystem(new MoveSpeedChangeByInputSystem())
                 .AddSystem(new MoveSpeedLimitSystem())
-                .AddSystem(new MoveSystem());
+                .AddSystem(new MoveSystem())
+                .AddSystem(new PositionOutsideScreenSystem());
         }
 
         public IProtoAspect[] Aspects()

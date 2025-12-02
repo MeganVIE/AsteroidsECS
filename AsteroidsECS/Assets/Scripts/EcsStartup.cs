@@ -6,6 +6,7 @@ using Moving;
 using Systems;
 using UI;
 using UnityEngine;
+using Utils;
 
 class EcsStartup : MonoBehaviour
 {
@@ -25,16 +26,17 @@ class EcsStartup : MonoBehaviour
 
             // Системы вне модулей могут
             // быть зарегистрированы здесь.
-            .AddSystem(new ShipCreateSystem())
-            
+            .AddSystem(new CameraDataInitSystem())
             .AddSystem(new MoveInputSystem())
 
+            .AddSystem(new ShipCreateSystem())
             .AddSystem(new ShipViewSystem())
 
             // Сервисы могут быть добавлены в любом месте.
             .AddService(unityInputService, typeof(IInputService))
             .AddService(new DeltaTimeService(), typeof(IDeltaTimeService))
-            .AddService(new ShipDataViewService(), typeof(IShipDataViewService));
+            .AddService(new ShipDataViewService(), typeof(IShipDataViewService))
+            .AddService(new CameraDataService(), typeof(ICameraDataService));
 
         _systems.Init();
     }

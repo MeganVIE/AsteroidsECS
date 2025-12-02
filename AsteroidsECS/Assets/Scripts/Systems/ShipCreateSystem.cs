@@ -6,30 +6,29 @@ using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
 using UI;
+using Utils;
 
 namespace Systems
 {
     public class ShipCreateSystem : IProtoInitSystem
     {
-        ProtoWorld _world;
-
         public void Init(IProtoSystems systems)
         {
-            _world = systems.World();
+            var world = systems.World();
             
-            ShipAspect shipAspect = _world.GetAspect<ShipAspect>();
+            ShipAspect shipAspect = world.GetAspect<ShipAspect>();
             var shipComponentPool = shipAspect.Pool;
-            MovableAspect movableAspect = _world.GetAspect<MovableAspect>();
+            MovableAspect movableAspect = world.GetAspect<MovableAspect>();
             var movableComponentPool = movableAspect.Pool;
-            RotationAspect rotationAspect = _world.GetAspect<RotationAspect>();
+            RotationAspect rotationAspect = world.GetAspect<RotationAspect>();
             var rotationComponentPool = rotationAspect.Pool;
-            MoveInputEventAspect moveInputEventAspect = _world.GetAspect<MoveInputEventAspect>();
+            MoveInputEventAspect moveInputEventAspect = world.GetAspect<MoveInputEventAspect>();
             var inputEventComponentPool = moveInputEventAspect.Pool;
-            MoveSpeedAspect moveSpeedAspect = _world.GetAspect<MoveSpeedAspect>();
+            MoveSpeedAspect moveSpeedAspect = world.GetAspect<MoveSpeedAspect>();
             var moveSpeedComponentPool = moveSpeedAspect.Pool;
-            MoveSpeedLimitAspect moveSpeedLimitAspect = _world.GetAspect<MoveSpeedLimitAspect>();
+            MoveSpeedLimitAspect moveSpeedLimitAspect = world.GetAspect<MoveSpeedLimitAspect>();
             var moveSpeedLimitComponentPool = moveSpeedLimitAspect.Pool;
-            MoveSpeedChangeAspect moveSpeedChangeAspect = _world.GetAspect<MoveSpeedChangeAspect>();
+            MoveSpeedChangeAspect moveSpeedChangeAspect = world.GetAspect<MoveSpeedChangeAspect>();
             var moveSpeedChangeComponentPool = moveSpeedChangeAspect.Pool;
 
             shipComponentPool.NewEntity(out ProtoEntity entity);

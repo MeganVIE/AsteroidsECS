@@ -3,9 +3,9 @@ using Leopotam.EcsProto;
 
 namespace Aspects
 {
-    public class ShipAspect : IProtoAspect
+    public class CameraDataAspect : IProtoAspect
     {
-        public ProtoPool<ShipComponent> Pool;
+        public ProtoPool<CameraDataComponent> Pool;
         private ProtoWorld _world;
         
         public void Init(ProtoWorld world)

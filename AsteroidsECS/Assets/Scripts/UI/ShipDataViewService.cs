@@ -1,5 +1,6 @@
 using Configs;
 using UnityEngine;
+using Utils;
 
 namespace UI
 {
