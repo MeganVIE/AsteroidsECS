@@ -1,11 +1,11 @@
-using Components;
+using Inputs.Components;
 using Leopotam.EcsProto;
 
-namespace Aspects
+namespace Inputs.Aspects
 {
-    public class ShipAspect : IProtoAspect
+    public class MoveInputEventAspect : IProtoAspect
     {
-        public ProtoPool<ShipComponent> Pool;
+        public ProtoPool<MoveInputEventComponent> Pool;
         private ProtoWorld _world;
         
         public void Init(ProtoWorld world)
@@ -16,9 +16,7 @@ namespace Aspects
             _world = world;
         }
 
-        public void PostInit()
-        {
-        }
+        public void PostInit() { }
 
         public ProtoWorld World()
         {

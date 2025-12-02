@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public interface IDeltaTimeSource
+public interface IDeltaTimeService
 {
     float DeltaTime { get; }
 }
     
-public class DeltaTimeSource : IDeltaTimeSource
+public class DeltaTimeService : IDeltaTimeService
 {
     public float DeltaTime => Time.deltaTime;
 }

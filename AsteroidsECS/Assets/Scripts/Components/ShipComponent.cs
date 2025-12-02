@@ -1,7 +1,4 @@
 namespace Components
 {
-    public struct ShipComponent
-    {
-        
-    }
+    public struct ShipComponent { }
 }

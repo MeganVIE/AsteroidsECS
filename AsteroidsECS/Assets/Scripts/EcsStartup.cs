@@ -1,44 +1,42 @@
 using Aspects;
 using Inputs;
+using Inputs.Systems;
 using Leopotam.EcsProto;
+using Moving;
 using Systems;
+using UI;
 using UnityEngine;
 
 class EcsStartup : MonoBehaviour
 {
-
-    [SerializeField] private InputSystem _inputSystem;
-    private IDeltaTimeSource _deltaTimeSource;
-    private IShipDataViewProvider _shipDataViewProvider;
+    [SerializeField] private UnityInputService unityInputService;
     
     ProtoWorld _world;
     IProtoSystems _systems;
 
     void Start ()
     {
-        _deltaTimeSource = new DeltaTimeSource();
-        _shipDataViewProvider = new ShipDataViewProvider();
-        
         _world = new ProtoWorld(new GameAspect());
 
         _systems = new ProtoSystems (_world);
         _systems
             // Модули должны быть зарегистрированы здесь.
-            // .AddModule (new TestModule1 ())
-            // .AddModule (new TestModule2 ())
+            .AddModule(new MovingSystemsModule())
 
             // Системы вне модулей могут
             // быть зарегистрированы здесь.
-            .AddSystem(new GameInitSystem(_shipDataViewProvider))
-            .AddSystem(new ShipInputSystem(_inputSystem))
-            .AddSystem(new AccelerationSystem(_deltaTimeSource))
-            .AddSystem(new AccelerationMoveSystem())
-            .AddSystem(new ShipViewSystem(_shipDataViewProvider))
+            .AddSystem(new ShipCreateSystem())
+            
+            .AddSystem(new MoveInputSystem())
+
+            .AddSystem(new ShipViewSystem())
 
             // Сервисы могут быть добавлены в любом месте.
-            // .AddService (new TestService1 ())
+            .AddService(unityInputService, typeof(IInputService))
+            .AddService(new DeltaTimeService(), typeof(IDeltaTimeService))
+            .AddService(new ShipDataViewService(), typeof(IShipDataViewService));
 
-            .Init();
+        _systems.Init();
     }
 
     void Update () {

@@ -1,35 +1,36 @@
+using System.Collections.Generic;
+using Inputs.Aspects;
 using Leopotam.EcsProto;
+using Moving.Aspects;
 
 namespace Aspects
 {
     public class GameAspect : IProtoAspect
     {
-        private ShipAspect _shipAspect;
-        private MovableAspect _movableAspect;
-        private InputEventAspect _inputEventAspect;
-        private AccelerationAspect _accelerationAspect;
+        private List<IProtoAspect> _aspects;
+
         private ProtoWorld _world;
         
         public void Init(ProtoWorld world)
         {
             _world = world;
-            _shipAspect = new ShipAspect();
-            _movableAspect = new MovableAspect();
-            _inputEventAspect = new InputEventAspect();
-            _accelerationAspect = new AccelerationAspect();
+            _aspects = new List<IProtoAspect>();
             
-            _shipAspect.Init(_world);
-            _movableAspect.Init(_world);
-            _inputEventAspect.Init(_world);
-            _accelerationAspect.Init(_world);
+            _aspects.Add(new MoveInputEventAspect());
+            _aspects.Add(new ShipAspect());
+            
+            _aspects.Add(new RotationAspect());
+            _aspects.Add(new MoveSpeedAspect());
+            _aspects.Add(new MoveSpeedChangeAspect());
+            _aspects.Add(new MoveSpeedLimitAspect());
+            _aspects.Add(new MovableAspect());
+            
+            _aspects.ForEach(a => a.Init(_world));
         }
 
         public void PostInit()
         {
-            _shipAspect.PostInit();
-            _movableAspect.PostInit();
-            _inputEventAspect.PostInit();
-            _accelerationAspect.PostInit();
+            _aspects.ForEach(a => a.PostInit());
         }
 
         public ProtoWorld World()

@@ -1,23 +1,22 @@
 using Leopotam.EcsProto;
+using Moving.Components;
 
-namespace Aspects
+namespace Moving.Aspects
 {
     public class MovableAspect : IProtoAspect
     {
-        public ProtoPool<MovableComponent> MovableComponentPool;
+        public ProtoPool<MovableComponent> Pool;
         private ProtoWorld _world;
         
         public void Init(ProtoWorld world)
         {
             world.AddAspect (this);
-            MovableComponentPool = new ();
-            world.AddPool (MovableComponentPool);
+            Pool = new ();
+            world.AddPool (Pool);
             _world = world;
         }
 
-        public void PostInit()
-        {
-        }
+        public void PostInit() { }
 
         public ProtoWorld World()
         {

@@ -1,11 +1,11 @@
 using Components;
 using Leopotam.EcsProto;
 
-namespace Aspects
+namespace Moving.Aspects
 {
-    public class ShipAspect : IProtoAspect
+    public class MoveSpeedLimitAspect : IProtoAspect
     {
-        public ProtoPool<ShipComponent> Pool;
+        public ProtoPool<MoveSpeedLimitComponent> Pool;
         private ProtoWorld _world;
         
         public void Init(ProtoWorld world)
@@ -16,9 +16,7 @@ namespace Aspects
             _world = world;
         }
 
-        public void PostInit()
-        {
-        }
+        public void PostInit() { }
 
         public ProtoWorld World()
         {

@@ -1,6 +1,6 @@
 namespace Inputs
 {
-    public interface IInputSystem
+    public interface IInputService
     {
         bool MovePressing { get; }
         float RotationValue { get; }

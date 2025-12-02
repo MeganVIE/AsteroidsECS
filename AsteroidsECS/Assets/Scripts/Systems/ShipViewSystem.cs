@@ -1,28 +1,28 @@
-using Aspects;
 using Components;
 using Leopotam.EcsProto;
+using Moving.Aspects;
+using Moving.Components;
+using UI;
 
 namespace Systems
 {
     public class ShipViewSystem: IProtoRunSystem, IProtoInitSystem
     {
         MovableAspect _movableAspect;
+        private RotationAspect _rotationAspect;
         ProtoIt _it;
         
-        private IShipDataViewProvider _shipDataViewProvider;
-
-        public ShipViewSystem(IShipDataViewProvider shipDataViewProvider)
-        {
-            _shipDataViewProvider = shipDataViewProvider;
-        }
+        private IShipDataViewService _shipDataViewService;
 
         public void Init(IProtoSystems systems)
         {
             ProtoWorld world = systems.World();
+            _shipDataViewService = systems.GetService<IShipDataViewService>();
             
-            _movableAspect = (MovableAspect)world.Aspect(typeof(MovableAspect));
+            _movableAspect = world.GetAspect<MovableAspect>();
+            _rotationAspect = world.GetAspect<RotationAspect>();
             
-            _it = new(new[] { typeof(ShipComponent), typeof(MovableComponent) });
+            _it = new(new[] { typeof(ShipComponent), typeof(MovableComponent), typeof(RotationComponent) });
             _it.Init(world);
         }
         
@@ -30,9 +30,11 @@ namespace Systems
         {
             foreach (ProtoEntity entity in _it) 
             {
-                MovableComponent movableComponent = _movableAspect.MovableComponentPool.Get(entity);
+                MovableComponent movableComponent = _movableAspect.Pool.Get(entity);
+                RotationComponent rotationComponent = _rotationAspect.Pool.Get(entity);
 
-                _shipDataViewProvider.SetShipPosition(movableComponent.Position);
+                _shipDataViewService.SetShipPosition(movableComponent.Position);
+                _shipDataViewService.SetShipRotation(rotationComponent.Angle);
             }
         }
     }

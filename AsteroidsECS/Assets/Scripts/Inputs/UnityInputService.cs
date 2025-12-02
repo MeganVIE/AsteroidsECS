@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Inputs
 {
-    public class InputSystem : MonoBehaviour, IInputSystem
+    public class UnityInputService : MonoBehaviour, IInputService
     {
         #region Activation
         [SerializeField] private InputActionAsset m_actionAsset;    

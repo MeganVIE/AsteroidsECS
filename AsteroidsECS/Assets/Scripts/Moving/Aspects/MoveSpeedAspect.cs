@@ -1,24 +1,22 @@
 using Components;
 using Leopotam.EcsProto;
 
-namespace Aspects
+namespace Moving.Aspects
 {
-    public class AccelerationAspect : IProtoAspect
+    public class MoveSpeedAspect : IProtoAspect
     {
-        public ProtoPool<AccelerationComponent> AccelerationComponentPool;
+        public ProtoPool<MoveSpeedComponent> Pool;
         private ProtoWorld _world;
         
         public void Init(ProtoWorld world)
         {
             world.AddAspect (this);
-            AccelerationComponentPool = new ();
-            world.AddPool (AccelerationComponentPool);
+            Pool = new ();
+            world.AddPool (Pool);
             _world = world;
         }
 
-        public void PostInit()
-        {
-        }
+        public void PostInit() { }
 
         public ProtoWorld World()
         {
