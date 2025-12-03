@@ -15,6 +15,6 @@ namespace Utils
         {
             Dictionary<Type, object> svc = systems.Services();
             return svc[typeof(T)] as T;
-        } 
+        }
     }
 }

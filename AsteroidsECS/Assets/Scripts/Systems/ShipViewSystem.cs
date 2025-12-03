@@ -34,7 +34,7 @@ namespace Systems
                 MovableComponent movableComponent = _movableAspect.Pool.Get(entity);
                 RotationComponent rotationComponent = _rotationAspect.Pool.Get(entity);
 
-                _shipDataViewService.SetShipPosition(movableComponent.Position);
+                _shipDataViewService.SetPosition(0, movableComponent.Position);
                 _shipDataViewService.SetShipRotation(rotationComponent.Angle);
             }
         }

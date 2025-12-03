@@ -1,12 +1,9 @@
 using Configs;
-using Utils;
 
 namespace UI
 {
-    public interface IShipDataViewService
+    public interface IShipDataViewService : IEntityDataViewService
     {
-        void CreateShipView(ShipConfig config);
-        void SetShipPosition(Point newPosition);
         void SetShipRotation(float angle);
     }
 }

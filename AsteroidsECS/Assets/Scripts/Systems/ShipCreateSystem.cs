@@ -42,17 +42,20 @@ namespace Systems
 
             var shipConfig = ShipConfig.LoadFromAssets();
             
-            var shipDataViewService = systems.GetService<IShipDataViewService>();
-            shipDataViewService!.CreateShipView(shipConfig);
-            
+            var position = new Point(shipConfig.StartPosition.x, shipConfig.StartPosition.y);
+            movableComponent.Position = position;
             rotationComponent.Angle = shipConfig.StartRotation;
             rotationComponent.RotationSpeed = shipConfig.RotationSpeed;
-            movableComponent.Position = new Point(shipConfig.StartPosition.x, shipConfig.StartPosition.y);
             
             moveSpeedComponent.Value = shipConfig.StartMoveSpeed;
             moveSpeedLimitComponent.Value = shipConfig.MaxMoveSpeed;
             moveSpeedChangeComponent.AccelerationSpeed = shipConfig.AccelerationSpeed;
             moveSpeedChangeComponent.SlowdownSpeed = shipConfig.SlowdownSpeed;
+            
+            var shipDataViewService = systems.GetService<IShipDataViewService>();
+            shipDataViewService!.CreateView(0, shipConfig);
+            shipDataViewService.SetPosition(0, position);
+            shipDataViewService.SetShipRotation(shipConfig.StartRotation);
         }
     }
 }

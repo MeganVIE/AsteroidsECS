@@ -18,7 +18,9 @@ namespace Aspects
             
             _aspects.Add(new CameraDataAspect());
             _aspects.Add(new MoveInputEventAspect());
+            
             _aspects.Add(new ShipAspect());
+            _aspects.Add(new AsteroidAspect());
             
             _aspects.Add(new RotationAspect());
             _aspects.Add(new MoveSpeedAspect());

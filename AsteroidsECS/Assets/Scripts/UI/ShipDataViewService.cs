@@ -1,4 +1,3 @@
-using Configs;
 using UnityEngine;
 using Utils;
 
@@ -8,12 +7,12 @@ namespace UI
     {
         private GameObject _ship;
 
-        public void CreateShipView(ShipConfig config)
+        public void CreateView(int _, EntityConfig config)
         {
-            _ship = Object.Instantiate(config.ViewPrefab, config.StartPosition, Quaternion.Euler(0, 0, config.StartRotation));
+            _ship = Object.Instantiate(config.ViewPrefab);
         }
 
-        public void SetShipPosition(Point newPosition)
+        public void SetPosition(int _, Point newPosition)
         {
             _ship.transform.position = new Vector3(newPosition.X, newPosition.Y);
         }

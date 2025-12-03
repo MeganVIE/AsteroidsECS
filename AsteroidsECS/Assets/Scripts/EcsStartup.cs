@@ -26,17 +26,23 @@ class EcsStartup : MonoBehaviour
 
             // Системы вне модулей могут
             // быть зарегистрированы здесь.
-            .AddSystem(new CameraDataInitSystem())
+            .AddSystem(new CameraDataInitSystem(), -100)
             .AddSystem(new MoveInputSystem())
+
+            .AddSystem(new AsteroidSpawnSystem())
 
             .AddSystem(new ShipCreateSystem())
             .AddSystem(new ShipViewSystem())
+            .AddSystem(new AsteroidViewSystem())
 
             // Сервисы могут быть добавлены в любом месте.
             .AddService(unityInputService, typeof(IInputService))
             .AddService(new DeltaTimeService(), typeof(IDeltaTimeService))
+            .AddService(new CameraDataService(), typeof(ICameraDataService))
+            .AddService(new RandomService(), typeof(IRandomService))
+
             .AddService(new ShipDataViewService(), typeof(IShipDataViewService))
-            .AddService(new CameraDataService(), typeof(ICameraDataService));
+            .AddService(new AsteroidDataViewService(), typeof(IAsteroidDataViewService));
 
         _systems.Init();
     }
