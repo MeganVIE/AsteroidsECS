@@ -5,7 +5,6 @@ using Inputs.Systems;
 using Leopotam.EcsProto;
 using Moving;
 using Spawn.Systems;
-using UI;
 using UI.Services;
 using UI.Systems;
 using UnityEngine;
