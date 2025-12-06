@@ -1,4 +1,5 @@
-using Aspects;
+using CameraData.Aspects;
+using CameraData.Components;
 using Components;
 using Leopotam.EcsProto;
 using Moving.Aspects;

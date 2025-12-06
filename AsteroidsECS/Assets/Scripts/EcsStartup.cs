@@ -1,10 +1,13 @@
-using Aspects;
+using CameraData.Services;
+using CameraData.Systems;
 using Inputs;
 using Inputs.Systems;
 using Leopotam.EcsProto;
 using Moving;
-using Systems;
+using Spawn.Systems;
 using UI;
+using UI.Services;
+using UI.Systems;
 using UnityEngine;
 using Utils;
 
@@ -17,7 +20,7 @@ class EcsStartup : MonoBehaviour
 
     void Start ()
     {
-        _world = new ProtoWorld(new GameAspect());
+        _world = new ProtoWorld(new GameAspectsModule());
 
         _systems = new ProtoSystems (_world);
         _systems
@@ -31,7 +34,7 @@ class EcsStartup : MonoBehaviour
 
             .AddSystem(new AsteroidSpawnSystem())
 
-            .AddSystem(new ShipCreateSystem())
+            .AddSystem(new ShipSpawnSystem())
             .AddSystem(new ShipViewSystem())
             .AddSystem(new AsteroidViewSystem())
 

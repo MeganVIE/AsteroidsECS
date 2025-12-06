@@ -1,11 +1,13 @@
-using UI;
 using UnityEngine;
 
 namespace Configs
 {
     [CreateAssetMenu(fileName = "ShipConfig", menuName = "Ship Config", order = 10)]
-    public class ShipConfig : EntityConfig
+    public class ShipConfig : ScriptableObject
     {
+        public GameObject ViewPrefab;
+        public float StartMoveSpeed = 0;
+        
         //public float CollisionRadius = .3f;
         
         public float AccelerationSpeed = 0.005f;
