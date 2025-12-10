@@ -8,11 +8,11 @@ using Utils;
 
 namespace Moving.Systems
 {
-    public class MoveSpeedChangeByInputSystem : IProtoInitSystem, IProtoRunSystem
+    public class MoveSlowdownSpeedChangeByInputSystem : IProtoInitSystem, IProtoRunSystem
     {
         MoveInputEventAspect _moveInputEventAspect;
         MoveSpeedAspect _moveSpeedAspect;
-        MoveSpeedChangeAspect _moveSpeedChangeAspect;
+        SlowdownSpeedAspect _slowdownSpeedAspect;
         ProtoIt _it;
 
         private IDeltaTimeService _deltaTimeService;
@@ -24,9 +24,9 @@ namespace Moving.Systems
             
             _moveInputEventAspect = world.GetAspect<MoveInputEventAspect>();
             _moveSpeedAspect = world.GetAspect<MoveSpeedAspect>();
-            _moveSpeedChangeAspect = world.GetAspect<MoveSpeedChangeAspect>();
+            _slowdownSpeedAspect = world.GetAspect<SlowdownSpeedAspect>();
             
-            _it = new(new[] { typeof(MoveInputEventComponent), typeof(MoveSpeedComponent), typeof(MoveSpeedChangeComponent) });
+            _it = new(new[] { typeof(MoveInputEventComponent), typeof(MoveSpeedComponent), typeof(SlowdownSpeedComponent) });
             _it.Init(world);
         }
         
@@ -36,19 +36,15 @@ namespace Moving.Systems
             {
                 ref MoveSpeedComponent moveSpeedComponent = ref _moveSpeedAspect.Pool.Get(entity);
                 MoveInputEventComponent moveInputEventComponent = _moveInputEventAspect.Pool.Get(entity);
-                MoveSpeedChangeComponent moveSpeedChangeComponent = _moveSpeedChangeAspect.Pool.Get(entity);
+                SlowdownSpeedComponent slowdownSpeedComponent = _slowdownSpeedAspect.Pool.Get(entity);
 
-                if (moveInputEventComponent.IsMovePressing)
-                {
-                    moveSpeedComponent.Value += moveSpeedChangeComponent.AccelerationSpeed * _deltaTimeService.DeltaTime;
-                }
-                else
-                {
-                    moveSpeedComponent.Value -= moveSpeedChangeComponent.SlowdownSpeed * _deltaTimeService.DeltaTime;
+                if (moveInputEventComponent.IsMovePressing) 
+                    continue;
+                
+                moveSpeedComponent.Value -= slowdownSpeedComponent.SlowdownSpeed * _deltaTimeService.DeltaTime;
 
-                    if (moveSpeedComponent.Value < 0)
-                        moveSpeedComponent.Value = 0;
-                }
+                if (moveSpeedComponent.Value < 0)
+                    moveSpeedComponent.Value = 0;
             }
         }
     }

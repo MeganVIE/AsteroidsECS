@@ -11,7 +11,8 @@ namespace Moving
         {
             systems
                 .AddSystem(new RotationByInputSystem())
-                .AddSystem(new MoveSpeedChangeByInputSystem())
+                .AddSystem(new MoveAccelerationSpeedChangeByInputSystem())
+                .AddSystem(new MoveSlowdownSpeedChangeByInputSystem())
                 .AddSystem(new MoveSpeedLimitSystem())
                 .AddSystem(new MoveSystem())
                 .AddSystem(new PositionOutsideScreenSystem());
@@ -21,8 +22,8 @@ namespace Moving
         {
             return new IProtoAspect[]
             {
-                new MovableAspect(), new MoveSpeedAspect(), new MoveSpeedChangeAspect(), new MoveSpeedLimitAspect(),
-                new RotationAspect()
+                new MovableAspect(), new MoveSpeedAspect(), new AccelerationSpeedAspect(), new MoveSpeedLimitAspect(),
+                new RotationAspect(), new SlowdownSpeedAspect()
             };
         }
 

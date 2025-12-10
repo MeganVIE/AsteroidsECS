@@ -1,8 +1,7 @@
 namespace Moving.Components
 {
-    public struct MoveSpeedChangeComponent
+    public struct AccelerationSpeedComponent
     {
         public float AccelerationSpeed;
-        public float SlowdownSpeed;
     }
 }

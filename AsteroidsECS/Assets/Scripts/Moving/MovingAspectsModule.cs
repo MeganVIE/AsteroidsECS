@@ -17,7 +17,8 @@ namespace Moving
             
             _aspects.Add(new RotationAspect());
             _aspects.Add(new MoveSpeedAspect());
-            _aspects.Add(new MoveSpeedChangeAspect());
+            _aspects.Add(new AccelerationSpeedAspect());
+            _aspects.Add(new SlowdownSpeedAspect());
             _aspects.Add(new MoveSpeedLimitAspect());
             _aspects.Add(new MovableAspect());
             

@@ -32,8 +32,10 @@ namespace Spawn.Systems
             var moveSpeedComponentPool = moveSpeedAspect.Pool;
             MoveSpeedLimitAspect moveSpeedLimitAspect = world.GetAspect<MoveSpeedLimitAspect>();
             var moveSpeedLimitComponentPool = moveSpeedLimitAspect.Pool;
-            MoveSpeedChangeAspect moveSpeedChangeAspect = world.GetAspect<MoveSpeedChangeAspect>();
-            var moveSpeedChangeComponentPool = moveSpeedChangeAspect.Pool;
+            AccelerationSpeedAspect accelerationSpeedAspect = world.GetAspect<AccelerationSpeedAspect>();
+            var moveSpeedChangeComponentPool = accelerationSpeedAspect.Pool;
+            SlowdownSpeedAspect slowdownSpeedAspect = world.GetAspect<SlowdownSpeedAspect>();
+            var slowdownSpeedComponentPool = slowdownSpeedAspect.Pool;
 
             shipComponentPool.NewEntity(out ProtoEntity entity);
             moveInputEventComponentPool.Add(entity);
@@ -41,7 +43,8 @@ namespace Spawn.Systems
             
             ref MoveSpeedComponent moveSpeedComponent = ref moveSpeedComponentPool.Add(entity);
             ref MoveSpeedLimitComponent moveSpeedLimitComponent = ref moveSpeedLimitComponentPool.Add(entity);
-            ref MoveSpeedChangeComponent moveSpeedChangeComponent = ref moveSpeedChangeComponentPool.Add(entity);
+            ref AccelerationSpeedComponent accelerationSpeedComponent = ref moveSpeedChangeComponentPool.Add(entity);
+            ref SlowdownSpeedComponent slowdownSpeedComponent = ref slowdownSpeedComponentPool.Add(entity);
             ref MovableComponent movableComponent = ref movableComponentPool.Add(entity);
             ref RotationComponent rotationComponent = ref rotationComponentPool.Add(entity);
 
@@ -54,8 +57,8 @@ namespace Spawn.Systems
             
             moveSpeedComponent.Value = shipConfig.StartMoveSpeed;
             moveSpeedLimitComponent.Value = shipConfig.MaxMoveSpeed;
-            moveSpeedChangeComponent.AccelerationSpeed = shipConfig.AccelerationSpeed;
-            moveSpeedChangeComponent.SlowdownSpeed = shipConfig.SlowdownSpeed;
+            accelerationSpeedComponent.AccelerationSpeed = shipConfig.AccelerationSpeed;
+            slowdownSpeedComponent.SlowdownSpeed = shipConfig.SlowdownSpeed;
             
             var shipDataViewService = systems.GetService<IShipDataViewService>();
             shipDataViewService!.CreateView(shipConfig);
