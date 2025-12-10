@@ -23,7 +23,7 @@ namespace Moving.Systems
             _rotationAspect = world.GetAspect<RotationAspect>();
             _rotationInputEventAspect = world.GetAspect<RotationInputEventAspect>();
             
-            _it = new(new[] { typeof(RotationComponent), typeof(MoveInputEventComponent) });
+            _it = new(new[] { typeof(RotationComponent), typeof(RotationInputEventComponent) });
             _it.Init(world);
         }
         

@@ -18,12 +18,16 @@ namespace Spawn.Systems
             
             ShipAspect shipAspect = world.GetAspect<ShipAspect>();
             var shipComponentPool = shipAspect.Pool;
+            
+            MoveInputEventAspect moveInputEventAspect = world.GetAspect<MoveInputEventAspect>();
+            var moveInputEventComponentPool = moveInputEventAspect.Pool;
+            RotationInputEventAspect rotationInputEventAspect = world.GetAspect<RotationInputEventAspect>();
+            var rotationInputEventComponentPool = rotationInputEventAspect.Pool;
+
             MovableAspect movableAspect = world.GetAspect<MovableAspect>();
             var movableComponentPool = movableAspect.Pool;
             RotationAspect rotationAspect = world.GetAspect<RotationAspect>();
             var rotationComponentPool = rotationAspect.Pool;
-            MoveInputEventAspect moveInputEventAspect = world.GetAspect<MoveInputEventAspect>();
-            var inputEventComponentPool = moveInputEventAspect.Pool;
             MoveSpeedAspect moveSpeedAspect = world.GetAspect<MoveSpeedAspect>();
             var moveSpeedComponentPool = moveSpeedAspect.Pool;
             MoveSpeedLimitAspect moveSpeedLimitAspect = world.GetAspect<MoveSpeedLimitAspect>();
@@ -32,7 +36,8 @@ namespace Spawn.Systems
             var moveSpeedChangeComponentPool = moveSpeedChangeAspect.Pool;
 
             shipComponentPool.NewEntity(out ProtoEntity entity);
-            inputEventComponentPool.Add(entity);
+            moveInputEventComponentPool.Add(entity);
+            rotationInputEventComponentPool.Add(entity);
             
             ref MoveSpeedComponent moveSpeedComponent = ref moveSpeedComponentPool.Add(entity);
             ref MoveSpeedLimitComponent moveSpeedLimitComponent = ref moveSpeedLimitComponentPool.Add(entity);
