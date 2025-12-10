@@ -6,10 +6,10 @@ using Utils;
 
 namespace Inputs.Systems
 {
-    public class MoveInputSystem : IProtoInitSystem, IProtoRunSystem
+    public class RotationInputSystem : IProtoInitSystem, IProtoRunSystem
     {
         IInputService _inputService;
-        MoveInputEventAspect _aspect;
+        RotationInputEventAspect _aspect;
         ProtoIt _it;
 
         public void Init(IProtoSystems systems)
@@ -17,9 +17,9 @@ namespace Inputs.Systems
             ProtoWorld world = systems.World();
             
             _inputService = systems.GetService<IInputService>();
-            _aspect = world.GetAspect<MoveInputEventAspect>();
+            _aspect = world.GetAspect<RotationInputEventAspect>();
             
-            _it = new(new[] { typeof(MoveInputEventComponent) });
+            _it = new(new[] { typeof(RotationInputEventComponent) });
             _it.Init(world);
         }
         
@@ -27,9 +27,9 @@ namespace Inputs.Systems
         { 
             foreach (ProtoEntity entity in _it) 
             {
-                ref MoveInputEventComponent component = ref _aspect.Pool.Get(entity);
+                ref RotationInputEventComponent component = ref _aspect.Pool.Get(entity);
 
-                component.IsMovePressing = _inputService.MovePressing;
+                component.RotationValue = _inputService.RotationValue;
             }
         }
     }

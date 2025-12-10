@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Inputs
+namespace Inputs.Services
 {
     public class UnityInputService : MonoBehaviour, IInputService
     {

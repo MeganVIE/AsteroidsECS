@@ -10,7 +10,7 @@ namespace Moving.Systems
     public class RotationByInputSystem : IProtoInitSystem, IProtoRunSystem
     {
         RotationAspect _rotationAspect;
-        MoveInputEventAspect _moveInputEventAspect;
+        RotationInputEventAspect _rotationInputEventAspect;
         ProtoIt _it;
 
         private IDeltaTimeService _deltaTimeService;
@@ -21,7 +21,7 @@ namespace Moving.Systems
             _deltaTimeService = systems.GetService<IDeltaTimeService>();
             
             _rotationAspect = world.GetAspect<RotationAspect>();
-            _moveInputEventAspect = world.GetAspect<MoveInputEventAspect>();
+            _rotationInputEventAspect = world.GetAspect<RotationInputEventAspect>();
             
             _it = new(new[] { typeof(RotationComponent), typeof(MoveInputEventComponent) });
             _it.Init(world);
@@ -32,9 +32,10 @@ namespace Moving.Systems
             foreach (ProtoEntity entity in _it) 
             {
                 ref RotationComponent rotationComponent = ref _rotationAspect.Pool.Get(entity);
-                MoveInputEventComponent moveInputEventComponent = _moveInputEventAspect.Pool.Get(entity);
+                RotationInputEventComponent rotationInputEventComponent = _rotationInputEventAspect.Pool.Get(entity);
 
-                var angle = rotationComponent.Angle + moveInputEventComponent.RotationValue * _deltaTimeService.DeltaTime * rotationComponent.RotationSpeed;
+                var rotationDelta = rotationInputEventComponent.RotationValue * _deltaTimeService.DeltaTime * rotationComponent.RotationSpeed;
+                var angle = rotationComponent.Angle + rotationDelta;
                 rotationComponent.Angle = angle % 360;
             }
         }

@@ -1,7 +1,7 @@
 using CameraData.Services;
 using CameraData.Systems;
 using Inputs;
-using Inputs.Systems;
+using Inputs.Services;
 using Leopotam.EcsProto;
 using Moving;
 using Spawn.Systems;
@@ -25,20 +25,19 @@ class EcsStartup : MonoBehaviour
         _systems
             // Модули должны быть зарегистрированы здесь.
             .AddModule(new MovingSystemsModule())
+            .AddModule(new InputsSystemsModule(unityInputService))
 
             // Системы вне модулей могут
             // быть зарегистрированы здесь.
             .AddSystem(new CameraDataInitSystem(), -100)
-            .AddSystem(new MoveInputSystem())
 
             .AddSystem(new AsteroidSpawnSystem())
-
             .AddSystem(new ShipSpawnSystem())
+            
             .AddSystem(new ShipViewSystem())
             .AddSystem(new AsteroidViewSystem())
 
             // Сервисы могут быть добавлены в любом месте.
-            .AddService(unityInputService, typeof(IInputService))
             .AddService(new DeltaTimeService(), typeof(IDeltaTimeService))
             .AddService(new CameraDataService(), typeof(ICameraDataService))
             .AddService(new RandomService(), typeof(IRandomService))

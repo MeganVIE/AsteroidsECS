@@ -1,8 +1,8 @@
 using System.Collections.Generic;
+using Leopotam.EcsProto;
 using CameraData.Aspects;
 using EntityTags.Aspects;
-using Inputs.Aspects;
-using Leopotam.EcsProto;
+using Inputs;
 using Moving;
 
 public class GameAspectsModule : IProtoAspect
@@ -17,7 +17,7 @@ public class GameAspectsModule : IProtoAspect
         _aspects = new List<IProtoAspect>();
             
         _aspects.Add(new CameraDataAspect());
-        _aspects.Add(new MoveInputEventAspect());
+        _aspects.Add(new InputsAspectsModule());
             
         _aspects.Add(new ShipAspect());
         _aspects.Add(new AsteroidAspect());
