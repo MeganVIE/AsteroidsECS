@@ -1,3 +1,6 @@
+using Collisions;
+using Collisions.Aspects;
+using Collisions.Components;
 using Components;
 using Configs;
 using EntityTags.Aspects;
@@ -36,6 +39,10 @@ namespace Spawn.Systems
             var moveSpeedChangeComponentPool = accelerationSpeedAspect.Pool;
             SlowdownSpeedAspect slowdownSpeedAspect = world.GetAspect<SlowdownSpeedAspect>();
             var slowdownSpeedComponentPool = slowdownSpeedAspect.Pool;
+            CollisionRadiusAspect collisionRadiusAspect = world.GetAspect<CollisionRadiusAspect>();
+            var collisionRadiusComponentPool = collisionRadiusAspect.Pool;
+            ObjectTypeAspect objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
+            var objectTypeComponentPool = objectTypeAspect.Pool;
 
             shipComponentPool.NewEntity(out ProtoEntity entity);
             moveInputEventComponentPool.Add(entity);
@@ -47,6 +54,8 @@ namespace Spawn.Systems
             ref SlowdownSpeedComponent slowdownSpeedComponent = ref slowdownSpeedComponentPool.Add(entity);
             ref MovableComponent movableComponent = ref movableComponentPool.Add(entity);
             ref RotationComponent rotationComponent = ref rotationComponentPool.Add(entity);
+            ref CollisionRadiusComponent collisionRadiusComponent = ref collisionRadiusComponentPool.Add(entity);
+            ref ObjectTypeComponent objectTypeComponent = ref objectTypeComponentPool.Add(entity);
 
             var shipConfig = ShipConfig.LoadFromAssets();
             
@@ -59,6 +68,9 @@ namespace Spawn.Systems
             moveSpeedLimitComponent.Value = shipConfig.MaxMoveSpeed;
             accelerationSpeedComponent.AccelerationSpeed = shipConfig.AccelerationSpeed;
             slowdownSpeedComponent.SlowdownSpeed = shipConfig.SlowdownSpeed;
+
+            collisionRadiusComponent.CollisionRadius = shipConfig.CollisionRadius;
+            objectTypeComponent.ObjectType = ObjectType.Ship;
             
             var shipDataViewService = systems.GetService<IShipDataViewService>();
             shipDataViewService!.CreateView(shipConfig);

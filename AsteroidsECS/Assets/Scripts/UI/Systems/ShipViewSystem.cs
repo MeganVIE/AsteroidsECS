@@ -7,10 +7,10 @@ using Utils;
 
 namespace UI.Systems
 {
-    public class ShipViewSystem: IProtoRunSystem, IProtoInitSystem
+    public class ShipViewSystem : IProtoRunSystem, IProtoInitSystem
     {
         MovableAspect _movableAspect;
-        private RotationAspect _rotationAspect;
+        RotationAspect _rotationAspect;
         ProtoIt _it;
         
         private IShipDataViewService _shipDataViewService;

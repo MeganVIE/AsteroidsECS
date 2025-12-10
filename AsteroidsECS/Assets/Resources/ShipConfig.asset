@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ViewPrefab: {fileID: 8384767448420170059, guid: 080c7af911c65db4e909eb04d573a010, type: 3}
   StartMoveSpeed: 0
+  CollisionRadius: 0.6
   AccelerationSpeed: 0.005
   MaxMoveSpeed: 0.015
   SlowdownSpeed: 0.004

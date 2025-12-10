@@ -1,5 +1,6 @@
 using CameraData.Services;
 using CameraData.Systems;
+using Collisions.Systems;
 using Inputs;
 using Inputs.Services;
 using Leopotam.EcsProto;
@@ -30,6 +31,8 @@ class EcsStartup : MonoBehaviour
             // Системы вне модулей могут
             // быть зарегистрированы здесь.
             .AddSystem(new CameraDataInitSystem(), -100)
+            
+            .AddSystem(new MovableCollisionSystem())
 
             .AddSystem(new AsteroidSpawnSystem())
             .AddSystem(new ShipSpawnSystem())

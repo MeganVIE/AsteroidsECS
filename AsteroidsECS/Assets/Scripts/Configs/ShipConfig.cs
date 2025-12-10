@@ -8,11 +8,11 @@ namespace Configs
         public GameObject ViewPrefab;
         public float StartMoveSpeed = 0;
         
-        //public float CollisionRadius = .3f;
+        public float CollisionRadius = .6f;
         
-        public float AccelerationSpeed = 0.005f;
-        public float MaxMoveSpeed = 0.015f;
-        public float SlowdownSpeed = 1f;
+        public float AccelerationSpeed = .005f;
+        public float MaxMoveSpeed = .015f;
+        public float SlowdownSpeed = .004f;
         public float RotationSpeed = 90;
         
         public Vector2 StartPosition = Vector2.zero;

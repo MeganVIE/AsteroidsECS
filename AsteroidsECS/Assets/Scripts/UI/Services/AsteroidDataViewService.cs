@@ -11,7 +11,7 @@ namespace UI.Services
     {
         private Dictionary<int, GameObject> _asteroids = new();
 
-        public void CreateView(int id, EntityConfig config)
+        public void CreateView(int id, AsteroidConfig config)
         {
             _asteroids[id] = Object.Instantiate(config.ViewPrefab);
         }

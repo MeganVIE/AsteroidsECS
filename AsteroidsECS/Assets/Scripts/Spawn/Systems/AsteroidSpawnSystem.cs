@@ -1,5 +1,7 @@
 using CameraData.Aspects;
 using CameraData.Components;
+using Collisions.Aspects;
+using Collisions.Components;
 using Components;
 using Configs;
 using EntityTags.Aspects;
@@ -17,10 +19,13 @@ namespace Spawn.Systems
         IProtoSystems _systems;
         ProtoIt _cameraDataIt;
         
-        ProtoPool<AsteroidComponent> _asteroidComponentPool;
-        ProtoPool<MovableComponent> _movableComponentPool;
-        ProtoPool<RotationComponent> _rotationComponentPool;
-        ProtoPool<MoveSpeedComponent> _moveSpeedComponentPool;
+        AsteroidAspect _asteroidAspect;
+        MovableAspect _movableAspect;
+        RotationAspect _rotationAspect;
+        MoveSpeedAspect _moveSpeedAspect;
+        CollisionRadiusAspect _collisionRadiusAspect;
+        CollisionTargetAspect _collisionTargetAspect;
+        ObjectTypeAspect _objectTypeAspect;
         
         CameraDataComponent _cameraDataComponent;
         
@@ -43,14 +48,13 @@ namespace Spawn.Systems
             _respawnTime = _asteroidConfig.DelaySpawnTime;
             
             var world = _systems.World();
-            AsteroidAspect asteroidAspect = world.GetAspect<AsteroidAspect>();
-            _asteroidComponentPool = asteroidAspect.Pool;
-            MovableAspect movableAspect = world.GetAspect<MovableAspect>();
-            _movableComponentPool = movableAspect.Pool;
-            RotationAspect rotationAspect = world.GetAspect<RotationAspect>();
-            _rotationComponentPool = rotationAspect.Pool;
-            MoveSpeedAspect moveSpeedAspect = world.GetAspect<MoveSpeedAspect>();
-            _moveSpeedComponentPool = moveSpeedAspect.Pool;
+            _asteroidAspect = world.GetAspect<AsteroidAspect>();
+            _movableAspect = world.GetAspect<MovableAspect>();
+            _rotationAspect = world.GetAspect<RotationAspect>();
+            _moveSpeedAspect = world.GetAspect<MoveSpeedAspect>();
+            _collisionRadiusAspect = world.GetAspect<CollisionRadiusAspect>();
+            _collisionTargetAspect = world.GetAspect<CollisionTargetAspect>();
+            _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
 
             var cameraDataAspect = world.GetAspect<CameraDataAspect>();
             _cameraDataIt = new(new[] { typeof(CameraDataComponent) });
@@ -77,11 +81,15 @@ namespace Spawn.Systems
 
         private void Spawn()
         {
-            ref AsteroidComponent asteroidComponent = ref _asteroidComponentPool.NewEntity(out ProtoEntity entity);
+            ref AsteroidComponent asteroidComponent = ref _asteroidAspect.Pool.NewEntity(out ProtoEntity entity);
             
-            ref MoveSpeedComponent moveSpeedComponent = ref _moveSpeedComponentPool.Add(entity);
-            ref MovableComponent movableComponent = ref _movableComponentPool.Add(entity);
-            ref RotationComponent rotationComponent = ref _rotationComponentPool.Add(entity);
+            ref MoveSpeedComponent moveSpeedComponent = ref _moveSpeedAspect.Pool.Add(entity);
+            ref MovableComponent movableComponent = ref _movableAspect.Pool.Add(entity);
+            ref RotationComponent rotationComponent = ref _rotationAspect.Pool.Add(entity);
+
+            ref CollisionRadiusComponent collisionRadiusComponent = ref _collisionRadiusAspect.Pool.Add(entity);
+            ref CollisionTargetComponent collisionTargetComponent = ref _collisionTargetAspect.Pool.Add(entity);
+            ref ObjectTypeComponent objectTypeComponent = ref _objectTypeAspect.Pool.Add(entity);
 
             int id = ++_lastId;
             asteroidComponent.Id = id;
@@ -90,6 +98,10 @@ namespace Spawn.Systems
             movableComponent.Position = position;
             rotationComponent.Angle = _randomService.GetRandom(0, 360);
             moveSpeedComponent.Value = _asteroidConfig.StartMoveSpeed;
+
+            collisionRadiusComponent.CollisionRadius = _asteroidConfig.CollisionRadius;
+            collisionTargetComponent.Target = ObjectType.Ship;
+            objectTypeComponent.ObjectType = ObjectType.Asteroid;
             
             var asteroidDataViewService = _systems.GetService<IAsteroidDataViewService>();
             asteroidDataViewService!.CreateView(id, _asteroidConfig);

@@ -6,7 +6,7 @@ namespace Utils
 {
     public static class Extensions
     {
-        public static T GetAspect<T>(this ProtoWorld world)
+        public static T GetAspect<T>(this ProtoWorld world) where T : class
         {
             return (T)world.Aspect(typeof(T));
         }
