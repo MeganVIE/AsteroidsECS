@@ -1,4 +1,4 @@
-using Utils;
+using Data;
 
 namespace Collisions.Components
 {

@@ -1,4 +1,3 @@
-using Components;
 using EntityTags.Aspects;
 using EntityTags.Components;
 using Leopotam.EcsProto;

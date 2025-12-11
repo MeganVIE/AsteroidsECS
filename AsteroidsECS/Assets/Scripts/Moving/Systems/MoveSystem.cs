@@ -1,5 +1,6 @@
 using System;
 using Components;
+using Data;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;

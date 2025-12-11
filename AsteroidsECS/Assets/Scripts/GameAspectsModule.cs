@@ -3,6 +3,7 @@ using Leopotam.EcsProto;
 using CameraData.Aspects;
 using Collisions.Aspects;
 using EntityTags.Aspects;
+using Health.Aspects;
 using Inputs;
 using Moving;
 
@@ -22,6 +23,8 @@ public class GameAspectsModule : IProtoAspect
             
         _aspects.Add(new ShipAspect());
         _aspects.Add(new AsteroidAspect());
+        
+        _aspects.Add(new HealthAspect());
             
         _aspects.Add(new MovingAspectsModule());
         

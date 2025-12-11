@@ -1,4 +1,4 @@
-namespace Utils
+namespace Data
 {
     public enum ObjectType
     {

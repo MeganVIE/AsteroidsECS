@@ -1,6 +1,6 @@
 using Configs;
+using Data;
 using UnityEngine;
-using Utils;
 
 namespace UI.Services
 {

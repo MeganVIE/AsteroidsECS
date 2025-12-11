@@ -1,5 +1,5 @@
 using Configs;
-using Utils;
+using Data;
 
 namespace UI.Services
 {

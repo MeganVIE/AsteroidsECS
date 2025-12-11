@@ -13,9 +13,8 @@ namespace CameraData.Systems
             var world = systems.World();
 
             CameraDataAspect cameraDataAspect = world.GetAspect<CameraDataAspect>();
-            var cameraDataComponentPool = cameraDataAspect.Pool;
 
-            ref CameraDataComponent cameraDataComponent = ref cameraDataComponentPool.NewEntity(out ProtoEntity _);
+            ref CameraDataComponent cameraDataComponent = ref cameraDataAspect.Pool.NewEntity(out ProtoEntity _);
 
             var cameraDataService = systems.GetService<ICameraDataService>();
             var viewportData = cameraDataService.GetHalfViewport();

@@ -1,6 +1,7 @@
-using System;
 using Collisions.Aspects;
 using Collisions.Components;
+using Data;
+using Health.Aspects;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
@@ -14,6 +15,8 @@ namespace Collisions.Systems
         CollisionRadiusAspect _collisionRadiusAspect;
         CollisionTargetAspect _collisionTargetAspect;
         ObjectTypeAspect _objectTypeAspect;
+        HealthAspect _healthAspect;
+        
         ProtoItExc _nonTargetIt;
         ProtoIt _targetIt;
 
@@ -27,6 +30,7 @@ namespace Collisions.Systems
             _collisionRadiusAspect = _world.GetAspect<CollisionRadiusAspect>();
             _collisionTargetAspect = _world.GetAspect<CollisionTargetAspect>();
             _objectTypeAspect = _world.GetAspect<ObjectTypeAspect>();
+            _healthAspect = _world.GetAspect<HealthAspect>();
 
             _nonTargetIt = new(new[] { typeof(CollisionRadiusComponent), typeof(ObjectTypeComponent), typeof(MovableComponent) },
                 new[] { typeof(CollisionTargetComponent) });
@@ -49,24 +53,36 @@ namespace Collisions.Systems
 
                     if (objectTypeComponent.ObjectType == targetType)
                     {
-                        var collisionRadius = _collisionRadiusAspect.Pool.Get(entity).CollisionRadius;
+                        var mainCollisionRadius = _collisionRadiusAspect.Pool.Get(entity).CollisionRadius;
                         var targetCollisionRadius = _collisionRadiusAspect.Pool.Get(targetEntity).CollisionRadius;
 
                         var mainPosition = _movableAspect.Pool.Get(entity).Position;
                         var targetPosition = _movableAspect.Pool.Get(targetEntity).Position;
 
-                        var a = targetPosition.X - mainPosition.X;
-                        var b = targetPosition.Y - mainPosition.Y;
-                        var positionDistance = a * a + b * b;
-                        var collisionDistance = Math.Pow(collisionRadius + targetCollisionRadius, 2f);
+                        var positionDistance = GetPositionDistance(mainPosition, targetPosition);
+                        var collisionDistance = GetCollisionDistance(mainCollisionRadius, targetCollisionRadius);
                         
                         if (positionDistance < collisionDistance)
                         {
-                            // damage
+                            ref var targetHealthComponent = ref _healthAspect.Pool.Get(targetEntity);
+                            targetHealthComponent.Value--;
                         }
                     }
                 }
             }
+        }
+
+        private double GetPositionDistance(Point first, Point second)
+        {
+            var a = second.X - first.X;
+            var b = second.Y - first.Y;
+            return a * a + b * b;
+        }
+
+        private double GetCollisionDistance(float first, float second)
+        {
+            var a = first + second;
+            return a * a;
         }
     }
 }

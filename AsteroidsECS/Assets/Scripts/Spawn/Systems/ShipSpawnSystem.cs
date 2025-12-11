@@ -1,9 +1,11 @@
-using Collisions;
 using Collisions.Aspects;
 using Collisions.Components;
 using Components;
 using Configs;
+using Data;
 using EntityTags.Aspects;
+using Health.Aspects;
+using Health.Components;
 using Inputs.Aspects;
 using Leopotam.EcsProto;
 using Moving.Aspects;
@@ -23,39 +25,31 @@ namespace Spawn.Systems
             var shipComponentPool = shipAspect.Pool;
             
             MoveInputEventAspect moveInputEventAspect = world.GetAspect<MoveInputEventAspect>();
-            var moveInputEventComponentPool = moveInputEventAspect.Pool;
             RotationInputEventAspect rotationInputEventAspect = world.GetAspect<RotationInputEventAspect>();
-            var rotationInputEventComponentPool = rotationInputEventAspect.Pool;
 
             MovableAspect movableAspect = world.GetAspect<MovableAspect>();
-            var movableComponentPool = movableAspect.Pool;
             RotationAspect rotationAspect = world.GetAspect<RotationAspect>();
-            var rotationComponentPool = rotationAspect.Pool;
             MoveSpeedAspect moveSpeedAspect = world.GetAspect<MoveSpeedAspect>();
-            var moveSpeedComponentPool = moveSpeedAspect.Pool;
             MoveSpeedLimitAspect moveSpeedLimitAspect = world.GetAspect<MoveSpeedLimitAspect>();
-            var moveSpeedLimitComponentPool = moveSpeedLimitAspect.Pool;
             AccelerationSpeedAspect accelerationSpeedAspect = world.GetAspect<AccelerationSpeedAspect>();
-            var moveSpeedChangeComponentPool = accelerationSpeedAspect.Pool;
             SlowdownSpeedAspect slowdownSpeedAspect = world.GetAspect<SlowdownSpeedAspect>();
-            var slowdownSpeedComponentPool = slowdownSpeedAspect.Pool;
             CollisionRadiusAspect collisionRadiusAspect = world.GetAspect<CollisionRadiusAspect>();
-            var collisionRadiusComponentPool = collisionRadiusAspect.Pool;
             ObjectTypeAspect objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
-            var objectTypeComponentPool = objectTypeAspect.Pool;
+            HealthAspect healthAspect = world.GetAspect<HealthAspect>();
 
             shipComponentPool.NewEntity(out ProtoEntity entity);
-            moveInputEventComponentPool.Add(entity);
-            rotationInputEventComponentPool.Add(entity);
+            moveInputEventAspect.Pool.Add(entity);
+            rotationInputEventAspect.Pool.Add(entity);
             
-            ref MoveSpeedComponent moveSpeedComponent = ref moveSpeedComponentPool.Add(entity);
-            ref MoveSpeedLimitComponent moveSpeedLimitComponent = ref moveSpeedLimitComponentPool.Add(entity);
-            ref AccelerationSpeedComponent accelerationSpeedComponent = ref moveSpeedChangeComponentPool.Add(entity);
-            ref SlowdownSpeedComponent slowdownSpeedComponent = ref slowdownSpeedComponentPool.Add(entity);
-            ref MovableComponent movableComponent = ref movableComponentPool.Add(entity);
-            ref RotationComponent rotationComponent = ref rotationComponentPool.Add(entity);
-            ref CollisionRadiusComponent collisionRadiusComponent = ref collisionRadiusComponentPool.Add(entity);
-            ref ObjectTypeComponent objectTypeComponent = ref objectTypeComponentPool.Add(entity);
+            ref MoveSpeedComponent moveSpeedComponent = ref moveSpeedAspect.Pool.Add(entity);
+            ref MoveSpeedLimitComponent moveSpeedLimitComponent = ref moveSpeedLimitAspect.Pool.Add(entity);
+            ref AccelerationSpeedComponent accelerationSpeedComponent = ref accelerationSpeedAspect.Pool.Add(entity);
+            ref SlowdownSpeedComponent slowdownSpeedComponent = ref slowdownSpeedAspect.Pool.Add(entity);
+            ref MovableComponent movableComponent = ref movableAspect.Pool.Add(entity);
+            ref RotationComponent rotationComponent = ref rotationAspect.Pool.Add(entity);
+            ref CollisionRadiusComponent collisionRadiusComponent = ref collisionRadiusAspect.Pool.Add(entity);
+            ref ObjectTypeComponent objectTypeComponent = ref objectTypeAspect.Pool.Add(entity);
+            ref HealthComponent healthComponent = ref healthAspect.Pool.Add(entity);
 
             var shipConfig = ShipConfig.LoadFromAssets();
             
@@ -71,6 +65,7 @@ namespace Spawn.Systems
 
             collisionRadiusComponent.CollisionRadius = shipConfig.CollisionRadius;
             objectTypeComponent.ObjectType = ObjectType.Ship;
+            healthComponent.Value = 1;
             
             var shipDataViewService = systems.GetService<IShipDataViewService>();
             shipDataViewService!.CreateView(shipConfig);

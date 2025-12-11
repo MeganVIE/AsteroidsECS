@@ -4,8 +4,11 @@ using Collisions.Aspects;
 using Collisions.Components;
 using Components;
 using Configs;
+using Data;
 using EntityTags.Aspects;
 using EntityTags.Components;
+using Health.Aspects;
+using Health.Components;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
@@ -26,6 +29,7 @@ namespace Spawn.Systems
         CollisionRadiusAspect _collisionRadiusAspect;
         CollisionTargetAspect _collisionTargetAspect;
         ObjectTypeAspect _objectTypeAspect;
+        HealthAspect _healthAspect;
         
         CameraDataComponent _cameraDataComponent;
         
@@ -55,6 +59,7 @@ namespace Spawn.Systems
             _collisionRadiusAspect = world.GetAspect<CollisionRadiusAspect>();
             _collisionTargetAspect = world.GetAspect<CollisionTargetAspect>();
             _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
+            _healthAspect = world.GetAspect<HealthAspect>();
 
             var cameraDataAspect = world.GetAspect<CameraDataAspect>();
             _cameraDataIt = new(new[] { typeof(CameraDataComponent) });
@@ -90,6 +95,7 @@ namespace Spawn.Systems
             ref CollisionRadiusComponent collisionRadiusComponent = ref _collisionRadiusAspect.Pool.Add(entity);
             ref CollisionTargetComponent collisionTargetComponent = ref _collisionTargetAspect.Pool.Add(entity);
             ref ObjectTypeComponent objectTypeComponent = ref _objectTypeAspect.Pool.Add(entity);
+            ref HealthComponent healthComponent = ref _healthAspect.Pool.Add(entity);
 
             int id = ++_lastId;
             asteroidComponent.Id = id;
@@ -102,6 +108,7 @@ namespace Spawn.Systems
             collisionRadiusComponent.CollisionRadius = _asteroidConfig.CollisionRadius;
             collisionTargetComponent.Target = ObjectType.Ship;
             objectTypeComponent.ObjectType = ObjectType.Asteroid;
+            healthComponent.Value = 1;
             
             var asteroidDataViewService = _systems.GetService<IAsteroidDataViewService>();
             asteroidDataViewService!.CreateView(id, _asteroidConfig);
