@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,9 +22,25 @@ namespace Inputs.Services
         [SerializeField] private InputActionReference m_gunUse;
         [SerializeField] private InputActionReference m_laserUse;
 
+        private InputActionPhase _gunLastPhase;
+
         public bool MovePressing => m_moveForward.action.phase == InputActionPhase.Performed;
         public float RotationValue => m_rotate.action.ReadValue<float>();
-        public bool GunUsing => m_gunUse.action.phase == InputActionPhase.Performed;
-        public bool LaserUsing => m_laserUse.action.phase == InputActionPhase.Performed;
+        public bool GunUsing { get; private set; }
+        public bool LaserUsing => false;
+
+        private void Update()
+        {
+            if (m_gunUse.action.phase == InputActionPhase.Performed)
+            {
+                GunUsing = _gunLastPhase != m_gunUse.action.phase;
+            }
+            else
+            {
+                GunUsing = false;
+            }
+            
+            _gunLastPhase = m_gunUse.action.phase;
+        }
     }
 }

@@ -15,7 +15,8 @@ namespace Moving
                 .AddSystem(new MoveSlowdownSpeedChangeByInputSystem())
                 .AddSystem(new MoveSpeedLimitSystem())
                 .AddSystem(new MoveSystem())
-                .AddSystem(new PositionOutsideScreenSystem());
+                .AddSystem(new DestroyOutsideScreenSystem())
+                .AddSystem(new TeleportWhenOutsideScreenSystem());
         }
 
         public IProtoAspect[] Aspects()

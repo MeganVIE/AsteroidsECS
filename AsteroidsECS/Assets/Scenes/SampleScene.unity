@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unityInputService: {fileID: 479834662}
-  _gameOverPanel: {fileID: 956342814}
+  gameOverPanel: {fileID: 956342814}
 --- !u!4 &1741825820
 Transform:
   m_ObjectHideFlags: 0

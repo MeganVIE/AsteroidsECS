@@ -7,7 +7,7 @@ using Utils;
 
 namespace Moving.Systems
 {
-    public class PositionOutsideScreenSystem : IProtoRunSystem, IProtoInitSystem
+    public class TeleportWhenOutsideScreenSystem : IProtoRunSystem, IProtoInitSystem
     {
         MovableAspect _movableAspect;
         
@@ -22,7 +22,7 @@ namespace Moving.Systems
             
             _movableAspect = world.GetAspect<MovableAspect>();
 
-            _movableIt = new(new[] { typeof(MovableComponent) });
+            _movableIt = new(new[] { typeof(MovableComponent), typeof(TeleportOutsideScreenComponent) });
             _movableIt.Init(world);
 
             var cameraDataAspect = world.GetAspect<CameraDataAspect>();

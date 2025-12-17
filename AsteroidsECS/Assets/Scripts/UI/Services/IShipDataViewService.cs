@@ -8,5 +8,6 @@ namespace UI.Services
         void CreateView(ShipConfig config);
         void SetPosition(Point newPosition);
         void SetShipRotation(float angle);
+        void Destroy();
     }
 }

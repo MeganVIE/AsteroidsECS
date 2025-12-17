@@ -4,5 +4,6 @@ namespace Data
     {
         Ship,
         Asteroid,
+        Bullet,
     }
 }

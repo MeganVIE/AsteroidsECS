@@ -20,6 +20,8 @@ namespace Inputs
             systems
                 .AddSystem(new MoveInputSystem())
                 .AddSystem(new RotationInputSystem())
+                .AddSystem(new BulletInputSystem())
+                
                 .AddService(_inputService, typeof(IInputService));
         }
 

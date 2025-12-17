@@ -22,5 +22,11 @@ namespace UI.Services
         {
             _ship.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
+
+        public void Destroy()
+        {
+            Object.Destroy(_ship);
+            _ship = null;
+        }
     }
 }

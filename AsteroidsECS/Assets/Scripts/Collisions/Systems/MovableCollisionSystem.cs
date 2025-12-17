@@ -17,7 +17,7 @@ namespace Collisions.Systems
         ObjectTypeAspect _objectTypeAspect;
         HealthAspect _healthAspect;
         
-        ProtoItExc _nonTargetIt;
+        ProtoIt _nonTargetIt;
         ProtoIt _targetIt;
 
         ProtoWorld _world;
@@ -32,8 +32,7 @@ namespace Collisions.Systems
             _objectTypeAspect = _world.GetAspect<ObjectTypeAspect>();
             _healthAspect = _world.GetAspect<HealthAspect>();
 
-            _nonTargetIt = new(new[] { typeof(CollisionRadiusComponent), typeof(ObjectTypeComponent), typeof(MovableComponent) },
-                new[] { typeof(CollisionTargetComponent) });
+            _nonTargetIt = new(new[] { typeof(CollisionRadiusComponent), typeof(ObjectTypeComponent), typeof(MovableComponent) });
             _nonTargetIt.Init(_world);
 
             _targetIt = new(new[] { typeof(CollisionRadiusComponent), typeof(CollisionTargetComponent), typeof(ObjectTypeComponent), typeof(MovableComponent) });

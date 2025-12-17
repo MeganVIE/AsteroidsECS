@@ -19,7 +19,6 @@ namespace Spawn.Systems
 {
     public class AsteroidSpawnSystem : IProtoInitSystem, IProtoRunSystem
     {
-        IProtoSystems _systems;
         ProtoIt _cameraDataIt;
         
         AsteroidAspect _asteroidAspect;
@@ -30,9 +29,11 @@ namespace Spawn.Systems
         CollisionTargetAspect _collisionTargetAspect;
         ObjectTypeAspect _objectTypeAspect;
         HealthAspect _healthAspect;
+        private TeleportOutsideScreenAspect _teleportOutsideScreenAspect;
         
         CameraDataComponent _cameraDataComponent;
         
+        private IAsteroidDataViewService _asteroidDataViewService;
         private IDeltaTimeService _deltaTimeService;
         private IRandomService _randomService;
         private AsteroidConfig _asteroidConfig;
@@ -44,14 +45,14 @@ namespace Spawn.Systems
 
         public void Init(IProtoSystems systems)
         {
-            _systems = systems;
-            _deltaTimeService = _systems.GetService<IDeltaTimeService>();
-            _randomService = _systems.GetService<IRandomService>();
+            _deltaTimeService = systems.GetService<IDeltaTimeService>();
+            _randomService = systems.GetService<IRandomService>();
+            _asteroidDataViewService = systems.GetService<IAsteroidDataViewService>();
             
             _asteroidConfig = AsteroidConfig.LoadFromAssets();
             _respawnTime = _asteroidConfig.DelaySpawnTime;
             
-            var world = _systems.World();
+            var world = systems.World();
             _asteroidAspect = world.GetAspect<AsteroidAspect>();
             _movableAspect = world.GetAspect<MovableAspect>();
             _rotationAspect = world.GetAspect<RotationAspect>();
@@ -60,6 +61,7 @@ namespace Spawn.Systems
             _collisionTargetAspect = world.GetAspect<CollisionTargetAspect>();
             _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
             _healthAspect = world.GetAspect<HealthAspect>();
+            _teleportOutsideScreenAspect = world.GetAspect<TeleportOutsideScreenAspect>();
 
             var cameraDataAspect = world.GetAspect<CameraDataAspect>();
             _cameraDataIt = new(new[] { typeof(CameraDataComponent) });
@@ -87,6 +89,7 @@ namespace Spawn.Systems
         private void Spawn()
         {
             ref AsteroidComponent asteroidComponent = ref _asteroidAspect.Pool.NewEntity(out ProtoEntity entity);
+            _teleportOutsideScreenAspect.Pool.Add(entity);
             
             ref MoveSpeedComponent moveSpeedComponent = ref _moveSpeedAspect.Pool.Add(entity);
             ref MovableComponent movableComponent = ref _movableAspect.Pool.Add(entity);
@@ -110,9 +113,8 @@ namespace Spawn.Systems
             objectTypeComponent.ObjectType = ObjectType.Asteroid;
             healthComponent.Value = 1;
             
-            var asteroidDataViewService = _systems.GetService<IAsteroidDataViewService>();
-            asteroidDataViewService!.CreateView(id, _asteroidConfig);
-            asteroidDataViewService.SetPosition(id, position);
+            _asteroidDataViewService!.CreateView(id, _asteroidConfig);
+            _asteroidDataViewService.SetPosition(id, position);
         }
 
         private Point GetRandomPositionOnBound()

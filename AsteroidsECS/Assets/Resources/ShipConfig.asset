@@ -18,6 +18,6 @@ MonoBehaviour:
   AccelerationSpeed: 0.005
   MaxMoveSpeed: 0.015
   SlowdownSpeed: 0.004
-  RotationSpeed: 90
+  RotationSpeed: 140
   StartPosition: {x: 0, y: 0}
   StartRotation: 0

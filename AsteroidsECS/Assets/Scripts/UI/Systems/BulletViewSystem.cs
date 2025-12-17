@@ -8,23 +8,23 @@ using Utils;
 
 namespace UI.Systems
 {
-    public class AsteroidViewSystem : IProtoRunSystem, IProtoInitSystem
+    public class BulletViewSystem : IProtoRunSystem, IProtoInitSystem
     {
-        private AsteroidAspect _asteroidAspect;
+        private BulletAspect _bulletAspect;
         private MovableAspect _movableAspect;
         private ProtoIt _it;
         
-        private IAsteroidDataViewService _asteroidDataViewService;
+        private IBulletDataViewService _bulletDataViewService;
 
         public void Init(IProtoSystems systems)
         {
             ProtoWorld world = systems.World();
-            _asteroidDataViewService = systems.GetService<IAsteroidDataViewService>();
+            _bulletDataViewService = systems.GetService<IBulletDataViewService>();
 
-            _asteroidAspect = world.GetAspect<AsteroidAspect>();
+            _bulletAspect = world.GetAspect<BulletAspect>();
             _movableAspect = world.GetAspect<MovableAspect>();
             
-            _it = new(new[] { typeof(AsteroidComponent), typeof(MovableComponent) });
+            _it = new(new[] { typeof(BulletComponent), typeof(MovableComponent) });
             _it.Init(world);
         }
         
@@ -33,9 +33,9 @@ namespace UI.Systems
             foreach (ProtoEntity entity in _it) 
             {
                 MovableComponent movableComponent = _movableAspect.Pool.Get(entity);
-                AsteroidComponent asteroidComponent = _asteroidAspect.Pool.Get(entity);
+                BulletComponent bulletComponent = _bulletAspect.Pool.Get(entity);
 
-                _asteroidDataViewService.SetPosition(asteroidComponent.Id, movableComponent.Position);
+                _bulletDataViewService.SetPosition(bulletComponent.Id, movableComponent.Position);
             }
         }
     }

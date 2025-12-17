@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Leopotam.EcsProto;
 using CameraData.Aspects;
 using Collisions.Aspects;
+using Destroy.Aspects;
 using EntityTags.Aspects;
 using Health.Aspects;
 using Inputs;
@@ -23,6 +24,7 @@ public class GameAspectsModule : IProtoAspect
             
         _aspects.Add(new ShipAspect());
         _aspects.Add(new AsteroidAspect());
+        _aspects.Add(new BulletAspect());
         
         _aspects.Add(new HealthAspect());
             
@@ -31,6 +33,8 @@ public class GameAspectsModule : IProtoAspect
         _aspects.Add(new CollisionRadiusAspect());
         _aspects.Add(new CollisionTargetAspect());
         _aspects.Add(new ObjectTypeAspect());
+        
+        _aspects.Add(new DestroyAspect());
             
         _aspects.ForEach(a => a.Init(_world));
     }
