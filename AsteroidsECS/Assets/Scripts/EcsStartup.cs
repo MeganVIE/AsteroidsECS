@@ -40,7 +40,7 @@ class EcsStartup : MonoBehaviour
             // быть зарегистрированы здесь.
             .AddSystem(new CameraDataInitSystem(), -100)
 
-            .AddSystem(new MovableCollisionSystem(), 1)
+            .AddSystem(new MovableCollisionSystem(), -1)
 
             .AddSystem(new AsteroidSpawnSystem())
             .AddSystem(new ShipSpawnSystem())
@@ -53,7 +53,8 @@ class EcsStartup : MonoBehaviour
             .AddSystem(new DamageHandleSystem(), 100)
             
             .AddSystem(new ShipDestroySystem(), 200)
-            .AddSystem(new AsteroidsDestroySystem(), 201)
+            .AddSystem(new AsteroidsDestroySystem(), 200)
+            .AddSystem(new BulletDestroySystem(), 200)
 
             // Сервисы могут быть добавлены в любом месте.
             .AddService(new DeltaTimeService(), typeof(IDeltaTimeService))
