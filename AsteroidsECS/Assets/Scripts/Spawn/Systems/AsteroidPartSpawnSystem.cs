@@ -3,26 +3,25 @@ using Collisions.Components;
 using Components;
 using Configs;
 using Data;
-using Destroy.Aspects;
 using EntityTags.Aspects;
 using EntityTags.Components;
 using Health.Aspects;
 using Health.Components;
-using Inputs.Aspects;
-using Inputs.Components;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
+using Spawn.Aspects;
+using Spawn.Components;
 using UI.Services;
 using Utils;
 
 namespace Spawn.Systems
 {
-    public class BulletSpawnSystem : IProtoInitSystem, IProtoRunSystem
+    public class AsteroidPartSpawnSystem : IProtoInitSystem, IProtoRunSystem
     {
-        private BulletInputEventAspect _bulletInputEventAspect;
-        private BulletAspect _bulletAspect;
+        private AsteroidPartAspect _asteroidPartAspect;
         private ObjectIdAspect _objectIdAspect;
+        
         private MovableAspect _movableAspect;
         private RotationAspect _rotationAspect;
         private MoveSpeedAspect _moveSpeedAspect;
@@ -30,22 +29,27 @@ namespace Spawn.Systems
         private CollisionTargetAspect _collisionTargetAspect;
         private ObjectTypeAspect _objectTypeAspect;
         private HealthAspect _healthAspect;
-        private DestroyOutsideScreenAspect _destroyOutsideScreenAspect;
+        private TeleportOutsideScreenAspect _teleportOutsideScreenAspect;
+
+        private SpawnAsteroidPartAspect _spawnAsteroidPartAspect;
+        
+        private IAsteroidPartDataViewService _asteroidPartDataViewService;
+        private IRandomService _randomService;
+        private AsteroidPartConfig _asteroidPartConfig;
 
         private ProtoIt _it;
 
-        private IBulletDataViewService _bulletDataViewService;
-        private BulletConfig _bulletConfig;
-        
-        private float _time;
         private int _lastId;
-        
+
         public void Init(IProtoSystems systems)
         {
-            _bulletConfig = BulletConfig.LoadFromAssets();
+            _randomService = systems.GetService<IRandomService>();
+            _asteroidPartDataViewService = systems.GetService<IAsteroidPartDataViewService>();
+
+            _asteroidPartConfig = AsteroidPartConfig.LoadFromAssets();
             
             var world = systems.World();
-            _bulletAspect = world.GetAspect<BulletAspect>();
+            _asteroidPartAspect = world.GetAspect<AsteroidPartAspect>();
             _objectIdAspect = world.GetAspect<ObjectIdAspect>();
             _movableAspect = world.GetAspect<MovableAspect>();
             _rotationAspect = world.GetAspect<RotationAspect>();
@@ -54,37 +58,33 @@ namespace Spawn.Systems
             _collisionTargetAspect = world.GetAspect<CollisionTargetAspect>();
             _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
             _healthAspect = world.GetAspect<HealthAspect>();
-            _destroyOutsideScreenAspect = world.GetAspect<DestroyOutsideScreenAspect>();
-            _bulletInputEventAspect = world.GetAspect<BulletInputEventAspect>();
-            
-            _bulletDataViewService = systems.GetService<IBulletDataViewService>();
+            _teleportOutsideScreenAspect = world.GetAspect<TeleportOutsideScreenAspect>();
+            _spawnAsteroidPartAspect = world.GetAspect<SpawnAsteroidPartAspect>();
 
-            _it = new(new[] { typeof(BulletInputEventComponent), typeof(MovableComponent), typeof(RotationComponent) });
+            _it = new ProtoIt(new[] { typeof(SpawnAsteroidPartComponent) });
             _it.Init(world);
         }
-
+        
         public void Run()
         {
             foreach (var entity in _it)
             {
-                BulletInputEventComponent bulletInputEventComponent = _bulletInputEventAspect.Pool.Get(entity);
+                SpawnAsteroidPartComponent component = _spawnAsteroidPartAspect.Pool.Get(entity);
 
-                if (bulletInputEventComponent.IsGunPressing)
+                for (int i = 0; i < _asteroidPartConfig.SpawnAmount; i++)
                 {
-            
-                    MovableComponent movableComponent = _movableAspect.Pool.Get(entity);
-                    RotationComponent rotationComponent = _rotationAspect.Pool.Get(entity);
-                    
-                    Spawn(movableComponent.Position, rotationComponent.Angle);
+                    Spawn(component.SpawnPosition);
                 }
+                
+                _spawnAsteroidPartAspect.Pool.Del(entity);
             }
         }
 
-        private void Spawn(Point position, float rotation)
+        private void Spawn(Point position)
         {
-            _bulletAspect.Pool.NewEntity(out ProtoEntity entity);
-            _destroyOutsideScreenAspect.Pool.Add(entity);
-            
+            _asteroidPartAspect.Pool.NewEntity(out ProtoEntity entity);
+            _teleportOutsideScreenAspect.Pool.Add(entity);
+
             ref ObjectIDComponent objectIDComponent = ref _objectIdAspect.Pool.Add(entity);
             
             ref MoveSpeedComponent moveSpeedComponent = ref _moveSpeedAspect.Pool.Add(entity);
@@ -100,16 +100,16 @@ namespace Spawn.Systems
             objectIDComponent.Id = id;
             
             movableComponent.Position = position;
-            rotationComponent.Angle = rotation;
-            moveSpeedComponent.Value = _bulletConfig.StartMoveSpeed;
+            rotationComponent.Angle = _randomService.GetRandom(0, 360);
+            moveSpeedComponent.Value = _asteroidPartConfig.StartMoveSpeed;
 
-            collisionRadiusComponent.CollisionRadius = _bulletConfig.CollisionRadius;
-            collisionTargetComponent.Target = ObjectType.Asteroid;
-            objectTypeComponent.ObjectType = ObjectType.Bullet;
+            collisionRadiusComponent.CollisionRadius = _asteroidPartConfig.CollisionRadius;
+            collisionTargetComponent.Target = ObjectType.Ship;
+            objectTypeComponent.ObjectType = ObjectType.Asteroid;
             healthComponent.Value = 1;
             
-            _bulletDataViewService.CreateView(id, _bulletConfig);
-            _bulletDataViewService.SetPosition(id, position);
+            _asteroidPartDataViewService!.CreateView(id, _asteroidPartConfig);
+            _asteroidPartDataViewService.SetPosition(id, position);
         }
     }
 }

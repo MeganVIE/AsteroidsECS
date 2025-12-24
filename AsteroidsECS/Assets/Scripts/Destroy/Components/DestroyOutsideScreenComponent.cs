@@ -1,4 +1,4 @@
-namespace Moving.Components
+namespace Destroy.Components
 {
     public struct DestroyOutsideScreenComponent { }
 }

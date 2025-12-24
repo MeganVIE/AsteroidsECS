@@ -32,7 +32,8 @@ namespace Health.Systems
 
                 if (healthComponent.Value <= 0)
                 {
-                    _destroyAspect.Pool.Add(entity);
+                    if (!_destroyAspect.Pool.Has(entity))
+                        _destroyAspect.Pool.Add(entity);
                 }
             }
         }

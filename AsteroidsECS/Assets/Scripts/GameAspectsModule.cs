@@ -7,6 +7,7 @@ using EntityTags.Aspects;
 using Health.Aspects;
 using Inputs;
 using Moving;
+using Spawn.Aspects;
 
 public class GameAspectsModule : IProtoAspect
 {
@@ -25,9 +26,12 @@ public class GameAspectsModule : IProtoAspect
         _aspects.Add(new ObjectIdAspect());
         _aspects.Add(new ShipAspect());
         _aspects.Add(new AsteroidAspect());
+        _aspects.Add(new AsteroidPartAspect());
         _aspects.Add(new BulletAspect());
         
         _aspects.Add(new HealthAspect());
+        
+        _aspects.Add(new SpawnAsteroidPartAspect());
             
         _aspects.Add(new MovingAspectsModule());
         
@@ -36,6 +40,7 @@ public class GameAspectsModule : IProtoAspect
         _aspects.Add(new ObjectTypeAspect());
         
         _aspects.Add(new DestroyAspect());
+        _aspects.Add(new DestroyOutsideScreenAspect());
             
         _aspects.ForEach(a => a.Init(_world));
     }

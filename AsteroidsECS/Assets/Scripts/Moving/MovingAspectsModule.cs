@@ -21,7 +21,6 @@ namespace Moving
             _aspects.Add(new SlowdownSpeedAspect());
             _aspects.Add(new MoveSpeedLimitAspect());
             _aspects.Add(new MovableAspect());
-            _aspects.Add(new DestroyOutsideScreenAspect());
             _aspects.Add(new TeleportOutsideScreenAspect());
             
             _aspects.ForEach(a => a.Init(_world));

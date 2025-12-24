@@ -42,19 +42,22 @@ class EcsStartup : MonoBehaviour
 
             .AddSystem(new MovableCollisionSystem(), -1)
 
-            .AddSystem(new AsteroidSpawnSystem())
             .AddSystem(new ShipSpawnSystem())
             .AddSystem(new BulletSpawnSystem())
+            .AddSystem(new AsteroidSpawnSystem())
+            .AddSystem(new AsteroidPartSpawnSystem())
 
             .AddSystem(new ShipViewSystem())
-            .AddSystem(new AsteroidViewSystem())
             .AddSystem(new BulletViewSystem())
+            .AddSystem(new AsteroidViewSystem())
+            .AddSystem(new AsteroidPartViewSystem())
             
             .AddSystem(new DamageHandleSystem(), 100)
             
             .AddSystem(new ShipDestroySystem(), 200)
-            .AddSystem(new AsteroidsDestroySystem(), 200)
             .AddSystem(new BulletDestroySystem(), 200)
+            .AddSystem(new AsteroidsDestroySystem(), 205)
+            .AddSystem(new AsteroidPartsDestroySystem(), 210)
 
             // Сервисы могут быть добавлены в любом месте.
             .AddService(new DeltaTimeService(), typeof(IDeltaTimeService))
@@ -64,8 +67,9 @@ class EcsStartup : MonoBehaviour
             .AddService(_gameOverService, typeof(IGameOverService))
             
             .AddService(new ShipDataViewService(), typeof(IShipDataViewService))
+            .AddService(new BulletDataViewService(), typeof(IBulletDataViewService))
             .AddService(new AsteroidDataViewService(), typeof(IAsteroidDataViewService))
-            .AddService(new BulletDataViewService(), typeof(IBulletDataViewService));
+            .AddService(new AsteroidPartDataViewService(), typeof(IAsteroidPartDataViewService));
 
         _systems.Init();
     }

@@ -65,6 +65,10 @@ namespace Collisions.Systems
                         {
                             ref var targetHealthComponent = ref _healthAspect.Pool.Get(targetEntity);
                             targetHealthComponent.Value--;
+
+                            ref var entityHealthComponent = ref _healthAspect.Pool.Get(entity);
+                            entityHealthComponent.Value--;
+                            break;
                         }
                     }
                 }

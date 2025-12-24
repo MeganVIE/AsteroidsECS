@@ -15,17 +15,20 @@ namespace Destroy.Systems
         private TService _service;
         
         private ProtoIt _it;
-        private ProtoWorld _world;
+        
+        protected ProtoWorld World;
 
         public void Init(IProtoSystems systems)
         {
-            _world = systems.World();
+            World = systems.World();
 
-            _objectIdAspect = _world.GetAspect<ObjectIdAspect>();
+            _objectIdAspect = World.GetAspect<ObjectIdAspect>();
             _service = systems.GetService<TService>();
 
             _it = new(new[] { typeof(DestroyComponent), typeof(TComponent), typeof(ObjectIDComponent) });
-            _it.Init(_world);
+            _it.Init(World);
+
+            InitialInit();
         }
         
         public void Run()
@@ -33,10 +36,15 @@ namespace Destroy.Systems
             foreach (var entity in _it)
             {
                 ObjectIDComponent component = _objectIdAspect.Pool.Get(entity);
-                    
-                _world.DelEntity(entity);
+                
+                BeforeDestroy(entity);
+                World.DelEntity(entity);
                 _service.Destroy(component.Id);
             }
         }
+        
+        protected virtual void InitialInit() { }
+
+        protected virtual void BeforeDestroy(ProtoEntity entity) { }
     }
 }

@@ -1,4 +1,3 @@
-using UI;
 using UnityEngine;
 
 namespace Configs
@@ -8,9 +7,9 @@ namespace Configs
     {
         public GameObject ViewPrefab;
         
-        public float CollisionRadius = .23f;
-        public float StartMoveSpeed = 0;
-        public float DelaySpawnTime = 5;
+        public float CollisionRadius = .5f;
+        public float StartMoveSpeed = 0.002f;
+        public float DelaySpawnTime = 2;
 
         public static AsteroidConfig LoadFromAssets() => Resources.Load<AsteroidConfig>("AsteroidConfig");
     }

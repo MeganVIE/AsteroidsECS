@@ -1,6 +1,6 @@
-using Moving.Components;
+using Destroy.Components;
 
-namespace Moving.Aspects
+namespace Destroy.Aspects
 {
     public class DestroyOutsideScreenAspect : AbstractAspect<DestroyOutsideScreenComponent> { }
 }
