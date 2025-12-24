@@ -19,19 +19,21 @@ namespace Spawn.Systems
 {
     public class AsteroidSpawnSystem : IProtoInitSystem, IProtoRunSystem
     {
-        ProtoIt _cameraDataIt;
+        private ProtoIt _cameraDataIt;
         
-        AsteroidAspect _asteroidAspect;
-        MovableAspect _movableAspect;
-        RotationAspect _rotationAspect;
-        MoveSpeedAspect _moveSpeedAspect;
-        CollisionRadiusAspect _collisionRadiusAspect;
-        CollisionTargetAspect _collisionTargetAspect;
-        ObjectTypeAspect _objectTypeAspect;
-        HealthAspect _healthAspect;
+        private AsteroidAspect _asteroidAspect;
+        private ObjectIdAspect _objectIdAspect;
+        
+        private MovableAspect _movableAspect;
+        private RotationAspect _rotationAspect;
+        private MoveSpeedAspect _moveSpeedAspect;
+        private CollisionRadiusAspect _collisionRadiusAspect;
+        private CollisionTargetAspect _collisionTargetAspect;
+        private ObjectTypeAspect _objectTypeAspect;
+        private HealthAspect _healthAspect;
         private TeleportOutsideScreenAspect _teleportOutsideScreenAspect;
         
-        CameraDataComponent _cameraDataComponent;
+        private CameraDataComponent _cameraDataComponent;
         
         private IAsteroidDataViewService _asteroidDataViewService;
         private IDeltaTimeService _deltaTimeService;
@@ -54,6 +56,7 @@ namespace Spawn.Systems
             
             var world = systems.World();
             _asteroidAspect = world.GetAspect<AsteroidAspect>();
+            _objectIdAspect = world.GetAspect<ObjectIdAspect>();
             _movableAspect = world.GetAspect<MovableAspect>();
             _rotationAspect = world.GetAspect<RotationAspect>();
             _moveSpeedAspect = world.GetAspect<MoveSpeedAspect>();
@@ -88,8 +91,10 @@ namespace Spawn.Systems
 
         private void Spawn()
         {
-            ref AsteroidComponent asteroidComponent = ref _asteroidAspect.Pool.NewEntity(out ProtoEntity entity);
+            _asteroidAspect.Pool.NewEntity(out ProtoEntity entity);
             _teleportOutsideScreenAspect.Pool.Add(entity);
+
+            ref ObjectIDComponent objectIDComponent = ref _objectIdAspect.Pool.Add(entity);
             
             ref MoveSpeedComponent moveSpeedComponent = ref _moveSpeedAspect.Pool.Add(entity);
             ref MovableComponent movableComponent = ref _movableAspect.Pool.Add(entity);
@@ -101,7 +106,7 @@ namespace Spawn.Systems
             ref HealthComponent healthComponent = ref _healthAspect.Pool.Add(entity);
 
             int id = ++_lastId;
-            asteroidComponent.Id = id;
+            objectIDComponent.Id = id;
             
             var position = GetRandomPositionOnBound();
             movableComponent.Position = position;

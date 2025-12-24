@@ -19,6 +19,7 @@ namespace Spawn.Systems
     {
         private BulletInputEventAspect _bulletInputEventAspect;
         private BulletAspect _bulletAspect;
+        private ObjectIdAspect _objectIdAspect;
         private MovableAspect _movableAspect;
         private RotationAspect _rotationAspect;
         private MoveSpeedAspect _moveSpeedAspect;
@@ -41,6 +42,7 @@ namespace Spawn.Systems
             
             var world = systems.World();
             _bulletAspect = world.GetAspect<BulletAspect>();
+            _objectIdAspect = world.GetAspect<ObjectIdAspect>();
             _movableAspect = world.GetAspect<MovableAspect>();
             _rotationAspect = world.GetAspect<RotationAspect>();
             _moveSpeedAspect = world.GetAspect<MoveSpeedAspect>();
@@ -75,8 +77,10 @@ namespace Spawn.Systems
 
         private void Spawn(Point position, float rotation)
         {
-            ref BulletComponent bulletComponent = ref _bulletAspect.Pool.NewEntity(out ProtoEntity entity);
+            _bulletAspect.Pool.NewEntity(out ProtoEntity entity);
             _destroyOutsideScreenAspect.Pool.Add(entity);
+            
+            ref ObjectIDComponent objectIDComponent = ref _objectIdAspect.Pool.Add(entity);
             
             ref MoveSpeedComponent moveSpeedComponent = ref _moveSpeedAspect.Pool.Add(entity);
             ref MovableComponent movableComponent = ref _movableAspect.Pool.Add(entity);
@@ -87,7 +91,7 @@ namespace Spawn.Systems
             ref ObjectTypeComponent objectTypeComponent = ref _objectTypeAspect.Pool.Add(entity);
 
             int id = ++_lastId;
-            bulletComponent.Id = id;
+            objectIDComponent.Id = id;
             
             movableComponent.Position = position;
             rotationComponent.Angle = rotation;

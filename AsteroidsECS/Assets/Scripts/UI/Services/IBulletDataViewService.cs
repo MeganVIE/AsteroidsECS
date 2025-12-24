@@ -1,12 +1,9 @@
 using Configs;
-using Data;
 
 namespace UI.Services
 {
-    public interface IBulletDataViewService
+    public interface IBulletDataViewService : IDestroyItemService, IViewPositionService
     {
         void CreateView(int id, BulletConfig config);
-        void SetPosition(int id, Point newPosition);
-        void Destroy(int id);
     }
 }

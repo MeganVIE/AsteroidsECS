@@ -22,6 +22,7 @@ public class GameAspectsModule : IProtoAspect
         _aspects.Add(new CameraDataAspect());
         _aspects.Add(new InputsAspectsModule());
             
+        _aspects.Add(new ObjectIdAspect());
         _aspects.Add(new ShipAspect());
         _aspects.Add(new AsteroidAspect());
         _aspects.Add(new BulletAspect());

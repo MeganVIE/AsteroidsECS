@@ -1,12 +1,9 @@
 using Configs;
-using Data;
 
 namespace UI.Services
 {
-    public interface IAsteroidDataViewService
+    public interface IAsteroidDataViewService : IDestroyItemService, IViewPositionService
     {
         void CreateView(int id, AsteroidConfig config);
-        void SetPosition(int id, Point newPosition);
-        void Destroy(int id);
     }
 }
