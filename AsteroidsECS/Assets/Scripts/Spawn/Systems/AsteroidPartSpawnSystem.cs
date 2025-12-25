@@ -105,7 +105,7 @@ namespace Spawn.Systems
 
             collisionRadiusComponent.CollisionRadius = _asteroidPartConfig.CollisionRadius;
             collisionTargetComponent.Target = ObjectType.Ship;
-            objectTypeComponent.ObjectType = ObjectType.Asteroid;
+            objectTypeComponent.ObjectType = ObjectType.Enemy;
             healthComponent.Value = 1;
             
             _asteroidPartDataViewService!.CreateView(id, _asteroidPartConfig);

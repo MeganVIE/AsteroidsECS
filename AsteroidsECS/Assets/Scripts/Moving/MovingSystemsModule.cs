@@ -16,6 +16,7 @@ namespace Moving
                 .AddSystem(new MoveSlowdownSpeedChangeByInputSystem())
                 .AddSystem(new MoveSpeedLimitSystem())
                 .AddSystem(new MoveSystem())
+                .AddSystem(new ShipFollowSystem())
                 .AddSystem(new DestroyOutsideScreenSystem())
                 .AddSystem(new TeleportWhenOutsideScreenSystem());
         }

@@ -17,11 +17,11 @@ using Utils;
 
 namespace Spawn.Systems
 {
-    public class AsteroidSpawnSystem : IProtoInitSystem, IProtoRunSystem
+    public class UFOSpawnSystem : IProtoInitSystem, IProtoRunSystem
     {
         private ProtoIt _cameraDataIt;
         
-        private AsteroidAspect _asteroidAspect;
+        private UFOAspect _ufoAspect;
         private ObjectIdAspect _objectIdAspect;
         
         private MovableAspect _movableAspect;
@@ -31,14 +31,15 @@ namespace Spawn.Systems
         private CollisionTargetAspect _collisionTargetAspect;
         private ObjectTypeAspect _objectTypeAspect;
         private HealthAspect _healthAspect;
+        private ShipFollowAspect _shipFollowAspect;
         private TeleportOutsideScreenAspect _teleportOutsideScreenAspect;
         
         private CameraDataComponent _cameraDataComponent;
         
-        private IAsteroidDataViewService _asteroidDataViewService;
+        private IUFODataViewService _ufoDataViewService;
         private IDeltaTimeService _deltaTimeService;
         private IRandomService _randomService;
-        private AsteroidConfig _asteroidConfig;
+        private UFOConfig _ufoConfig;
 
         private float _respawnTime;
         private float _time;
@@ -49,13 +50,13 @@ namespace Spawn.Systems
         {
             _deltaTimeService = systems.GetService<IDeltaTimeService>();
             _randomService = systems.GetService<IRandomService>();
-            _asteroidDataViewService = systems.GetService<IAsteroidDataViewService>();
+            _ufoDataViewService = systems.GetService<IUFODataViewService>();
             
-            _asteroidConfig = AsteroidConfig.LoadFromAssets();
-            _respawnTime = _asteroidConfig.DelaySpawnTime;
+            _ufoConfig = UFOConfig.LoadFromAssets();
+            _respawnTime = _ufoConfig.DelaySpawnTime;
             
             var world = systems.World();
-            _asteroidAspect = world.GetAspect<AsteroidAspect>();
+            _ufoAspect = world.GetAspect<UFOAspect>();
             _objectIdAspect = world.GetAspect<ObjectIdAspect>();
             _movableAspect = world.GetAspect<MovableAspect>();
             _rotationAspect = world.GetAspect<RotationAspect>();
@@ -64,6 +65,7 @@ namespace Spawn.Systems
             _collisionTargetAspect = world.GetAspect<CollisionTargetAspect>();
             _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
             _healthAspect = world.GetAspect<HealthAspect>();
+            _shipFollowAspect = world.GetAspect<ShipFollowAspect>();
             _teleportOutsideScreenAspect = world.GetAspect<TeleportOutsideScreenAspect>();
 
             var cameraDataAspect = world.GetAspect<CameraDataAspect>();
@@ -74,8 +76,6 @@ namespace Spawn.Systems
             {
                 _cameraDataComponent = cameraDataAspect.Pool.Get(cameraEntity);
             }
-
-            Spawn();
         }
         
         public void Run()
@@ -91,14 +91,15 @@ namespace Spawn.Systems
 
         private void Spawn()
         {
-            _asteroidAspect.Pool.NewEntity(out ProtoEntity entity);
+            _ufoAspect.Pool.NewEntity(out ProtoEntity entity);
             _teleportOutsideScreenAspect.Pool.Add(entity);
+            _shipFollowAspect.Pool.Add(entity);
+            _rotationAspect.Pool.Add(entity);
 
             ref ObjectIDComponent objectIDComponent = ref _objectIdAspect.Pool.Add(entity);
             
             ref MoveSpeedComponent moveSpeedComponent = ref _moveSpeedAspect.Pool.Add(entity);
             ref MovableComponent movableComponent = ref _movableAspect.Pool.Add(entity);
-            ref RotationComponent rotationComponent = ref _rotationAspect.Pool.Add(entity);
 
             ref CollisionRadiusComponent collisionRadiusComponent = ref _collisionRadiusAspect.Pool.Add(entity);
             ref CollisionTargetComponent collisionTargetComponent = ref _collisionTargetAspect.Pool.Add(entity);
@@ -110,16 +111,15 @@ namespace Spawn.Systems
             
             var position = GetRandomPositionOnBound();
             movableComponent.Position = position;
-            rotationComponent.Angle = _randomService.GetRandom(0, 360);
-            moveSpeedComponent.Value = _asteroidConfig.StartMoveSpeed;
+            moveSpeedComponent.Value = _ufoConfig.StartMoveSpeed;
 
-            collisionRadiusComponent.CollisionRadius = _asteroidConfig.CollisionRadius;
+            collisionRadiusComponent.CollisionRadius = _ufoConfig.CollisionRadius;
             collisionTargetComponent.Target = ObjectType.Ship;
             objectTypeComponent.ObjectType = ObjectType.Enemy;
             healthComponent.Value = 1;
             
-            _asteroidDataViewService!.CreateView(id, _asteroidConfig);
-            _asteroidDataViewService.SetPosition(id, position);
+            _ufoDataViewService!.CreateView(id, _ufoConfig);
+            _ufoDataViewService.SetPosition(id, position);
         }
 
         private Point GetRandomPositionOnBound()
@@ -141,8 +141,8 @@ namespace Spawn.Systems
     
         private void SetVectorComponentsValue(out float componentA, out float componentB, float limitA, float limitB)
         {
-            componentA = GetRandomFiftyFifty() ? limitA : -limitA;
-            componentB = _randomService.GetRandom(-limitB, limitB);
+            componentA = GetRandomFiftyFifty() ? limitA-.02f : -limitA+.02f;
+            componentB = _randomService.GetRandom(-limitB+.02f, limitB-.02f);
         }
     }
 }

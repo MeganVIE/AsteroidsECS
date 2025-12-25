@@ -36,11 +36,11 @@ namespace Moving.Systems
                 ref MovableComponent movableComponent = ref _movableAspect.Pool.Get(entity);
                 RotationComponent rotationComponent = _rotationAspect.Pool.Get(entity);
 
-                double angle = Math.PI * rotationComponent.Angle / 180.0;
+                double angleRad = Math.PI * rotationComponent.Angle / 180.0;
                 
                 Vector2 point = Vector2.up * moveSpeedComponent.Value;
-                double newX = point.x * Math.Cos(angle) - point.y * Math.Sin(angle);
-                double newY = point.x * Math.Sin(angle) + point.y * Math.Cos(angle);
+                double newX = point.x * Math.Cos(angleRad) - point.y * Math.Sin(angleRad);
+                double newY = point.x * Math.Sin(angleRad) + point.y * Math.Cos(angleRad);
                 
                 movableComponent.Position += new Point((float)newX, (float)newY);
             }

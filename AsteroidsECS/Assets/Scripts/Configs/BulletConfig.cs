@@ -2,7 +2,7 @@
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "BulletConfig", menuName = "Bullet Config", order = 11)]
+    [CreateAssetMenu(fileName = "BulletConfig", menuName = "Bullet Config", order = 12)]
     public class BulletConfig : ScriptableObject
     {
         public GameObject ViewPrefab;

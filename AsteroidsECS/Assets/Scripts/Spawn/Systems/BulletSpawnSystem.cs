@@ -104,7 +104,7 @@ namespace Spawn.Systems
             moveSpeedComponent.Value = _bulletConfig.StartMoveSpeed;
 
             collisionRadiusComponent.CollisionRadius = _bulletConfig.CollisionRadius;
-            collisionTargetComponent.Target = ObjectType.Asteroid;
+            collisionTargetComponent.Target = ObjectType.Enemy;
             objectTypeComponent.ObjectType = ObjectType.Bullet;
             healthComponent.Value = 1;
             

@@ -46,16 +46,19 @@ class EcsStartup : MonoBehaviour
             .AddSystem(new BulletSpawnSystem())
             .AddSystem(new AsteroidSpawnSystem())
             .AddSystem(new AsteroidPartSpawnSystem())
+            .AddSystem(new UFOSpawnSystem())
 
             .AddSystem(new ShipViewSystem())
             .AddSystem(new BulletViewSystem())
             .AddSystem(new AsteroidViewSystem())
             .AddSystem(new AsteroidPartViewSystem())
+            .AddSystem(new UFOViewSystem())
             
             .AddSystem(new DamageHandleSystem(), 100)
             
             .AddSystem(new ShipDestroySystem(), 200)
             .AddSystem(new BulletDestroySystem(), 200)
+            .AddSystem(new UFODestroySystem(), 205)
             .AddSystem(new AsteroidsDestroySystem(), 205)
             .AddSystem(new AsteroidPartsDestroySystem(), 210)
 
@@ -69,7 +72,8 @@ class EcsStartup : MonoBehaviour
             .AddService(new ShipDataViewService(), typeof(IShipDataViewService))
             .AddService(new BulletDataViewService(), typeof(IBulletDataViewService))
             .AddService(new AsteroidDataViewService(), typeof(IAsteroidDataViewService))
-            .AddService(new AsteroidPartDataViewService(), typeof(IAsteroidPartDataViewService));
+            .AddService(new AsteroidPartDataViewService(), typeof(IAsteroidPartDataViewService))
+            .AddService(new UFODataViewService(), typeof(IUFODataViewService));
 
         _systems.Init();
     }

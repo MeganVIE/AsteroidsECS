@@ -1,10 +1,10 @@
 using System.Collections.Generic;
+using EntityTags.Aspects;
 using Leopotam.EcsProto;
-using Moving.Aspects;
 
-namespace Moving
+namespace EntityTags
 {
-    public class MovingAspectsModule : IProtoAspect
+    public class EntityTagAspectsModule : IProtoAspect
     {
         private List<IProtoAspect> _aspects;
 
@@ -15,14 +15,12 @@ namespace Moving
             _world = world;
             _aspects = new List<IProtoAspect>();
             
-            _aspects.Add(new RotationAspect());
-            _aspects.Add(new MoveSpeedAspect());
-            _aspects.Add(new AccelerationSpeedAspect());
-            _aspects.Add(new SlowdownSpeedAspect());
-            _aspects.Add(new MoveSpeedLimitAspect());
-            _aspects.Add(new MovableAspect());
-            _aspects.Add(new ShipFollowAspect());
-            _aspects.Add(new TeleportOutsideScreenAspect());
+            _aspects.Add(new ObjectIdAspect());
+            _aspects.Add(new ShipAspect());
+            _aspects.Add(new BulletAspect());
+            _aspects.Add(new AsteroidAspect());
+            _aspects.Add(new AsteroidPartAspect());
+            _aspects.Add(new UFOAspect());
             
             _aspects.ForEach(a => a.Init(_world));
         }
