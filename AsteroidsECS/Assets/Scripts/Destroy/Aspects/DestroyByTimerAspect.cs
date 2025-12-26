@@ -1,0 +1,6 @@
+using Destroy.Components;
+
+namespace Destroy.Aspects
+{
+    public class DestroyByTimerAspect : AbstractAspect<DestroyByTimerComponent> { }
+}

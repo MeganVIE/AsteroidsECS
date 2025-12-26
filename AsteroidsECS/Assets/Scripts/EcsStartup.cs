@@ -57,8 +57,12 @@ class EcsStartup : MonoBehaviour
             
             .AddSystem(new DamageHandleSystem(), 100)
             
+            .AddSystem(new DestroyOutsideScreenSystem())
+            .AddSystem(new DestroyByTimerSystem())
+            
             .AddSystem(new ShipDestroySystem(), 200)
             .AddSystem(new BulletDestroySystem(), 200)
+            .AddSystem(new LaserDestroySystem(), 200)
             .AddSystem(new UFODestroySystem(), 205)
             .AddSystem(new AsteroidsDestroySystem(), 205)
             .AddSystem(new AsteroidPartsDestroySystem(), 210)

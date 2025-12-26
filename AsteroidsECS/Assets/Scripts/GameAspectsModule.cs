@@ -37,6 +37,7 @@ public class GameAspectsModule : IProtoAspect
         
         _aspects.Add(new DestroyAspect());
         _aspects.Add(new DestroyOutsideScreenAspect());
+        _aspects.Add(new DestroyByTimerAspect());
             
         _aspects.ForEach(a => a.Init(_world));
     }

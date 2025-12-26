@@ -1,5 +1,4 @@
 using System;
-using Destroy.Systems;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Systems;
@@ -17,7 +16,6 @@ namespace Moving
                 .AddSystem(new MoveSpeedLimitSystem())
                 .AddSystem(new MoveSystem())
                 .AddSystem(new ShipFollowSystem())
-                .AddSystem(new DestroyOutsideScreenSystem())
                 .AddSystem(new TeleportWhenOutsideScreenSystem());
         }
 

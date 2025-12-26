@@ -2,6 +2,8 @@ using Collisions.Aspects;
 using Collisions.Components;
 using Configs;
 using Data;
+using Destroy.Aspects;
+using Destroy.Components;
 using EntityTags.Aspects;
 using EntityTags.Components;
 using Inputs.Aspects;
@@ -23,6 +25,7 @@ namespace Spawn.Systems
         private RotationAspect _rotationAspect;
         private CollisionTargetAspect _collisionTargetAspect;
         private ObjectTypeAspect _objectTypeAspect;
+        private DestroyByTimerAspect _destroyByTimerAspect;
 
         private ProtoIt _it;
 
@@ -43,6 +46,7 @@ namespace Spawn.Systems
             _rotationAspect = world.GetAspect<RotationAspect>();
             _collisionTargetAspect = world.GetAspect<CollisionTargetAspect>();
             _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
+            _destroyByTimerAspect = world.GetAspect<DestroyByTimerAspect>();
             _laserInputEventAspect = world.GetAspect<LaserInputEventAspect>();
             
             _laserDataViewService = systems.GetService<ILaserDataViewService>();
@@ -80,6 +84,8 @@ namespace Spawn.Systems
             ref CollisionTargetComponent collisionTargetComponent = ref _collisionTargetAspect.Pool.Add(entity);
             ref ObjectTypeComponent objectTypeComponent = ref _objectTypeAspect.Pool.Add(entity);
 
+            ref DestroyByTimerComponent destroyByTimerComponent = ref _destroyByTimerAspect.Pool.Add(entity);
+
             int id = ++_lastId;
             objectIDComponent.Id = id;
             
@@ -89,6 +95,8 @@ namespace Spawn.Systems
             float collisionLength = _laserConfig.CollisionLength;
             collisionTargetComponent.Target = ObjectType.Enemy;
             objectTypeComponent.ObjectType = ObjectType.Bullet;
+
+            destroyByTimerComponent.LifeTime = _laserConfig.LifeTime;
             
             _laserDataViewService.CreateView(id, _laserConfig);
             _laserDataViewService.SetPosition(id, position);
