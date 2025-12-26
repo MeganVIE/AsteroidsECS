@@ -21,6 +21,7 @@ namespace Inputs
                 .AddSystem(new MoveInputSystem())
                 .AddSystem(new RotationInputSystem())
                 .AddSystem(new BulletInputSystem())
+                .AddSystem(new LaserInputSystem())
                 
                 .AddService(_inputService, typeof(IInputService));
         }

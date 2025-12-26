@@ -18,6 +18,7 @@ namespace Inputs
             _aspects.Add(new MoveInputEventAspect());
             _aspects.Add(new RotationInputEventAspect());
             _aspects.Add(new BulletInputEventAspect());
+            _aspects.Add(new LaserInputEventAspect());
             
             _aspects.ForEach(a => a.Init(_world));
         }

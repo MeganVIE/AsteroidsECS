@@ -16,8 +16,11 @@ namespace EntityTags
             _aspects = new List<IProtoAspect>();
             
             _aspects.Add(new ObjectIdAspect());
+            
             _aspects.Add(new ShipAspect());
             _aspects.Add(new BulletAspect());
+            _aspects.Add(new LaserAspect());
+            
             _aspects.Add(new AsteroidAspect());
             _aspects.Add(new AsteroidPartAspect());
             _aspects.Add(new UFOAspect());

@@ -37,12 +37,14 @@ namespace Spawn.Systems
             ObjectTypeAspect objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
             HealthAspect healthAspect = world.GetAspect<HealthAspect>();
             BulletInputEventAspect bulletInputEventAspect = world.GetAspect<BulletInputEventAspect>();
+            LaserInputEventAspect laserInputEventAspect = world.GetAspect<LaserInputEventAspect>();
             TeleportOutsideScreenAspect teleportOutsideScreenAspect = world.GetAspect<TeleportOutsideScreenAspect>();
 
             shipComponentPool.NewEntity(out ProtoEntity entity);
             moveInputEventAspect.Pool.Add(entity);
             rotationInputEventAspect.Pool.Add(entity);
             bulletInputEventAspect.Pool.Add(entity);
+            laserInputEventAspect.Pool.Add(entity);
             teleportOutsideScreenAspect.Pool.Add(entity);
             
             ref MoveSpeedComponent moveSpeedComponent = ref moveSpeedAspect.Pool.Add(entity);
