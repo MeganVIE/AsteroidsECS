@@ -8,6 +8,8 @@ using EntityTags.Aspects;
 using EntityTags.Components;
 using Inputs.Aspects;
 using Inputs.Components;
+using Laser.Aspects;
+using Laser.Components;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
@@ -27,7 +29,11 @@ namespace Spawn.Systems
         private ObjectTypeAspect _objectTypeAspect;
         private DestroyByTimerAspect _destroyByTimerAspect;
 
+        private LaserAmountAspect _laserAmountAspect;
+        private LaserAmountLimitAspect _laserAmountLimitAspect;
+
         private ProtoIt _it;
+        private ProtoIt _amountIt;
 
         private ILaserDataViewService _laserDataViewService;
         private LaserConfig _laserConfig;
@@ -48,11 +54,21 @@ namespace Spawn.Systems
             _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
             _destroyByTimerAspect = world.GetAspect<DestroyByTimerAspect>();
             _laserInputEventAspect = world.GetAspect<LaserInputEventAspect>();
+
+            _laserAmountAspect = world.GetAspect<LaserAmountAspect>();
+            _laserAmountLimitAspect = world.GetAspect<LaserAmountLimitAspect>();
             
             _laserDataViewService = systems.GetService<ILaserDataViewService>();
 
+            _laserAmountAspect.Pool.NewEntity(out ProtoEntity entity);
+            ref LaserAmountLimitComponent laserAmountLimitComponent = ref _laserAmountLimitAspect.Pool.Add(entity);
+            laserAmountLimitComponent.Value = _laserConfig.MaxAmount;
+
             _it = new(new[] { typeof(LaserInputEventComponent), typeof(MovableComponent), typeof(RotationComponent) });
             _it.Init(world);
+
+            _amountIt = new(new[] { typeof(LaserAmountComponent) });
+            _amountIt.Init(world); 
         }
 
         public void Run()
@@ -63,11 +79,20 @@ namespace Spawn.Systems
 
                 if (laserInputEventComponent.IsLaserPressing)
                 {
-            
-                    MovableComponent movableComponent = _movableAspect.Pool.Get(entity);
-                    RotationComponent rotationComponent = _rotationAspect.Pool.Get(entity);
+                    foreach (var amountEntity in _amountIt)
+                    {
+                        ref LaserAmountComponent laserAmountComponent = ref _laserAmountAspect.Pool.Get(amountEntity);
+                        LaserAmountLimitComponent laserAmountLimitComponent = _laserAmountLimitAspect.Pool.Get(amountEntity);
+
+                        if (laserAmountComponent.Value < laserAmountLimitComponent.Value)
+                        {
+                            MovableComponent movableComponent = _movableAspect.Pool.Get(entity);
+                            RotationComponent rotationComponent = _rotationAspect.Pool.Get(entity);
                     
-                    Spawn(movableComponent.Position, rotationComponent.Angle);
+                            Spawn(movableComponent.Position, rotationComponent.Angle);
+                            laserAmountComponent.Value--;
+                        }
+                    }
                 }
             }
         }
