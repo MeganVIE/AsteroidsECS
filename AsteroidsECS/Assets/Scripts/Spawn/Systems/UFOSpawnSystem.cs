@@ -113,7 +113,7 @@ namespace Spawn.Systems
             movableComponent.Position = position;
             moveSpeedComponent.Value = _ufoConfig.StartMoveSpeed;
 
-            collisionRadiusComponent.CollisionRadius = _ufoConfig.CollisionRadius;
+            collisionRadiusComponent.Value = _ufoConfig.CollisionRadius;
             collisionTargetComponent.Target = ObjectType.Ship;
             objectTypeComponent.ObjectType = ObjectType.Enemy;
             healthComponent.Value = 1;

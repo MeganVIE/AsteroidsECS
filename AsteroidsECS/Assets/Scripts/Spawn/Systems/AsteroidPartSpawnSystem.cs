@@ -103,7 +103,7 @@ namespace Spawn.Systems
             rotationComponent.Angle = _randomService.GetRandom(0, 360);
             moveSpeedComponent.Value = _asteroidPartConfig.StartMoveSpeed;
 
-            collisionRadiusComponent.CollisionRadius = _asteroidPartConfig.CollisionRadius;
+            collisionRadiusComponent.Value = _asteroidPartConfig.CollisionRadius;
             collisionTargetComponent.Target = ObjectType.Ship;
             objectTypeComponent.ObjectType = ObjectType.Enemy;
             healthComponent.Value = 1;

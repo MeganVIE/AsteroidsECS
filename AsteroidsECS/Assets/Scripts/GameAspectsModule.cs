@@ -35,6 +35,7 @@ public class GameAspectsModule : IProtoAspect
         _aspects.Add(new MovingAspectsModule());
         
         _aspects.Add(new CollisionRadiusAspect());
+        _aspects.Add(new CollisionLengthAspect());
         _aspects.Add(new CollisionTargetAspect());
         _aspects.Add(new ObjectTypeAspect());
         

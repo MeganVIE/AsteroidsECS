@@ -4,7 +4,6 @@ using Data;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
-using UnityEngine;
 using Utils;
 
 namespace Moving.Systems
@@ -37,10 +36,10 @@ namespace Moving.Systems
                 RotationComponent rotationComponent = _rotationAspect.Pool.Get(entity);
 
                 double angleRad = Math.PI * rotationComponent.Angle / 180.0;
-                
-                Vector2 point = Vector2.up * moveSpeedComponent.Value;
-                double newX = point.x * Math.Cos(angleRad) - point.y * Math.Sin(angleRad);
-                double newY = point.x * Math.Sin(angleRad) + point.y * Math.Cos(angleRad);
+
+                Point point = new Point(0, moveSpeedComponent.Value);
+                double newX = point.X * Math.Cos(angleRad) - point.Y * Math.Sin(angleRad);
+                double newY = point.X * Math.Sin(angleRad) + point.Y * Math.Cos(angleRad);
                 
                 movableComponent.Position += new Point((float)newX, (float)newY);
             }

@@ -25,6 +25,7 @@ namespace Laser.Systems
         private ObjectIdAspect _objectIdAspect;
         private MovableAspect _movableAspect;
         private RotationAspect _rotationAspect;
+        private CollisionLengthAspect _collisionLengthAspect;
         private CollisionTargetAspect _collisionTargetAspect;
         private ObjectTypeAspect _objectTypeAspect;
         private DestroyByTimerAspect _destroyByTimerAspect;
@@ -50,6 +51,7 @@ namespace Laser.Systems
             _objectIdAspect = world.GetAspect<ObjectIdAspect>();
             _movableAspect = world.GetAspect<MovableAspect>();
             _rotationAspect = world.GetAspect<RotationAspect>();
+            _collisionLengthAspect = world.GetAspect<CollisionLengthAspect>();
             _collisionTargetAspect = world.GetAspect<CollisionTargetAspect>();
             _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
             _destroyByTimerAspect = world.GetAspect<DestroyByTimerAspect>();
@@ -106,6 +108,7 @@ namespace Laser.Systems
             ref MovableComponent movableComponent = ref _movableAspect.Pool.Add(entity);
             ref RotationComponent rotationComponent = ref _rotationAspect.Pool.Add(entity);
 
+            ref CollisionLengthComponent collisionLengthComponent = ref _collisionLengthAspect.Pool.Add(entity);
             ref CollisionTargetComponent collisionTargetComponent = ref _collisionTargetAspect.Pool.Add(entity);
             ref ObjectTypeComponent objectTypeComponent = ref _objectTypeAspect.Pool.Add(entity);
 
@@ -118,6 +121,7 @@ namespace Laser.Systems
             rotationComponent.Angle = rotation;
 
             float collisionLength = _laserConfig.CollisionLength;
+            collisionLengthComponent.Value = collisionLength;
             collisionTargetComponent.Target = ObjectType.Enemy;
             objectTypeComponent.ObjectType = ObjectType.Bullet;
 

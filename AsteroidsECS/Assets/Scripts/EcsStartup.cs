@@ -43,6 +43,7 @@ class EcsStartup : MonoBehaviour
             .AddSystem(new CameraDataInitSystem(), -100)
 
             .AddSystem(new CircleCollisionSystem(), -1)
+            .AddSystem(new LaserCollisionSystem(), -1)
 
             .AddSystem(new ShipSpawnSystem())
             .AddSystem(new BulletSpawnSystem())

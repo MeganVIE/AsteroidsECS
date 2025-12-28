@@ -1,6 +1,6 @@
 namespace Collisions.Components
 {
-    public struct CollisionRadiusComponent
+    public struct CollisionLengthComponent
     {
         public float Value;
     }

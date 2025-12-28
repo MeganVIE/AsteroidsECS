@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ViewPrefab: {fileID: 7659182583596523749, guid: dba5341deae5d024e9991d7712d26117, type: 3}
   CollisionLength: 10
-  LifeTime: 1
+  LifeTime: 0.2
   MaxAmount: 5
   AmountRechargeTime: 2

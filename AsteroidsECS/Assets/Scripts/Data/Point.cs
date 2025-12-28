@@ -13,5 +13,7 @@ namespace Data
 
         public static Point operator +(Point first, Point second) => new(first.X + second.X, first.Y + second.Y);
         public static Point operator -(Point first, Point second) => new(first.X - second.X, first.Y - second.Y);
+        public static Point operator *(Point point, float value) => new(point.X * value, point.Y * value);
+        public static Point operator /(Point point, float value) => new(point.X / value, point.Y / value);
     }
 }

@@ -69,7 +69,7 @@ namespace Spawn.Systems
             accelerationSpeedComponent.AccelerationSpeed = shipConfig.AccelerationSpeed;
             slowdownSpeedComponent.SlowdownSpeed = shipConfig.SlowdownSpeed;
 
-            collisionRadiusComponent.CollisionRadius = shipConfig.CollisionRadius;
+            collisionRadiusComponent.Value = shipConfig.CollisionRadius;
             objectTypeComponent.ObjectType = ObjectType.Ship;
             healthComponent.Value = 1;
             

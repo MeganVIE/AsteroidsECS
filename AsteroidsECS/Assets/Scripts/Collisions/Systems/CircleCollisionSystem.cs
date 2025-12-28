@@ -52,8 +52,8 @@ namespace Collisions.Systems
 
                     if (objectTypeComponent.ObjectType == targetType)
                     {
-                        var mainCollisionRadius = _collisionRadiusAspect.Pool.Get(entity).CollisionRadius;
-                        var targetCollisionRadius = _collisionRadiusAspect.Pool.Get(targetEntity).CollisionRadius;
+                        var mainCollisionRadius = _collisionRadiusAspect.Pool.Get(entity).Value;
+                        var targetCollisionRadius = _collisionRadiusAspect.Pool.Get(targetEntity).Value;
 
                         var mainPosition = _movableAspect.Pool.Get(entity).Position;
                         var targetPosition = _movableAspect.Pool.Get(targetEntity).Position;

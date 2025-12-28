@@ -8,7 +8,7 @@ namespace Configs
         public GameObject ViewPrefab;
         
         public float CollisionLength = 10f;
-        public float LifeTime = 1f;
+        public float LifeTime = .2f;
         public byte MaxAmount = 5;
         public float AmountRechargeTime = 2f;
         

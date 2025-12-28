@@ -103,7 +103,7 @@ namespace Spawn.Systems
             rotationComponent.Angle = rotation;
             moveSpeedComponent.Value = _bulletConfig.StartMoveSpeed;
 
-            collisionRadiusComponent.CollisionRadius = _bulletConfig.CollisionRadius;
+            collisionRadiusComponent.Value = _bulletConfig.CollisionRadius;
             collisionTargetComponent.Target = ObjectType.Enemy;
             objectTypeComponent.ObjectType = ObjectType.Bullet;
             healthComponent.Value = 1;
