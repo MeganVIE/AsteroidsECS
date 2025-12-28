@@ -86,7 +86,7 @@ namespace Laser.Systems
                         ref LaserAmountComponent laserAmountComponent = ref _laserAmountAspect.Pool.Get(amountEntity);
                         LaserAmountLimitComponent laserAmountLimitComponent = _laserAmountLimitAspect.Pool.Get(amountEntity);
 
-                        if (laserAmountComponent.Value < laserAmountLimitComponent.Value)
+                        if (laserAmountComponent.Value > 0 && laserAmountComponent.Value < laserAmountLimitComponent.Value)
                         {
                             MovableComponent movableComponent = _movableAspect.Pool.Get(entity);
                             RotationComponent rotationComponent = _rotationAspect.Pool.Get(entity);

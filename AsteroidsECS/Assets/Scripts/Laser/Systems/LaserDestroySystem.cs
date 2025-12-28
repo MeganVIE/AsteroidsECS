@@ -1,9 +1,8 @@
-using EntityTags.Components;
+using Destroy.Systems;
 using Laser.Components;
 using Laser.Services;
-using UI.Services;
 
-namespace Destroy.Systems
+namespace Laser.Systems
 {
     public class LaserDestroySystem : DestroyByIdSystem<ILaserDataViewService, LaserComponent> { }
 }
