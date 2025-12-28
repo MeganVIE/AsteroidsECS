@@ -9,7 +9,7 @@ using Utils;
 
 namespace Collisions.Systems
 {
-    public class MovableCollisionSystem : IProtoRunSystem, IProtoInitSystem
+    public class CircleCollisionSystem : IProtoRunSystem, IProtoInitSystem
     {
         MovableAspect _movableAspect;
         CollisionRadiusAspect _collisionRadiusAspect;

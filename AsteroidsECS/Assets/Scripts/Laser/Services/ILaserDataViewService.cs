@@ -1,6 +1,7 @@
 using Configs;
+using UI.Services;
 
-namespace UI.Services
+namespace Laser.Services
 {
     public interface ILaserDataViewService : IDestroyItemService, IViewPositionService
     {

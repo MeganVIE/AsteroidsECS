@@ -6,7 +6,7 @@ using Destroy.Aspects;
 using EntityTags;
 using Health.Aspects;
 using Inputs;
-using Laser.Aspects;
+using Laser;
 using Moving;
 using Spawn.Aspects;
 
@@ -26,8 +26,7 @@ public class GameAspectsModule : IProtoAspect
             
         _aspects.Add(new EntityTagAspectsModule());
         
-        _aspects.Add(new LaserAmountLimitAspect());
-        _aspects.Add(new LaserAmountAspect());
+        _aspects.Add(new LaserAspectsModule());
         
         _aspects.Add(new HealthAspect());
         

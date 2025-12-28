@@ -5,6 +5,8 @@ using Destroy.Systems;
 using Health.Systems;
 using Inputs;
 using Inputs.Services;
+using Laser.Services;
+using Laser.Systems;
 using Leopotam.EcsProto;
 using Moving;
 using Spawn.Systems;
@@ -40,7 +42,7 @@ class EcsStartup : MonoBehaviour
             // быть зарегистрированы здесь.
             .AddSystem(new CameraDataInitSystem(), -100)
 
-            .AddSystem(new MovableCollisionSystem(), -1)
+            .AddSystem(new CircleCollisionSystem(), -1)
 
             .AddSystem(new ShipSpawnSystem())
             .AddSystem(new BulletSpawnSystem())
@@ -50,10 +52,10 @@ class EcsStartup : MonoBehaviour
             .AddSystem(new UFOSpawnSystem())
 
             .AddSystem(new ShipViewSystem())
-            .AddSystem(new BulletViewSystem())
-            .AddSystem(new AsteroidViewSystem())
-            .AddSystem(new AsteroidPartViewSystem())
-            .AddSystem(new UFOViewSystem())
+            .AddSystem(new BulletViewPositionSystem())
+            .AddSystem(new AsteroidViewPositionSystem())
+            .AddSystem(new AsteroidPartViewPositionSystem())
+            .AddSystem(new UfoViewPositionSystem())
             
             .AddSystem(new DamageHandleSystem(), 100)
             

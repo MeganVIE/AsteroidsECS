@@ -10,13 +10,13 @@ using Inputs.Aspects;
 using Inputs.Components;
 using Laser.Aspects;
 using Laser.Components;
+using Laser.Services;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
-using UI.Services;
 using Utils;
 
-namespace Spawn.Systems
+namespace Laser.Systems
 {
     public class LaserSpawnSystem : IProtoInitSystem, IProtoRunSystem
     {

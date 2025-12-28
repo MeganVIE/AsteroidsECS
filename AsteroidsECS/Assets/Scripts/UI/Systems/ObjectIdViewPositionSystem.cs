@@ -8,7 +8,7 @@ using Utils;
 
 namespace UI.Systems
 {
-    public class ObjectIdViewSystem<TService, TComponent> : IProtoRunSystem, IProtoInitSystem
+    public class ObjectIdViewPositionSystem<TService, TComponent> : IProtoRunSystem, IProtoInitSystem
         where TService : class, IViewPositionService
         where TComponent : struct
     {

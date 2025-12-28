@@ -1,6 +1,6 @@
-using EntityTags.Components;
+using Laser.Components;
 
-namespace EntityTags.Aspects
+namespace Laser.Aspects
 {
     public class LaserAspect : AbstractAspect<LaserComponent> { }
 }
