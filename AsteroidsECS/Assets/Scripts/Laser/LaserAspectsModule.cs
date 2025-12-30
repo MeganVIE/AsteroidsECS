@@ -19,6 +19,7 @@ namespace Laser
             _aspects.Add(new LaserAmountLimitAspect());
             _aspects.Add(new LaserAmountAspect());
             _aspects.Add(new LaserAmountRechargeAspect());
+            _aspects.Add(new SpawnLaserAspect());
             
             _aspects.ForEach(a => a.Init(_world));
         }

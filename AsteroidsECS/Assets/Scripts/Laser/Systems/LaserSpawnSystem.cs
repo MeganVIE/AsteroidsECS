@@ -6,8 +6,6 @@ using Destroy.Aspects;
 using Destroy.Components;
 using EntityTags.Aspects;
 using EntityTags.Components;
-using Inputs.Aspects;
-using Inputs.Components;
 using Laser.Aspects;
 using Laser.Components;
 using Laser.Services;
@@ -20,7 +18,6 @@ namespace Laser.Systems
 {
     public class LaserSpawnSystem : IProtoInitSystem, IProtoRunSystem
     {
-        private LaserInputEventAspect _laserInputEventAspect;
         private LaserAspect _laserAspect;
         private ObjectIdAspect _objectIdAspect;
         private MovableAspect _movableAspect;
@@ -30,6 +27,7 @@ namespace Laser.Systems
         private ObjectTypeAspect _objectTypeAspect;
         private DestroyByTimerAspect _destroyByTimerAspect;
 
+        private SpawnLaserAspect _spawnLaserAspect;
         private LaserAmountAspect _laserAmountAspect;
 
         private ProtoIt _it;
@@ -53,12 +51,12 @@ namespace Laser.Systems
             _collisionTargetAspect = world.GetAspect<CollisionTargetAspect>();
             _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
             _destroyByTimerAspect = world.GetAspect<DestroyByTimerAspect>();
-            _laserInputEventAspect = world.GetAspect<LaserInputEventAspect>();
             _laserAmountAspect = world.GetAspect<LaserAmountAspect>();
+            _spawnLaserAspect = world.GetAspect<SpawnLaserAspect>();
             
             _laserDataViewService = systems.GetService<ILaserDataViewService>();
 
-            _it = new(new[] { typeof(LaserInputEventComponent), typeof(MovableComponent), typeof(RotationComponent) });
+            _it = new(new[] { typeof(SpawnLaserComponent)});
             _it.Init(world);
 
             _amountIt = new(new[] { typeof(LaserAmountComponent) });
@@ -69,22 +67,16 @@ namespace Laser.Systems
         {
             foreach (var entity in _it)
             {
-                LaserInputEventComponent laserInputEventComponent = _laserInputEventAspect.Pool.Get(entity);
-
-                if (laserInputEventComponent.IsLaserPressing)
+                foreach (var amountEntity in _amountIt)
                 {
-                    foreach (var amountEntity in _amountIt)
-                    {
-                        ref LaserAmountComponent laserAmountComponent = ref _laserAmountAspect.Pool.Get(amountEntity);
+                    ref LaserAmountComponent laserAmountComponent = ref _laserAmountAspect.Pool.Get(amountEntity);
 
-                        if (laserAmountComponent.Value > 0)
-                        {
-                            MovableComponent movableComponent = _movableAspect.Pool.Get(entity);
-                            RotationComponent rotationComponent = _rotationAspect.Pool.Get(entity);
-                    
-                            Spawn(movableComponent.Position, rotationComponent.Angle);
-                            laserAmountComponent.Value--;
-                        }
+                    if (laserAmountComponent.Value > 0)
+                    {
+                        SpawnLaserComponent spawnLaserComponent = _spawnLaserAspect.Pool.Get(entity);
+                        Spawn(spawnLaserComponent.Position, spawnLaserComponent.Rotation);
+                        laserAmountComponent.Value--;
+                        _spawnLaserAspect.Pool.Del(entity);
                     }
                 }
             }
