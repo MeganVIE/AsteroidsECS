@@ -5,6 +5,7 @@ using Destroy.Systems;
 using Health.Systems;
 using Inputs;
 using Inputs.Services;
+using Laser;
 using Laser.Services;
 using Laser.Systems;
 using Leopotam.EcsProto;
@@ -37,6 +38,7 @@ class EcsStartup : MonoBehaviour
             // Модули должны быть зарегистрированы здесь.
             .AddModule(new MovingSystemsModule())
             .AddModule(new InputsSystemsModule(unityInputService))
+            .AddModule(new LaserSystemsModule())
 
             // Системы вне модулей могут
             // быть зарегистрированы здесь.
@@ -47,7 +49,6 @@ class EcsStartup : MonoBehaviour
 
             .AddSystem(new ShipSpawnSystem())
             .AddSystem(new BulletSpawnSystem())
-            .AddSystem(new LaserSpawnSystem())
             .AddSystem(new AsteroidSpawnSystem())
             .AddSystem(new AsteroidPartSpawnSystem())
             .AddSystem(new UFOSpawnSystem())
@@ -65,7 +66,6 @@ class EcsStartup : MonoBehaviour
             
             .AddSystem(new ShipDestroySystem(), 200)
             .AddSystem(new BulletDestroySystem(), 200)
-            .AddSystem(new LaserDestroySystem(), 200)
             .AddSystem(new UFODestroySystem(), 205)
             .AddSystem(new AsteroidsDestroySystem(), 205)
             .AddSystem(new AsteroidPartsDestroySystem(), 210)
@@ -79,7 +79,6 @@ class EcsStartup : MonoBehaviour
             
             .AddService(new ShipDataViewService(), typeof(IShipDataViewService))
             .AddService(new BulletDataViewService(), typeof(IBulletDataViewService))
-            .AddService(new LaserDataViewService(), typeof(ILaserDataViewService))
             .AddService(new AsteroidDataViewService(), typeof(IAsteroidDataViewService))
             .AddService(new AsteroidPartDataViewService(), typeof(IAsteroidPartDataViewService))
             .AddService(new UFODataViewService(), typeof(IUFODataViewService));

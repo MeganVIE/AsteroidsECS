@@ -31,7 +31,6 @@ namespace Laser.Systems
         private DestroyByTimerAspect _destroyByTimerAspect;
 
         private LaserAmountAspect _laserAmountAspect;
-        private LaserAmountLimitAspect _laserAmountLimitAspect;
 
         private ProtoIt _it;
         private ProtoIt _amountIt;
@@ -39,7 +38,6 @@ namespace Laser.Systems
         private ILaserDataViewService _laserDataViewService;
         private LaserConfig _laserConfig;
         
-        private float _time;
         private int _lastId;
         
         public void Init(IProtoSystems systems)
@@ -56,15 +54,9 @@ namespace Laser.Systems
             _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
             _destroyByTimerAspect = world.GetAspect<DestroyByTimerAspect>();
             _laserInputEventAspect = world.GetAspect<LaserInputEventAspect>();
-
             _laserAmountAspect = world.GetAspect<LaserAmountAspect>();
-            _laserAmountLimitAspect = world.GetAspect<LaserAmountLimitAspect>();
             
             _laserDataViewService = systems.GetService<ILaserDataViewService>();
-
-            _laserAmountAspect.Pool.NewEntity(out ProtoEntity entity);
-            ref LaserAmountLimitComponent laserAmountLimitComponent = ref _laserAmountLimitAspect.Pool.Add(entity);
-            laserAmountLimitComponent.Value = _laserConfig.MaxAmount;
 
             _it = new(new[] { typeof(LaserInputEventComponent), typeof(MovableComponent), typeof(RotationComponent) });
             _it.Init(world);
@@ -84,9 +76,8 @@ namespace Laser.Systems
                     foreach (var amountEntity in _amountIt)
                     {
                         ref LaserAmountComponent laserAmountComponent = ref _laserAmountAspect.Pool.Get(amountEntity);
-                        LaserAmountLimitComponent laserAmountLimitComponent = _laserAmountLimitAspect.Pool.Get(amountEntity);
 
-                        if (laserAmountComponent.Value > 0 && laserAmountComponent.Value < laserAmountLimitComponent.Value)
+                        if (laserAmountComponent.Value > 0)
                         {
                             MovableComponent movableComponent = _movableAspect.Pool.Get(entity);
                             RotationComponent rotationComponent = _rotationAspect.Pool.Get(entity);
