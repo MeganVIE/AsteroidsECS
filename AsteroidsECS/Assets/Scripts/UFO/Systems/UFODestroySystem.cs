@@ -1,7 +1,8 @@
-using EntityTags.Components;
-using UI.Services;
+using Destroy.Systems;
+using UFO.Components;
+using UFO.Services;
 
-namespace Destroy.Systems
+namespace UFO.Systems
 {
     public class UFODestroySystem : DestroyByIdSystem<IUFODataViewService, UFOComponent> { }
 }

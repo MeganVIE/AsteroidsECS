@@ -1,6 +1,6 @@
-using EntityTags.Components;
+using UFO.Components;
 
-namespace EntityTags.Aspects
+namespace UFO.Aspects
 {
     public class UFOAspect : AbstractAspect<UFOComponent> { }
 }

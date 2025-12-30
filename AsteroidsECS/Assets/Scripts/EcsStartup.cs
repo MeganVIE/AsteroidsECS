@@ -10,6 +10,7 @@ using Leopotam.EcsProto;
 using Moving;
 using Ship;
 using Spawn.Systems;
+using UFO;
 using UI.Services;
 using UI.Systems;
 using UnityEngine;
@@ -40,6 +41,8 @@ class EcsStartup : MonoBehaviour
             
             .AddModule(new ShipSystemsModule())
             .AddModule(new LaserSystemsModule())
+            
+            .AddModule(new UFOSystemsModule())
 
             // Системы вне модулей могут
             // быть зарегистрированы здесь.
@@ -49,12 +52,10 @@ class EcsStartup : MonoBehaviour
             .AddSystem(new BulletSpawnSystem())
             .AddSystem(new AsteroidSpawnSystem())
             .AddSystem(new AsteroidPartSpawnSystem())
-            .AddSystem(new UFOSpawnSystem())
 
             .AddSystem(new BulletViewPositionSystem())
             .AddSystem(new AsteroidViewPositionSystem())
             .AddSystem(new AsteroidPartViewPositionSystem())
-            .AddSystem(new UfoViewPositionSystem())
             
             .AddSystem(new DamageHandleSystem(), 100)
             
@@ -62,7 +63,6 @@ class EcsStartup : MonoBehaviour
             .AddSystem(new DestroyByTimerSystem())
             
             .AddSystem(new BulletDestroySystem(), 200)
-            .AddSystem(new UFODestroySystem(), 205)
             .AddSystem(new AsteroidsDestroySystem(), 205)
             .AddSystem(new AsteroidPartsDestroySystem(), 210)
 
@@ -74,7 +74,6 @@ class EcsStartup : MonoBehaviour
             .AddService(new BulletDataViewService(), typeof(IBulletDataViewService))
             .AddService(new AsteroidDataViewService(), typeof(IAsteroidDataViewService))
             .AddService(new AsteroidPartDataViewService(), typeof(IAsteroidPartDataViewService))
-            .AddService(new UFODataViewService(), typeof(IUFODataViewService))
 
             .AddService(_gameOverService, typeof(IGameOverService));
 

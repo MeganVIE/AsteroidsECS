@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using EntityTags.Aspects;
 using Leopotam.EcsProto;
 using Ship.Aspects;
+using UFO.Aspects;
 
 namespace EntityTags
 {

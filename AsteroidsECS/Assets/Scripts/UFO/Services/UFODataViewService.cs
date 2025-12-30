@@ -3,7 +3,7 @@ using Configs;
 using Data;
 using UnityEngine;
 
-namespace UI.Services
+namespace UFO.Services
 {
     public class UFODataViewService : IUFODataViewService
     {

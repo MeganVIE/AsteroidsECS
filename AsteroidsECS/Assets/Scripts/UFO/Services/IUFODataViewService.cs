@@ -1,6 +1,7 @@
 using Configs;
+using UI.Services;
 
-namespace UI.Services
+namespace UFO.Services
 {
     public interface IUFODataViewService : IDestroyItemService, IViewPositionService
     {
