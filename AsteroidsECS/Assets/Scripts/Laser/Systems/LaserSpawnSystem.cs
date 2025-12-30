@@ -24,7 +24,7 @@ namespace Laser.Systems
         private RotationAspect _rotationAspect;
         private CollisionLengthAspect _collisionLengthAspect;
         private CollisionTargetAspect _collisionTargetAspect;
-        private ObjectTypeAspect _objectTypeAspect;
+        private CollisionObjectTypeAspect _collisionObjectTypeAspect;
         private DestroyByTimerAspect _destroyByTimerAspect;
 
         private SpawnLaserAspect _spawnLaserAspect;
@@ -49,7 +49,7 @@ namespace Laser.Systems
             _rotationAspect = world.GetAspect<RotationAspect>();
             _collisionLengthAspect = world.GetAspect<CollisionLengthAspect>();
             _collisionTargetAspect = world.GetAspect<CollisionTargetAspect>();
-            _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
+            _collisionObjectTypeAspect = world.GetAspect<CollisionObjectTypeAspect>();
             _destroyByTimerAspect = world.GetAspect<DestroyByTimerAspect>();
             _laserAmountAspect = world.GetAspect<LaserAmountAspect>();
             _spawnLaserAspect = world.GetAspect<SpawnLaserAspect>();
@@ -93,7 +93,7 @@ namespace Laser.Systems
 
             ref CollisionLengthComponent collisionLengthComponent = ref _collisionLengthAspect.Pool.Add(entity);
             ref CollisionTargetComponent collisionTargetComponent = ref _collisionTargetAspect.Pool.Add(entity);
-            ref ObjectTypeComponent objectTypeComponent = ref _objectTypeAspect.Pool.Add(entity);
+            ref CollisionObjectTypeComponent collisionObjectTypeComponent = ref _collisionObjectTypeAspect.Pool.Add(entity);
 
             ref DestroyByTimerComponent destroyByTimerComponent = ref _destroyByTimerAspect.Pool.Add(entity);
 
@@ -106,7 +106,7 @@ namespace Laser.Systems
             float collisionLength = _laserConfig.CollisionLength;
             collisionLengthComponent.Value = collisionLength;
             collisionTargetComponent.Target = ObjectType.Enemy;
-            objectTypeComponent.ObjectType = ObjectType.Bullet;
+            collisionObjectTypeComponent.ObjectType = ObjectType.Bullet;
 
             destroyByTimerComponent.LifeTime = _laserConfig.LifeTime;
             

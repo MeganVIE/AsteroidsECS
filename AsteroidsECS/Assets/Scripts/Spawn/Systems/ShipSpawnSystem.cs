@@ -34,7 +34,7 @@ namespace Spawn.Systems
             AccelerationSpeedAspect accelerationSpeedAspect = world.GetAspect<AccelerationSpeedAspect>();
             SlowdownSpeedAspect slowdownSpeedAspect = world.GetAspect<SlowdownSpeedAspect>();
             CollisionRadiusAspect collisionRadiusAspect = world.GetAspect<CollisionRadiusAspect>();
-            ObjectTypeAspect objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
+            CollisionObjectTypeAspect collisionObjectTypeAspect = world.GetAspect<CollisionObjectTypeAspect>();
             HealthAspect healthAspect = world.GetAspect<HealthAspect>();
             BulletInputEventAspect bulletInputEventAspect = world.GetAspect<BulletInputEventAspect>();
             LaserInputEventAspect laserInputEventAspect = world.GetAspect<LaserInputEventAspect>();
@@ -54,7 +54,7 @@ namespace Spawn.Systems
             ref MovableComponent movableComponent = ref movableAspect.Pool.Add(entity);
             ref RotationComponent rotationComponent = ref rotationAspect.Pool.Add(entity);
             ref CollisionRadiusComponent collisionRadiusComponent = ref collisionRadiusAspect.Pool.Add(entity);
-            ref ObjectTypeComponent objectTypeComponent = ref objectTypeAspect.Pool.Add(entity);
+            ref CollisionObjectTypeComponent collisionObjectTypeComponent = ref collisionObjectTypeAspect.Pool.Add(entity);
             ref HealthComponent healthComponent = ref healthAspect.Pool.Add(entity);
 
             var shipConfig = ShipConfig.LoadFromAssets();
@@ -70,7 +70,7 @@ namespace Spawn.Systems
             slowdownSpeedComponent.SlowdownSpeed = shipConfig.SlowdownSpeed;
 
             collisionRadiusComponent.Value = shipConfig.CollisionRadius;
-            objectTypeComponent.ObjectType = ObjectType.Ship;
+            collisionObjectTypeComponent.ObjectType = ObjectType.Ship;
             healthComponent.Value = 1;
             
             var shipDataViewService = systems.GetService<IShipDataViewService>();

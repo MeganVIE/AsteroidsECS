@@ -27,7 +27,7 @@ namespace Spawn.Systems
         private MoveSpeedAspect _moveSpeedAspect;
         private CollisionRadiusAspect _collisionRadiusAspect;
         private CollisionTargetAspect _collisionTargetAspect;
-        private ObjectTypeAspect _objectTypeAspect;
+        private CollisionObjectTypeAspect _collisionObjectTypeAspect;
         private HealthAspect _healthAspect;
         private TeleportOutsideScreenAspect _teleportOutsideScreenAspect;
 
@@ -56,7 +56,7 @@ namespace Spawn.Systems
             _moveSpeedAspect = world.GetAspect<MoveSpeedAspect>();
             _collisionRadiusAspect = world.GetAspect<CollisionRadiusAspect>();
             _collisionTargetAspect = world.GetAspect<CollisionTargetAspect>();
-            _objectTypeAspect = world.GetAspect<ObjectTypeAspect>();
+            _collisionObjectTypeAspect = world.GetAspect<CollisionObjectTypeAspect>();
             _healthAspect = world.GetAspect<HealthAspect>();
             _teleportOutsideScreenAspect = world.GetAspect<TeleportOutsideScreenAspect>();
             _spawnAsteroidPartAspect = world.GetAspect<SpawnAsteroidPartAspect>();
@@ -93,7 +93,7 @@ namespace Spawn.Systems
 
             ref CollisionRadiusComponent collisionRadiusComponent = ref _collisionRadiusAspect.Pool.Add(entity);
             ref CollisionTargetComponent collisionTargetComponent = ref _collisionTargetAspect.Pool.Add(entity);
-            ref ObjectTypeComponent objectTypeComponent = ref _objectTypeAspect.Pool.Add(entity);
+            ref CollisionObjectTypeComponent collisionObjectTypeComponent = ref _collisionObjectTypeAspect.Pool.Add(entity);
             ref HealthComponent healthComponent = ref _healthAspect.Pool.Add(entity);
 
             int id = ++_lastId;
@@ -105,7 +105,7 @@ namespace Spawn.Systems
 
             collisionRadiusComponent.Value = _asteroidPartConfig.CollisionRadius;
             collisionTargetComponent.Target = ObjectType.Ship;
-            objectTypeComponent.ObjectType = ObjectType.Enemy;
+            collisionObjectTypeComponent.ObjectType = ObjectType.Enemy;
             healthComponent.Value = 1;
             
             _asteroidPartDataViewService!.CreateView(id, _asteroidPartConfig);

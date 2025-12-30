@@ -14,7 +14,7 @@ namespace Collisions.Systems
         MovableAspect _movableAspect;
         CollisionRadiusAspect _collisionRadiusAspect;
         CollisionTargetAspect _collisionTargetAspect;
-        ObjectTypeAspect _objectTypeAspect;
+        CollisionObjectTypeAspect _collisionObjectTypeAspect;
         HealthAspect _healthAspect;
         
         ProtoIt _nonTargetIt;
@@ -29,13 +29,13 @@ namespace Collisions.Systems
             _movableAspect = _world.GetAspect<MovableAspect>();
             _collisionRadiusAspect = _world.GetAspect<CollisionRadiusAspect>();
             _collisionTargetAspect = _world.GetAspect<CollisionTargetAspect>();
-            _objectTypeAspect = _world.GetAspect<ObjectTypeAspect>();
+            _collisionObjectTypeAspect = _world.GetAspect<CollisionObjectTypeAspect>();
             _healthAspect = _world.GetAspect<HealthAspect>();
 
-            _nonTargetIt = new(new[] { typeof(CollisionRadiusComponent), typeof(ObjectTypeComponent), typeof(MovableComponent) });
+            _nonTargetIt = new(new[] { typeof(CollisionRadiusComponent), typeof(CollisionObjectTypeComponent), typeof(MovableComponent) });
             _nonTargetIt.Init(_world);
 
-            _targetIt = new(new[] { typeof(CollisionRadiusComponent), typeof(CollisionTargetComponent), typeof(ObjectTypeComponent), typeof(MovableComponent) });
+            _targetIt = new(new[] { typeof(CollisionRadiusComponent), typeof(CollisionTargetComponent), typeof(CollisionObjectTypeComponent), typeof(MovableComponent) });
             _targetIt.Init(_world);
         }
         
@@ -48,31 +48,33 @@ namespace Collisions.Systems
 
                 foreach (var targetEntity in _nonTargetIt)
                 {
-                    ObjectTypeComponent objectTypeComponent = _objectTypeAspect.Pool.Get(targetEntity);
+                    CollisionObjectTypeComponent collisionObjectTypeComponent = _collisionObjectTypeAspect.Pool.Get(targetEntity);
 
-                    if (objectTypeComponent.ObjectType == targetType)
+                    if (collisionObjectTypeComponent.ObjectType == targetType && HasCollision(entity, targetEntity))
                     {
-                        var mainCollisionRadius = _collisionRadiusAspect.Pool.Get(entity).Value;
-                        var targetCollisionRadius = _collisionRadiusAspect.Pool.Get(targetEntity).Value;
+                        ref var targetHealthComponent = ref _healthAspect.Pool.Get(targetEntity);
+                        targetHealthComponent.Value--;
 
-                        var mainPosition = _movableAspect.Pool.Get(entity).Position;
-                        var targetPosition = _movableAspect.Pool.Get(targetEntity).Position;
-
-                        var positionDistance = GetPositionDistance(mainPosition, targetPosition);
-                        var collisionDistance = GetCollisionDistance(mainCollisionRadius, targetCollisionRadius);
-                        
-                        if (positionDistance < collisionDistance)
-                        {
-                            ref var targetHealthComponent = ref _healthAspect.Pool.Get(targetEntity);
-                            targetHealthComponent.Value--;
-
-                            ref var entityHealthComponent = ref _healthAspect.Pool.Get(entity);
-                            entityHealthComponent.Value--;
-                            break;
-                        }
+                        ref var entityHealthComponent = ref _healthAspect.Pool.Get(entity);
+                        entityHealthComponent.Value--;
+                        break;
                     }
                 }
             }
+        }
+
+        private bool HasCollision(ProtoEntity mainEntity, ProtoEntity targetEntity)
+        {
+            var mainCollisionRadius = _collisionRadiusAspect.Pool.Get(mainEntity).Value;
+            var targetCollisionRadius = _collisionRadiusAspect.Pool.Get(targetEntity).Value;
+
+            var mainPosition = _movableAspect.Pool.Get(mainEntity).Position;
+            var targetPosition = _movableAspect.Pool.Get(targetEntity).Position;
+
+            var positionDistance = GetPositionDistance(mainPosition, targetPosition);
+            var collisionDistance = GetCollisionDistance(mainCollisionRadius, targetCollisionRadius);
+
+            return positionDistance < collisionDistance;
         }
 
         private double GetPositionDistance(Point first, Point second)

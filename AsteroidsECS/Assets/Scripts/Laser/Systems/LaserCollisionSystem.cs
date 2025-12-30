@@ -18,7 +18,7 @@ namespace Laser.Systems
         private CollisionLengthAspect _collisionLengthAspect;
         private CollisionRadiusAspect _collisionRadiusAspect;
         private CollisionTargetAspect _collisionTargetAspect;
-        private ObjectTypeAspect _objectTypeAspect;
+        private CollisionObjectTypeAspect _collisionObjectTypeAspect;
         private HealthAspect _healthAspect;
         
         private ProtoIt _nonTargetIt;
@@ -35,13 +35,13 @@ namespace Laser.Systems
             _collisionLengthAspect = _world.GetAspect<CollisionLengthAspect>();
             _collisionRadiusAspect = _world.GetAspect<CollisionRadiusAspect>();
             _collisionTargetAspect = _world.GetAspect<CollisionTargetAspect>();
-            _objectTypeAspect = _world.GetAspect<ObjectTypeAspect>();
+            _collisionObjectTypeAspect = _world.GetAspect<CollisionObjectTypeAspect>();
             _healthAspect = _world.GetAspect<HealthAspect>();
 
-            _nonTargetIt = new(new[] { typeof(CollisionRadiusComponent), typeof(ObjectTypeComponent), typeof(MovableComponent) });
+            _nonTargetIt = new(new[] { typeof(CollisionRadiusComponent), typeof(CollisionObjectTypeComponent), typeof(MovableComponent) });
             _nonTargetIt.Init(_world);
 
-            _targetIt = new(new[] { typeof(CollisionLengthComponent), typeof(CollisionTargetComponent), typeof(ObjectTypeComponent), typeof(MovableComponent) });
+            _targetIt = new(new[] { typeof(CollisionLengthComponent), typeof(CollisionTargetComponent), typeof(CollisionObjectTypeComponent), typeof(MovableComponent) });
             _targetIt.Init(_world);
         }
 
@@ -53,9 +53,9 @@ namespace Laser.Systems
 
                 foreach (var targetEntity in _nonTargetIt)
                 {
-                    ObjectTypeComponent objectTypeComponent = _objectTypeAspect.Pool.Get(targetEntity);
+                    CollisionObjectTypeComponent collisionObjectTypeComponent = _collisionObjectTypeAspect.Pool.Get(targetEntity);
 
-                    if (objectTypeComponent.ObjectType == targetType)
+                    if (collisionObjectTypeComponent.ObjectType == targetType)
                     {
                         var mainCollisionLength = _collisionLengthAspect.Pool.Get(entity).Value;
                         var targetCollisionRadius = _collisionRadiusAspect.Pool.Get(targetEntity).Value;

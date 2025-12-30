@@ -2,7 +2,7 @@ using Data;
 
 namespace Collisions.Components
 {
-    public struct ObjectTypeComponent
+    public struct CollisionObjectTypeComponent
     {
         public ObjectType ObjectType;
     }
