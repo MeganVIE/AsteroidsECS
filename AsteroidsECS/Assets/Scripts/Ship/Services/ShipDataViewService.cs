@@ -2,7 +2,7 @@ using Configs;
 using Data;
 using UnityEngine;
 
-namespace UI.Services
+namespace Ship.Services
 {
     public class ShipDataViewService : IShipDataViewService
     {

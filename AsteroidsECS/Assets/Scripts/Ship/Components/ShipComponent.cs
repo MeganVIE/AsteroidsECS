@@ -1,4 +1,4 @@
-namespace EntityTags.Components
+namespace Ship.Components
 {
     public struct ShipComponent { }
 }

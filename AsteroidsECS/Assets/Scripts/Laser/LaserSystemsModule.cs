@@ -12,8 +12,8 @@ namespace Laser
         public void Init(IProtoSystems systems)
         {
             systems
+                .AddSystem(new LaserCollisionSystem(), -1)
                 .AddSystem(new LaserAmountInitSystem())
-                .AddSystem(new LaserCollisionSystem())
                 .AddSystem(new LaserSpawnSystem())
                 .AddSystem(new LaserAmountRechargeSystem())
                 .AddSystem(new LaserInputEventSystem())

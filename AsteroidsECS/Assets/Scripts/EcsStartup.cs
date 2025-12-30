@@ -6,10 +6,9 @@ using Health.Systems;
 using Inputs;
 using Inputs.Services;
 using Laser;
-using Laser.Services;
-using Laser.Systems;
 using Leopotam.EcsProto;
 using Moving;
+using Ship;
 using Spawn.Systems;
 using UI.Services;
 using UI.Systems;
@@ -38,22 +37,20 @@ class EcsStartup : MonoBehaviour
             // Модули должны быть зарегистрированы здесь.
             .AddModule(new MovingSystemsModule())
             .AddModule(new InputsSystemsModule(unityInputService))
+            
+            .AddModule(new ShipSystemsModule())
             .AddModule(new LaserSystemsModule())
 
             // Системы вне модулей могут
             // быть зарегистрированы здесь.
             .AddSystem(new CameraDataInitSystem(), -100)
-
             .AddSystem(new CircleCollisionSystem(), -1)
-            .AddSystem(new LaserCollisionSystem(), -1)
 
-            .AddSystem(new ShipSpawnSystem())
             .AddSystem(new BulletSpawnSystem())
             .AddSystem(new AsteroidSpawnSystem())
             .AddSystem(new AsteroidPartSpawnSystem())
             .AddSystem(new UFOSpawnSystem())
 
-            .AddSystem(new ShipViewSystem())
             .AddSystem(new BulletViewPositionSystem())
             .AddSystem(new AsteroidViewPositionSystem())
             .AddSystem(new AsteroidPartViewPositionSystem())
@@ -64,7 +61,6 @@ class EcsStartup : MonoBehaviour
             .AddSystem(new DestroyOutsideScreenSystem())
             .AddSystem(new DestroyByTimerSystem())
             
-            .AddSystem(new ShipDestroySystem(), 200)
             .AddSystem(new BulletDestroySystem(), 200)
             .AddSystem(new UFODestroySystem(), 205)
             .AddSystem(new AsteroidsDestroySystem(), 205)
@@ -74,14 +70,13 @@ class EcsStartup : MonoBehaviour
             .AddService(new DeltaTimeService(), typeof(IDeltaTimeService))
             .AddService(new CameraDataService(), typeof(ICameraDataService))
             .AddService(new RandomService(), typeof(IRandomService))
-
-            .AddService(_gameOverService, typeof(IGameOverService))
             
-            .AddService(new ShipDataViewService(), typeof(IShipDataViewService))
             .AddService(new BulletDataViewService(), typeof(IBulletDataViewService))
             .AddService(new AsteroidDataViewService(), typeof(IAsteroidDataViewService))
             .AddService(new AsteroidPartDataViewService(), typeof(IAsteroidPartDataViewService))
-            .AddService(new UFODataViewService(), typeof(IUFODataViewService));
+            .AddService(new UFODataViewService(), typeof(IUFODataViewService))
+
+            .AddService(_gameOverService, typeof(IGameOverService));
 
         _systems.Init();
     }

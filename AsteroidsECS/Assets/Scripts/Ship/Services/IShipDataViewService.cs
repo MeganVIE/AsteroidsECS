@@ -1,7 +1,7 @@
 using Configs;
 using Data;
 
-namespace UI.Services
+namespace Ship.Services
 {
     public interface IShipDataViewService
     {

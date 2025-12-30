@@ -1,6 +1,6 @@
-using EntityTags.Components;
+using Ship.Components;
 
-namespace EntityTags.Aspects
+namespace Ship.Aspects
 {
     public class ShipAspect : AbstractAspect<ShipComponent> { }
 }

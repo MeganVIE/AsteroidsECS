@@ -1,10 +1,11 @@
 using Destroy.Components;
-using EntityTags.Components;
 using Leopotam.EcsProto;
+using Ship.Components;
+using Ship.Services;
 using UI.Services;
 using Utils;
 
-namespace Destroy.Systems
+namespace Ship.Systems
 {
     public class ShipDestroySystem : IProtoRunSystem, IProtoInitSystem
     {

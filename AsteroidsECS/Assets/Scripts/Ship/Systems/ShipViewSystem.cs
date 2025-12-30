@@ -1,11 +1,11 @@
-using EntityTags.Components;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
-using UI.Services;
+using Ship.Components;
+using Ship.Services;
 using Utils;
 
-namespace UI.Systems
+namespace Ship.Systems
 {
     public class ShipViewSystem : IProtoRunSystem, IProtoInitSystem
     {

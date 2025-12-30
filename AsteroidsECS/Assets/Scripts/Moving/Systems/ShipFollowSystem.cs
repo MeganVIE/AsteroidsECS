@@ -3,6 +3,7 @@ using EntityTags.Components;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
+using Ship.Components;
 using Utils;
 
 namespace Moving.Systems
