@@ -7,7 +7,7 @@ using Utils;
 
 namespace Ship.Systems
 {
-    public class ShipViewSystem : IProtoRunSystem, IProtoInitSystem
+    public class ShipViewSystem : IProtoRunSystem, IProtoInitSystem, IProtoDestroySystem
     {
         MovableAspect _movableAspect;
         RotationAspect _rotationAspect;
@@ -37,6 +37,11 @@ namespace Ship.Systems
                 _shipDataViewService.SetPosition(movableComponent.Position);
                 _shipDataViewService.SetShipRotation(rotationComponent.Angle);
             }
+        }
+
+        public void Destroy()
+        {
+            _shipDataViewService.Destroy();
         }
     }
 }

@@ -13,13 +13,14 @@ using Moving;
 using Ship;
 using UFO;
 using UI.Services;
+using UI.UnityUI;
 using UnityEngine;
 using Utils;
 
 class EcsStartup : MonoBehaviour
 {
     [SerializeField] private UnityInputService unityInputService;
-    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameOverPanel gameOverPanel;
     
     ProtoWorld _world;
     IProtoSystems _systems;
@@ -28,9 +29,14 @@ class EcsStartup : MonoBehaviour
 
     void Start ()
     {
+        InitWorld();
+    }
+
+    private void InitWorld()
+    {
         _world = new ProtoWorld(new GameAspectsModule());
 
-        _gameOverService = new GameOverService();
+        _gameOverService ??= new GameOverService();
         _gameOverService.SetPanel(gameOverPanel);
 
         _systems = new ProtoSystems (_world);
@@ -67,15 +73,25 @@ class EcsStartup : MonoBehaviour
 
     void Update ()
     {
-        if (!_gameOverService.IsGameOver)
-            _systems.Run();
+        if (_gameOverService.IsGameOver)
+        {
+            if (_gameOverService.IsRestartGame)
+            {
+                OnDestroy();
+                InitWorld();
+            }
+            
+            return;
+        }
+        
+        _systems.Run();
     }
 
-    void OnDestroy () 
+    void OnDestroy ()
     {
-        _systems?.Destroy ();
+        _systems?.Destroy();
         _systems = null;
-        _world?.Destroy ();
+        _world?.Destroy();
         _world = null;
     }
 }

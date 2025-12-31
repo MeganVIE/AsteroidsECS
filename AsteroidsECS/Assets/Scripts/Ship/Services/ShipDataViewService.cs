@@ -25,8 +25,11 @@ namespace Ship.Services
 
         public void Destroy()
         {
-            Object.Destroy(_ship);
-            _ship = null;
+            if (_ship != null)
+            {
+                Object.Destroy(_ship);
+                _ship = null;
+            }
         }
     }
 }

@@ -412,46 +412,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3490105441241097576, guid: b07174481af8dce4c83dd949076a1766, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490105441241097576, guid: b07174481af8dce4c83dd949076a1766, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490105441241097576, guid: b07174481af8dce4c83dd949076a1766, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490105441241097576, guid: b07174481af8dce4c83dd949076a1766, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490105441241097576, guid: b07174481af8dce4c83dd949076a1766, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4204380907993097304, guid: b07174481af8dce4c83dd949076a1766, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4204380907993097304, guid: b07174481af8dce4c83dd949076a1766, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4204380907993097304, guid: b07174481af8dce4c83dd949076a1766, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4204380907993097304, guid: b07174481af8dce4c83dd949076a1766, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4204380907993097304, guid: b07174481af8dce4c83dd949076a1766, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6865167464829157989, guid: b07174481af8dce4c83dd949076a1766, type: 3}
       propertyPath: m_Name
       value: GameOverPanel
@@ -466,11 +426,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2667354947440459281, guid: b07174481af8dce4c83dd949076a1766, type: 3}
   m_PrefabInstance: {fileID: 956342812}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &956342814 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6865167464829157989, guid: b07174481af8dce4c83dd949076a1766, type: 3}
+--- !u!114 &956342814 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2390790045074905577, guid: b07174481af8dce4c83dd949076a1766, type: 3}
   m_PrefabInstance: {fileID: 956342812}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24bf064b44a472fa36290274a62dc7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &986522208
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,21 +7,21 @@ namespace Laser.Services
 {
     public class LaserDataViewService : ILaserDataViewService
     {
-        private Dictionary<int, GameObject> _lasers = new();
+        private Dictionary<int, GameObject> _viewsByIds = new();
 
         public void CreateView(int id, LaserConfig config)
         {
-            _lasers[id] = Object.Instantiate(config.ViewPrefab);
+            _viewsByIds[id] = Object.Instantiate(config.ViewPrefab);
         }
 
         public void SetRotation(int id, float angle)
         {
-            _lasers[id].transform.rotation = Quaternion.Euler(0, 0, angle);
+            _viewsByIds[id].transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
         public void SetLength(int id, float length)
         {
-            LineRenderer lineRenderer = _lasers[id].GetComponentInChildren<LineRenderer>();
+            LineRenderer lineRenderer = _viewsByIds[id].GetComponentInChildren<LineRenderer>();
 
             if (lineRenderer != null)
             {
@@ -31,13 +31,23 @@ namespace Laser.Services
 
         public void SetPosition(int id, Point newPosition)
         {
-            _lasers[id].transform.position = new Vector3(newPosition.X, newPosition.Y);
+            _viewsByIds[id].transform.position = new Vector3(newPosition.X, newPosition.Y);
         }
 
         public void Destroy(int id)
         {
-            Object.Destroy(_lasers[id]);
-            _lasers.Remove(id);
+            Object.Destroy(_viewsByIds[id]);
+            _viewsByIds.Remove(id);
+        }
+
+        public void Clear()
+        {
+            foreach ((int _, GameObject view) in _viewsByIds)
+            {
+                Object.Destroy(view);
+            }
+            
+            _viewsByIds.Clear();
         }
     }
 }

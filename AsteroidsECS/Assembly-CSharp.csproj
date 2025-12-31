@@ -904,11 +904,11 @@
     <Reference Include="Unity.2D.Aseprite.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Multiplayer.Center.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Multiplayer.Center.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
@@ -1096,6 +1096,10 @@
     <ProjectReference Include="DestroyAspects.csproj">
       <Project>{618050d9-897d-8b84-f641-1845c131adf6}</Project>
       <Name>DestroyAspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityUIObjects.csproj">
+      <Project>{e940b7e2-190b-97db-86ce-87b74053a240}</Project>
+      <Name>UnityUIObjects</Name>
     </ProjectReference>
     <ProjectReference Include="LaserSystems.csproj">
       <Project>{a9d8119d-5b93-ec3a-ce5c-da75a8b78b4e}</Project>

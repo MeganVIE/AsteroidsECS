@@ -2,7 +2,7 @@ using Data;
 
 namespace UI.Services
 {
-    public interface IViewPositionService
+    public interface IViewPositionService : IViewClearService
     {
         void SetPosition(int id, Point newPosition);
     }

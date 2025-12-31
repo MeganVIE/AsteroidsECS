@@ -7,22 +7,32 @@ namespace UFO.Services
 {
     public class UFODataViewService : IUFODataViewService
     {
-        private Dictionary<int, GameObject> _ufos = new();
+        private Dictionary<int, GameObject> _viewsByIds = new();
 
         public void CreateView(int id, UFOConfig config)
         {
-            _ufos[id] = Object.Instantiate(config.ViewPrefab);
+            _viewsByIds[id] = Object.Instantiate(config.ViewPrefab);
         }
 
         public void SetPosition(int id, Point newPosition)
         {
-            _ufos[id].transform.position = new Vector3(newPosition.X, newPosition.Y);
+            _viewsByIds[id].transform.position = new Vector3(newPosition.X, newPosition.Y);
         }
 
         public void Destroy(int id)
         {
-            Object.Destroy(_ufos[id]);
-            _ufos.Remove(id);
+            Object.Destroy(_viewsByIds[id]);
+            _viewsByIds.Remove(id);
+        }
+
+        public void Clear()
+        {
+            foreach ((int _, GameObject view) in _viewsByIds)
+            {
+                Object.Destroy(view);
+            }
+            
+            _viewsByIds.Clear();
         }
     }
 }
