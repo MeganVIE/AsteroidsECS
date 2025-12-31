@@ -1,7 +1,8 @@
-using EntityTags.Components;
-using UI.Services;
+using Bullet.Components;
+using Bullet.Services;
+using UI.Systems;
 
-namespace UI.Systems
+namespace Bullet.Systems
 {
     public class BulletViewPositionSystem : ObjectIdViewPositionSystem<IBulletDataViewService, BulletComponent> { }
 }

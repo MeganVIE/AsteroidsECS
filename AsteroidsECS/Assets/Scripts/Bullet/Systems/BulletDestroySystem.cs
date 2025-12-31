@@ -1,7 +1,8 @@
-using EntityTags.Components;
-using UI.Services;
+using Bullet.Components;
+using Bullet.Services;
+using Destroy.Systems;
 
-namespace Destroy.Systems
+namespace Bullet.Systems
 {
     public class BulletDestroySystem : DestroyByIdSystem<IBulletDataViewService, BulletComponent> { }
 }

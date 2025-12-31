@@ -1,6 +1,7 @@
 using Configs;
+using UI.Services;
 
-namespace UI.Services
+namespace Bullet.Services
 {
     public interface IBulletDataViewService : IDestroyItemService, IViewPositionService
     {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LaserConfig
   m_EditorClassIdentifier: 
   ViewPrefab: {fileID: 7659182583596523749, guid: dba5341deae5d024e9991d7712d26117, type: 3}
-  CollisionLength: 10
+  CollisionLength: 15
   LifeTime: 0.2
   MaxAmount: 5
   AmountRechargeTime: 2

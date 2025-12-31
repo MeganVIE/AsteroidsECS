@@ -1,3 +1,5 @@
+using Bullet.Aspects;
+using Bullet.Services;
 using Collisions.Aspects;
 using Collisions.Components;
 using Components;
@@ -13,10 +15,9 @@ using Inputs.Components;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
-using UI.Services;
 using Utils;
 
-namespace Spawn.Systems
+namespace Bullet.Systems
 {
     public class BulletSpawnSystem : IProtoInitSystem, IProtoRunSystem
     {

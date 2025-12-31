@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using Configs;
 using Data;
+using UI.Services;
 using UnityEngine;
 
-namespace UI.Services
+namespace Bullet.Services
 {
     public class BulletDataViewService : IBulletDataViewService
     {

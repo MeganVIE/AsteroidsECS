@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Asteroids;
+using Bullet.Aspects;
 using Leopotam.EcsProto;
 using CameraData.Aspects;
 using Collisions;

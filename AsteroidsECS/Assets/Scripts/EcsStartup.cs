@@ -1,4 +1,5 @@
 using Asteroids;
+using Bullet;
 using CameraData.Services;
 using CameraData.Systems;
 using Collisions.Systems;
@@ -10,10 +11,8 @@ using Laser;
 using Leopotam.EcsProto;
 using Moving;
 using Ship;
-using Spawn.Systems;
 using UFO;
 using UI.Services;
-using UI.Systems;
 using UnityEngine;
 using Utils;
 
@@ -42,6 +41,7 @@ class EcsStartup : MonoBehaviour
             
             .AddModule(new ShipSystemsModule())
             .AddModule(new LaserSystemsModule())
+            .AddModule(new BulletSystemsModule())
             
             .AddModule(new AsteroidsSystemsModule())
             .AddModule(new UFOSystemsModule())
@@ -50,24 +50,15 @@ class EcsStartup : MonoBehaviour
             // быть зарегистрированы здесь.
             .AddSystem(new CameraDataInitSystem(), -100)
             .AddSystem(new CircleCollisionSystem(), -1)
-
-            .AddSystem(new BulletSpawnSystem())
-
-            .AddSystem(new BulletViewPositionSystem())
             
             .AddSystem(new DestroyOutsideScreenSystem())
             .AddSystem(new DestroyByTimerSystem())
-            
             .AddSystem(new DamageHandleSystem(), 100)
-            
-            .AddSystem(new BulletDestroySystem(), 200)
 
             // Сервисы могут быть добавлены в любом месте.
             .AddService(new DeltaTimeService(), typeof(IDeltaTimeService))
             .AddService(new CameraDataService(), typeof(ICameraDataService))
             .AddService(new RandomService(), typeof(IRandomService))
-            
-            .AddService(new BulletDataViewService(), typeof(IBulletDataViewService))
 
             .AddService(_gameOverService, typeof(IGameOverService));
 

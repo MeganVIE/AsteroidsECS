@@ -1,7 +1,7 @@
+using Bullet.Components;
 using Common;
-using EntityTags.Components;
 
-namespace EntityTags.Aspects
+namespace Bullet.Aspects
 {
     public class BulletAspect : AbstractAspect<BulletComponent> { }
 }
