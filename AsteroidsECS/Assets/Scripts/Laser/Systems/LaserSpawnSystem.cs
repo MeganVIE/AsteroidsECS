@@ -76,9 +76,10 @@ namespace Laser.Systems
                         SpawnLaserComponent spawnLaserComponent = _spawnLaserAspect.Pool.Get(entity);
                         Spawn(spawnLaserComponent.Position, spawnLaserComponent.Rotation);
                         laserAmountComponent.Value--;
-                        _spawnLaserAspect.Pool.Del(entity);
                     }
                 }
+                
+                _spawnLaserAspect.Pool.Del(entity);
             }
         }
 
