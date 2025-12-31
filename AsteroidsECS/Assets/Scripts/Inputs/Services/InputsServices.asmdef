@@ -1,0 +1,6 @@
+{
+"name": "InputsServices",
+"references": [
+  "Unity.InputSystem"
+]
+}

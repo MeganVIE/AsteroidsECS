@@ -1,0 +1,26 @@
+{
+"name": "UFOSystems",
+"references": [
+  "Leopotam.EcsProto",
+  "DataCommon",
+  "DataConfigs",
+  "UtilsAndServices",
+  "Common",
+  "DestroySystems",
+  "UFOServices",
+  "UFOComponents",
+  "UISystems",
+  "UFOAspects",
+  "EntityTagsAspects",
+  "MovingAspects",
+  "CollisionsAspects",
+  "HealthAspects",
+  "CameraDataComponents",
+  "CameraDataAspects",
+  "EntityTagsComponents",
+  "HealthComponents",
+  "MovingComponents",
+  "CollisionsComponents",
+  "UIServices"
+]
+}

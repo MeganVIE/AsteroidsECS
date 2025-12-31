@@ -41,7 +41,8 @@ namespace Laser.Systems
             _nonTargetIt = new(new[] { typeof(CollisionRadiusComponent), typeof(CollisionObjectTypeComponent), typeof(MovableComponent) });
             _nonTargetIt.Init(_world);
 
-            _targetIt = new(new[] { typeof(CollisionLengthComponent), typeof(CollisionTargetComponent), typeof(CollisionObjectTypeComponent), typeof(MovableComponent) });
+            _targetIt = new(new[] { typeof(CollisionLengthComponent), typeof(CollisionTargetComponent), 
+                typeof(CollisionObjectTypeComponent), typeof(MovableComponent) });
             _targetIt.Init(_world);
         }
 

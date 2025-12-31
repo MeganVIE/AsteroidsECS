@@ -1,0 +1,8 @@
+{
+"name": "BulletServices",
+"references": [
+  "DataConfigs",
+  "DataCommon",
+  "UIServices"
+]
+}

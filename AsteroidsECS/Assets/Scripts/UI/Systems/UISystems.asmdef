@@ -1,0 +1,14 @@
+{
+"name": "UISystems",
+"references": [
+  "Leopotam.EcsProto",
+  "EntityTagsComponents",
+  "EntityTagsAspects",
+  "UIServices",
+  "UtilsAndServices",
+  "MovingAspects",
+  "MovingComponents",
+  "Common",
+  "DataCommon"
+]
+}

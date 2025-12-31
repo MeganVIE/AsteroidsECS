@@ -1,5 +1,4 @@
 using System;
-using EntityTags.Components;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
@@ -22,7 +21,7 @@ namespace Moving.Systems
             
             _movableAspect = world.GetAspect<MovableAspect>();
             _rotationAspect = world.GetAspect<RotationAspect>();
-
+// todo: переделать на таргет преследования
             _shipIt = new(new[] { typeof(ShipComponent), typeof(MovableComponent) });
             _shipIt.Init(world);
             

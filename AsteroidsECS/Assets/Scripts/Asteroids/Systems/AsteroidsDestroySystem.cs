@@ -5,7 +5,6 @@ using Destroy.Systems;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
-using UI.Services;
 using Utils;
 
 namespace Asteroids.Systems

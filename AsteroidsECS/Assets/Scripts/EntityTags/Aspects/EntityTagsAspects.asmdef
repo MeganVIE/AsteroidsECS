@@ -1,0 +1,6 @@
+{
+  "name": "EntityTagsAspects",
+  "references": [
+    "EntityTagsComponents",
+    "Common"
+  ]}

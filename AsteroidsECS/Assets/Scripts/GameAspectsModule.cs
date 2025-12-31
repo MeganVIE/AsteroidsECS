@@ -29,8 +29,7 @@ public class GameAspectsModule : IProtoAspect
         
         _aspects.Add(new LaserAspectsModule());
         _aspects.Add(new AsteroidsAspectsModule());
-        
-            
+
         _aspects.Add(new MovingAspectsModule());
         _aspects.Add(new CollisionAspectsModule());
         
@@ -38,11 +37,9 @@ public class GameAspectsModule : IProtoAspect
             
         _aspects.Add(new ShipAspect());
         _aspects.Add(new BulletAspect());
-            
         _aspects.Add(new UFOAspect());
         
         _aspects.Add(new HealthAspect());
-        
         _aspects.Add(new DestroyAspect());
         _aspects.Add(new DestroyOutsideScreenAspect());
         _aspects.Add(new DestroyByTimerAspect());

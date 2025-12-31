@@ -1,0 +1,4 @@
+{
+"name": "AsteroidsComponents",
+"references": [ "DataCommon"]
+}

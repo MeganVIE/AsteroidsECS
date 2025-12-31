@@ -1,0 +1,8 @@
+{
+"name": "UFOServices",
+"references": [
+  "DataConfigs",
+  "UIServices",
+  "DataCommon"
+]
+}

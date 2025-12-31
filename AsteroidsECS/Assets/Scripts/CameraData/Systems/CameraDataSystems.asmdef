@@ -1,0 +1,22 @@
+{
+    "name": "CameraDataSystems",
+    "rootNamespace": "",
+    "references": [
+        "Leopotam.EcsProto",
+        "CameraDataAspects",
+        "UtilsAndServices",
+        "CameraDataComponents",
+        "CameraDataServices",
+        "Common",
+        "DataCommon"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

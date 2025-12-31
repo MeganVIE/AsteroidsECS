@@ -1,0 +1,6 @@
+{
+  "name": "CameraDataAspects",
+  "references": [
+    "CameraDataComponents",
+    "Common"
+  ]}

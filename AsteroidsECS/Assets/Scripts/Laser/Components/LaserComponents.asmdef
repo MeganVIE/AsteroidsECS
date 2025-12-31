@@ -1,0 +1,6 @@
+{
+"name": "LaserComponents",
+"references": [
+  "DataCommon"
+]
+}

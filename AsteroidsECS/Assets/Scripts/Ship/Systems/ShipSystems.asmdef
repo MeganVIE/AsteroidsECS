@@ -1,0 +1,23 @@
+{
+"name": "ShipSystems",
+"references": [
+  "Leopotam.EcsProto",
+  "UIServices",
+  "ShipServices",
+  "UtilsAndServices",
+  "DestroyComponents",
+  "ShipComponents",
+  "DataCommon",
+  "DataConfigs",
+  "ShipAspects",
+  "MovingAspects",
+  "Common",
+  "MovingComponents",
+  "InputsAspects",
+  "InputsComponents",
+  "HealthAspects",
+  "HealthComponents",
+  "CollisionsAspects",
+  "CollisionsComponents"
+]
+}

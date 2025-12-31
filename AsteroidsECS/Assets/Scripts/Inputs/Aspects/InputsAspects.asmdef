@@ -1,0 +1,7 @@
+{
+"name": "InputsAspects",
+"references": [
+  "Common",
+  "InputsComponents"
+]
+}

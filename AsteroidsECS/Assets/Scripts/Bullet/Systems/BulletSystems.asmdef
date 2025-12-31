@@ -1,0 +1,28 @@
+{
+"name": "BulletSystems",
+"references": [
+  "Leopotam.EcsProto",
+  "UISystems",
+  "BulletServices",
+  "BulletComponents",
+  "DestroySystems",
+  "InputsAspects",
+  "BulletAspects",
+  "EntityTagsAspects",
+  "MovingAspects",
+  "CollisionsAspects",
+  "HealthAspects",
+  "DestroyAspects",
+  "DataConfigs",
+  "UtilsAndServices",
+  "InputsComponents",
+  "MovingComponents",
+  "Common",
+  "DataCommon",
+  "EntityTagsComponents",
+  "CollisionsComponents",
+  "HealthComponents",
+  "DestroyComponents",
+  "UIServices"
+]
+}

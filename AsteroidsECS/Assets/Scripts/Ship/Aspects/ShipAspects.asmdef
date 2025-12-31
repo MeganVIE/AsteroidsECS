@@ -1,0 +1,7 @@
+{
+"name": "ShipAspects",
+"references": [
+  "Common",
+  "ShipComponents"
+]
+}

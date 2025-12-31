@@ -1,0 +1,27 @@
+{
+"name": "LaserSystems",
+"references": [
+  "Leopotam.EcsProto",
+  "DataCommon",
+  "DataConfigs",
+  "UtilsAndServices",
+  "LaserAspects",
+  "LaserComponents",
+  "Common",
+  "MovingAspects",
+  "CollisionsAspects",
+  "HealthAspects",
+  "CollisionsComponents",
+  "MovingComponents",
+  "HealthComponents",
+  "DestroySystems",
+  "LaserServices",
+  "InputsAspects",
+  "InputsComponents",
+  "EntityTagsAspects",
+  "DestroyAspects",
+  "EntityTagsComponents",
+  "DestroyComponents",
+  "UIServices"
+]
+}

@@ -1,0 +1,8 @@
+{
+"name": "AsteroidsServices",
+"references": [
+  "DataConfigs",
+  "DataCommon",
+  "UIServices"
+]
+}

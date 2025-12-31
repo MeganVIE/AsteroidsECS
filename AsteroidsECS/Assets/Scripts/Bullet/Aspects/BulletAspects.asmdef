@@ -1,0 +1,7 @@
+{
+"name": "BulletAspects",
+"references": [
+  "Common",
+  "BulletComponents"
+]
+}

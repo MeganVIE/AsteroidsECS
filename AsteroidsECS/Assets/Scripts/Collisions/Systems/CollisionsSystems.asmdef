@@ -1,0 +1,15 @@
+{
+"name": "CollisionsSystems",
+"references": [
+  "Leopotam.EcsProto",
+  "MovingAspects",
+  "CollisionsAspects",
+  "HealthAspects",
+  "UtilsAndServices",
+  "CollisionsComponents",
+  "MovingComponents",
+  "Common",
+  "DataCommon",
+  "HealthComponents"
+]
+}

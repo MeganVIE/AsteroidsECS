@@ -1,0 +1,16 @@
+{
+"name": "MovingSystems",
+"references": [
+  "Leopotam.EcsProto",
+  "DataCommon",
+  "UtilsAndServices",
+  "MovingAspects",
+  "MovingComponents",
+  "Common",
+  "InputsAspects",
+  "InputsComponents",
+  "CameraDataComponents",
+  "CameraDataAspects",
+  "ShipComponents"
+]
+}

@@ -1,6 +1,5 @@
 using Data;
 using UnityEngine;
-using Utils;
 
 namespace CameraData.Services
 {

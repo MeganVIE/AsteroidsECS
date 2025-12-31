@@ -1,0 +1,11 @@
+{
+"name": "InputsSystems",
+"references": [
+  "Leopotam.EcsProto",
+  "InputsServices",
+  "InputsAspects",
+  "UtilsAndServices",
+  "InputsComponents",
+  "Common"
+]
+}
