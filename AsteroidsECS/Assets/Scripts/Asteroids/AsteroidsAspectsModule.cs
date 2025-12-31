@@ -1,12 +1,10 @@
 using System.Collections.Generic;
-using EntityTags.Aspects;
+using Asteroids.Aspects;
 using Leopotam.EcsProto;
-using Ship.Aspects;
-using UFO.Aspects;
 
-namespace EntityTags
+namespace Asteroids
 {
-    public class EntityTagAspectsModule : IProtoAspect
+    public class AsteroidsAspectsModule : IProtoAspect
     {
         private List<IProtoAspect> _aspects;
 
@@ -17,14 +15,9 @@ namespace EntityTags
             _world = world;
             _aspects = new List<IProtoAspect>();
             
-            _aspects.Add(new ObjectIdAspect());
-            
-            _aspects.Add(new ShipAspect());
-            _aspects.Add(new BulletAspect());
-            
             _aspects.Add(new AsteroidAspect());
             _aspects.Add(new AsteroidPartAspect());
-            _aspects.Add(new UFOAspect());
+            _aspects.Add(new SpawnAsteroidPartAspect());
             
             _aspects.ForEach(a => a.Init(_world));
         }

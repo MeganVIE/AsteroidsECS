@@ -3,13 +3,13 @@ using Configs;
 using Data;
 using UnityEngine;
 
-namespace UI.Services
+namespace Asteroids.Services
 {
-    public class AsteroidDataViewService : IAsteroidDataViewService
+    public class AsteroidPartDataViewService : IAsteroidPartDataViewService
     {
         private Dictionary<int, GameObject> _asteroids = new();
 
-        public void CreateView(int id, AsteroidConfig config)
+        public void CreateView(int id, AsteroidPartConfig config)
         {
             _asteroids[id] = Object.Instantiate(config.ViewPrefab);
         }

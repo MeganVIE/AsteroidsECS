@@ -1,6 +1,7 @@
-using EntityTags.Components;
+using Asteroids.Components;
+using Common;
 
-namespace EntityTags.Aspects
+namespace Asteroids.Aspects
 {
     public class AsteroidAspect : AbstractAspect<AsteroidComponent> { }
 }

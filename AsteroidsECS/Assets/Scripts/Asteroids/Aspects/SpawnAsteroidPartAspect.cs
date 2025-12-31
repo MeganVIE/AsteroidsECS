@@ -1,6 +1,7 @@
-using Spawn.Components;
+using Asteroids.Components;
+using Common;
 
-namespace Spawn.Aspects
+namespace Asteroids.Aspects
 {
     public class SpawnAsteroidPartAspect : AbstractAspect<SpawnAsteroidPartComponent> { }
 }

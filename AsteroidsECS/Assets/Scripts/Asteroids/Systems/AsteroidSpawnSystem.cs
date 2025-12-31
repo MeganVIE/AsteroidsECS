@@ -1,3 +1,5 @@
+using Asteroids.Aspects;
+using Asteroids.Services;
 using CameraData.Aspects;
 using CameraData.Components;
 using Collisions.Aspects;
@@ -15,7 +17,7 @@ using Moving.Components;
 using UI.Services;
 using Utils;
 
-namespace Spawn.Systems
+namespace Asteroids.Systems
 {
     public class AsteroidSpawnSystem : IProtoInitSystem, IProtoRunSystem
     {

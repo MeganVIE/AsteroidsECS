@@ -1,3 +1,4 @@
+using Common;
 using Laser.Components;
 
 namespace Laser.Aspects

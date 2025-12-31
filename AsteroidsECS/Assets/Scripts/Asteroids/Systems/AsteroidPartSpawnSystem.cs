@@ -1,3 +1,6 @@
+using Asteroids.Aspects;
+using Asteroids.Components;
+using Asteroids.Services;
 using Collisions.Aspects;
 using Collisions.Components;
 using Components;
@@ -10,12 +13,10 @@ using Health.Components;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
-using Spawn.Aspects;
-using Spawn.Components;
 using UI.Services;
 using Utils;
 
-namespace Spawn.Systems
+namespace Asteroids.Systems
 {
     public class AsteroidPartSpawnSystem : IProtoInitSystem, IProtoRunSystem
     {

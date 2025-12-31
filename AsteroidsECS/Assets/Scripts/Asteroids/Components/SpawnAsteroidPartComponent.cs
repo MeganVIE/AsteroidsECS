@@ -1,6 +1,6 @@
 using Data;
 
-namespace Spawn.Components
+namespace Asteroids.Components
 {
     public struct SpawnAsteroidPartComponent
     {

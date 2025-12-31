@@ -1,13 +1,14 @@
-using EntityTags.Components;
+using Asteroids.Aspects;
+using Asteroids.Components;
+using Asteroids.Services;
+using Destroy.Systems;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
-using Spawn.Aspects;
-using Spawn.Components;
 using UI.Services;
 using Utils;
 
-namespace Destroy.Systems
+namespace Asteroids.Systems
 {
     public class AsteroidsDestroySystem : DestroyByIdSystem<IAsteroidDataViewService, AsteroidComponent>
     {

@@ -1,4 +1,4 @@
-namespace EntityTags.Components
+namespace Asteroids.Components
 {
     public struct AsteroidComponent { }
 }

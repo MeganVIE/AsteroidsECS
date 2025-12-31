@@ -1,6 +1,7 @@
 using Configs;
+using UI.Services;
 
-namespace UI.Services
+namespace Asteroids.Services
 {
     public interface IAsteroidDataViewService : IDestroyItemService, IViewPositionService
     {

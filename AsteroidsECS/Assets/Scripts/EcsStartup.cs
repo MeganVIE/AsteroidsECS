@@ -1,3 +1,4 @@
+using Asteroids;
 using CameraData.Services;
 using CameraData.Systems;
 using Collisions.Systems;
@@ -42,6 +43,7 @@ class EcsStartup : MonoBehaviour
             .AddModule(new ShipSystemsModule())
             .AddModule(new LaserSystemsModule())
             
+            .AddModule(new AsteroidsSystemsModule())
             .AddModule(new UFOSystemsModule())
 
             // Системы вне модулей могут
@@ -50,21 +52,15 @@ class EcsStartup : MonoBehaviour
             .AddSystem(new CircleCollisionSystem(), -1)
 
             .AddSystem(new BulletSpawnSystem())
-            .AddSystem(new AsteroidSpawnSystem())
-            .AddSystem(new AsteroidPartSpawnSystem())
 
             .AddSystem(new BulletViewPositionSystem())
-            .AddSystem(new AsteroidViewPositionSystem())
-            .AddSystem(new AsteroidPartViewPositionSystem())
-            
-            .AddSystem(new DamageHandleSystem(), 100)
             
             .AddSystem(new DestroyOutsideScreenSystem())
             .AddSystem(new DestroyByTimerSystem())
             
+            .AddSystem(new DamageHandleSystem(), 100)
+            
             .AddSystem(new BulletDestroySystem(), 200)
-            .AddSystem(new AsteroidsDestroySystem(), 205)
-            .AddSystem(new AsteroidPartsDestroySystem(), 210)
 
             // Сервисы могут быть добавлены в любом месте.
             .AddService(new DeltaTimeService(), typeof(IDeltaTimeService))
@@ -72,8 +68,6 @@ class EcsStartup : MonoBehaviour
             .AddService(new RandomService(), typeof(IRandomService))
             
             .AddService(new BulletDataViewService(), typeof(IBulletDataViewService))
-            .AddService(new AsteroidDataViewService(), typeof(IAsteroidDataViewService))
-            .AddService(new AsteroidPartDataViewService(), typeof(IAsteroidPartDataViewService))
 
             .AddService(_gameOverService, typeof(IGameOverService));
 
