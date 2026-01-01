@@ -25,7 +25,8 @@ namespace Laser.Systems
 
             ref LaserAmountRechargeTimeComponent laserAmountRechargeTimeComponent = ref laserAmountRechargeTimeAspect.Pool.Add(entity);
             laserAmountRechargeTimeComponent.RechargeTime = laserConfig.AmountRechargeTime;
-            laserAmountRechargeAspect.Pool.Add(entity);
+            ref LaserAmountRechargeComponent laserAmountRechargeComponent = ref laserAmountRechargeAspect.Pool.Add(entity);
+            laserAmountRechargeComponent.Value = laserConfig.AmountRechargeTime;
         }
     }
 }
