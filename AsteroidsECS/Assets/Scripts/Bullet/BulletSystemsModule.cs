@@ -15,6 +15,7 @@ namespace Bullet
                 .AddSystem(new BulletSpawnSystem())
                 .AddSystem(new BulletViewPositionSystem())
                 .AddSystem(new BulletDestroySystem(), 200)
+                .AddSystem(new BulletClearSystem(), 300)
                 
                 .AddService(new BulletDataViewService(), typeof(IBulletDataViewService));
         }

@@ -46,6 +46,8 @@
     <Analyzer Include="F:\UnityEditor\6000.0.61f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidClearSystem.cs" />
+    <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidPartClearSystem.cs" />
     <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidViewPositionSystem.cs" />
     <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidPartsDestroySystem.cs" />
     <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidSpawnSystem.cs" />

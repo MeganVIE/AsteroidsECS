@@ -46,6 +46,7 @@
     <Analyzer Include="F:\UnityEditor\6000.0.61f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\UFO\Systems\UFOClearSystem.cs" />
     <Compile Include="Assets\Scripts\UFO\Systems\UFODestroySystem.cs" />
     <Compile Include="Assets\Scripts\UFO\Systems\UfoViewPositionSystem.cs" />
     <Compile Include="Assets\Scripts\UFO\Systems\UFOSpawnSystem.cs" />

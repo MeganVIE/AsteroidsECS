@@ -52,8 +52,7 @@ class EcsStartup : MonoBehaviour
             .AddModule(new AsteroidsSystemsModule())
             .AddModule(new UFOSystemsModule())
 
-            // Системы вне модулей могут
-            // быть зарегистрированы здесь.
+            // Системы вне модулей могут быть зарегистрированы здесь.
             .AddSystem(new CameraDataInitSystem(), -100)
             .AddSystem(new CircleCollisionSystem(), -1)
             

@@ -17,6 +17,8 @@ namespace Asteroids
                 .AddSystem(new AsteroidPartViewPositionSystem())
                 .AddSystem(new AsteroidsDestroySystem(), 205)
                 .AddSystem(new AsteroidPartsDestroySystem(), 210)
+                .AddSystem(new AsteroidClearSystem(), 300)
+                .AddSystem(new AsteroidPartClearSystem(), 300)
                 
                 .AddService(new AsteroidDataViewService(), typeof(IAsteroidDataViewService))
                 .AddService(new AsteroidPartDataViewService(), typeof(IAsteroidPartDataViewService));

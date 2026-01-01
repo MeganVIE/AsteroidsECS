@@ -22,6 +22,7 @@
   "DestroyAspects",
   "EntityTagsComponents",
   "DestroyComponents",
-  "UIServices"
+  "UIServices",
+  "UISystems"
 ]
 }

@@ -8,7 +8,7 @@ using Utils;
 
 namespace UI.Systems
 {
-    public class ObjectIdViewPositionSystem<TService, TComponent> : IProtoRunSystem, IProtoInitSystem, IProtoDestroySystem
+    public class ObjectIdViewPositionSystem<TService, TComponent> : IProtoRunSystem, IProtoInitSystem
         where TService : class, IViewPositionService
         where TComponent : struct
     {
@@ -39,11 +39,6 @@ namespace UI.Systems
 
                 _service.SetPosition(objectIDComponent.Id, movableComponent.Position);
             }
-        }
-
-        public void Destroy()
-        {
-            _service.Clear();
         }
     }
 }

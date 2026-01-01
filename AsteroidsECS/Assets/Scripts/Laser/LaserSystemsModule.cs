@@ -18,6 +18,7 @@ namespace Laser
                 .AddSystem(new LaserAmountRechargeSystem())
                 .AddSystem(new LaserInputEventSystem())
                 .AddSystem(new LaserDestroySystem(), 200)
+                .AddSystem(new LaserClearSystem(), 300)
                 
                 .AddService(new LaserDataViewService(), typeof(ILaserDataViewService));
         }

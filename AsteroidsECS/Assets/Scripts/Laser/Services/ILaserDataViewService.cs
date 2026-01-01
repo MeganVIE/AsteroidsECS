@@ -3,7 +3,7 @@ using UI.Services;
 
 namespace Laser.Services
 {
-    public interface ILaserDataViewService : IDestroyItemService, IViewPositionService
+    public interface ILaserDataViewService : IDestroyItemService, IViewPositionService, IViewClearService
     {
         void CreateView(int id, LaserConfig config);
 

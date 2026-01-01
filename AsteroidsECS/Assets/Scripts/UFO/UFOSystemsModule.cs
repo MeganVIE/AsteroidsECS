@@ -13,7 +13,8 @@ namespace UFO
             systems
                 .AddSystem(new UFOSpawnSystem())
                 .AddSystem(new UfoViewPositionSystem())
-                .AddSystem(new UFODestroySystem(), 205)
+                .AddSystem(new UFODestroySystem(), 200)
+                .AddSystem(new UFOClearSystem(), 300)
                 
                 .AddService(new UFODataViewService(), typeof(IUFODataViewService));
         }
