@@ -10,11 +10,10 @@ namespace Laser.Systems
         private LaserAmountAspect _laserAmountAspect;
         private LaserAmountLimitAspect _laserAmountLimitAspect;
         private LaserAmountRechargeAspect _laserAmountRechargeAspect;
+        private LaserAmountRechargeTimeAspect _laserAmountRechargeTimeAspect;
         private IDeltaTimeService _deltaTimeService;
         
         private ProtoIt _it;
-        
-        private float _time;
         
         public void Init(IProtoSystems systems)
         {
@@ -23,10 +22,12 @@ namespace Laser.Systems
             _laserAmountAspect = world.GetAspect<LaserAmountAspect>();
             _laserAmountLimitAspect = world.GetAspect<LaserAmountLimitAspect>();
             _laserAmountRechargeAspect = world.GetAspect<LaserAmountRechargeAspect>();
+            _laserAmountRechargeTimeAspect = world.GetAspect<LaserAmountRechargeTimeAspect>();
             _deltaTimeService = systems.GetService<IDeltaTimeService>();
             
 
-            _it = new(new[] { typeof(LaserAmountRechargeComponent), typeof(LaserAmountComponent), typeof(LaserAmountLimitComponent) });
+            _it = new(new[] { typeof(LaserAmountRechargeTimeComponent), typeof(LaserAmountRechargeComponent),
+                typeof(LaserAmountComponent), typeof(LaserAmountLimitComponent) });
             _it.Init(world);
         }
 
@@ -34,11 +35,12 @@ namespace Laser.Systems
         {
             foreach (var entity in _it)
             {
-                _time += _deltaTimeService.DeltaTime;
+                ref LaserAmountRechargeComponent rechargeComponent = ref _laserAmountRechargeAspect.Pool.Get(entity);
+                rechargeComponent.Value -= _deltaTimeService.DeltaTime;
 
-                LaserAmountRechargeComponent laserAmountRechargeComponent = _laserAmountRechargeAspect.Pool.Get(entity);
+                LaserAmountRechargeTimeComponent laserAmountRechargeTimeComponent = _laserAmountRechargeTimeAspect.Pool.Get(entity);
 
-                if (laserAmountRechargeComponent.RechargeTime > _time) 
+                if (rechargeComponent.Value > 0)
                     return;
 
                 ref LaserAmountComponent laserAmountComponent = ref _laserAmountAspect.Pool.Get(entity);
@@ -47,7 +49,7 @@ namespace Laser.Systems
                 if (laserAmountLimitComponent.Value > laserAmountComponent.Value)
                     laserAmountComponent.Value++;
                 
-                _time = 0;
+                rechargeComponent.Value = laserAmountRechargeTimeComponent.RechargeTime;
             }
         }
     }

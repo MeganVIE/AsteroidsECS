@@ -51,6 +51,7 @@
     <Compile Include="Assets\Scripts\Laser\Aspects\LaserAmountRechargeAspect.cs" />
     <Compile Include="Assets\Scripts\Laser\Aspects\LaserAmountLimitAspect.cs" />
     <Compile Include="Assets\Scripts\Laser\Aspects\SpawnLaserAspect.cs" />
+    <Compile Include="Assets\Scripts\Laser\Aspects\LaserAmountRechargeTimeAspect.cs" />
     <None Include="Assets\Scripts\Laser\Aspects\LaserAspects.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>F:\UnityEditor\6000.0.61f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

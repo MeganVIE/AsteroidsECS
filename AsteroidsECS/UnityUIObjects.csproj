@@ -46,8 +46,10 @@
     <Analyzer Include="F:\UnityEditor\6000.0.61f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\UnityUI\UserDataPanel.cs" />
     <Compile Include="Assets\Scripts\UnityUI\GameOverPanel.cs" />
     <Compile Include="Assets\Scripts\UnityUI\IGameOverPanel.cs" />
+    <Compile Include="Assets\Scripts\UnityUI\IUserDataPanel.cs" />
     <None Include="Assets\Scripts\UnityUI\UnityUIObjects.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>F:\UnityEditor\6000.0.61f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -849,6 +851,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="DataCommon.csproj">
+      <Project>{133af43b-9d93-be39-57c7-3715d67efc31}</Project>
+      <Name>DataCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

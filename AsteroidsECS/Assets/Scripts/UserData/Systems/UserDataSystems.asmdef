@@ -1,0 +1,17 @@
+{
+"name": "UserDataSystems",
+"references": [
+  "Leopotam.EcsProto",
+  "UserDataServices",
+  "UtilsAndServices",
+  "ShipComponents",
+  "HealthComponents",
+  "MovingComponents",
+  "LaserComponents",
+  "HealthAspects",
+  "MovingAspects",
+  "Common",
+  "DataCommon",
+  "LaserAspects"
+]
+}

@@ -2,7 +2,8 @@
     "name": "UnityUIObjects",
     "rootNamespace": "",
     "references": [
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "DataCommon"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

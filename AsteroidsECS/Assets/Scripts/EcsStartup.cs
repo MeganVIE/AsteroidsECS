@@ -17,12 +17,15 @@ using Ship;
 using UFO;
 using UnityEngine;
 using UnityUI;
+using UserData.Services;
+using UserData.Systems;
 using Utils;
 
 class EcsStartup : MonoBehaviour
 {
     [SerializeField] private UnityInputService unityInputService;
     [SerializeField] private GameOverPanel gameOverPanel;
+    [SerializeField] private UserDataPanel userDataPanel;
     
     ProtoWorld _world;
     IProtoSystems _systems;
@@ -40,6 +43,9 @@ class EcsStartup : MonoBehaviour
 
         _gameOverService ??= new GameOverService();
         _gameOverService.SetPanel(gameOverPanel);
+
+        IUserDataViewService userDataViewService = new UserDataViewService();
+        userDataViewService.SetPanel(userDataPanel);
 
         _systems = new ProtoSystems (_world);
         _systems
@@ -61,6 +67,8 @@ class EcsStartup : MonoBehaviour
             .AddSystem(new CameraDataInitSystem(), -100)
             .AddSystem(new CircleCollisionSystem(), -1)
             
+            .AddSystem(new UserDataViewSystem())
+            
             .AddSystem(new DamageHandleSystem(), 10)
             
             .AddSystem(new GameOverSystem(), 500)
@@ -70,7 +78,8 @@ class EcsStartup : MonoBehaviour
             .AddService(new CameraDataService(), typeof(ICameraDataService))
             .AddService(new RandomService(), typeof(IRandomService))
 
-            .AddService(_gameOverService, typeof(IGameOverService));
+            .AddService(_gameOverService, typeof(IGameOverService))
+            .AddService(userDataViewService, typeof(IUserDataViewService));
 
         _systems.Init();
     }

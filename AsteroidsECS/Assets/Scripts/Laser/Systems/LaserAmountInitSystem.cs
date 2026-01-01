@@ -16,14 +16,16 @@ namespace Laser.Systems
             var laserAmountAspect = world.GetAspect<LaserAmountAspect>();
             var laserAmountLimitAspect = world.GetAspect<LaserAmountLimitAspect>();
             var laserAmountRechargeAspect = world.GetAspect<LaserAmountRechargeAspect>();
+            var laserAmountRechargeTimeAspect = world.GetAspect<LaserAmountRechargeTimeAspect>();
             
             laserAmountAspect.Pool.NewEntity(out ProtoEntity entity);
             
             ref LaserAmountLimitComponent laserAmountLimitComponent = ref laserAmountLimitAspect.Pool.Add(entity);
             laserAmountLimitComponent.Value = laserConfig.MaxAmount;
 
-            ref LaserAmountRechargeComponent laserAmountRechargeComponent = ref laserAmountRechargeAspect.Pool.Add(entity);
-            laserAmountRechargeComponent.RechargeTime = laserConfig.AmountRechargeTime;
+            ref LaserAmountRechargeTimeComponent laserAmountRechargeTimeComponent = ref laserAmountRechargeTimeAspect.Pool.Add(entity);
+            laserAmountRechargeTimeComponent.RechargeTime = laserConfig.AmountRechargeTime;
+            laserAmountRechargeAspect.Pool.Add(entity);
         }
     }
 }
