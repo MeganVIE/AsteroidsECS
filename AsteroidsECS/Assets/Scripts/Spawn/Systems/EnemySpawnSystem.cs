@@ -14,7 +14,7 @@ using Moving.Components;
 using Score.Aspects;
 using Score.Components;
 using UFO.Services;
-using UI.Services;
+using UIView.Services;
 using Utils;
 
 namespace Spawn.Systems
@@ -35,7 +35,7 @@ namespace Spawn.Systems
         private CollisionTargetAspect _collisionTargetAspect;
         private CollisionObjectTypeAspect _collisionObjectTypeAspect;
         private HealthAspect _healthAspect;
-        private ScoreChangeAtDeathAspect _scoreChangeAtDeathAspect;
+        private ScoreChangeByDestroyAspect _scoreChangeByDestroyAspect;
         private TeleportOutsideScreenAspect _teleportOutsideScreenAspect;
         
         private TViewService _viewService;
@@ -60,7 +60,7 @@ namespace Spawn.Systems
             _collisionTargetAspect = world.GetAspect<CollisionTargetAspect>();
             _collisionObjectTypeAspect = world.GetAspect<CollisionObjectTypeAspect>();
             _healthAspect = world.GetAspect<HealthAspect>();
-            _scoreChangeAtDeathAspect = world.GetAspect<ScoreChangeAtDeathAspect>();
+            _scoreChangeByDestroyAspect = world.GetAspect<ScoreChangeByDestroyAspect>();
             _teleportOutsideScreenAspect = world.GetAspect<TeleportOutsideScreenAspect>();
 
             PostInit(systems);
@@ -94,7 +94,7 @@ namespace Spawn.Systems
 
         private void SetScoreData(ProtoEntity entity)
         {
-            ref ScoreChangeAtDeathComponent component = ref _scoreChangeAtDeathAspect.Pool.Add(entity);
+            ref ScoreChangeByDestroyComponent component = ref _scoreChangeByDestroyAspect.Pool.Add(entity);
             component.Amount = Config.ScorePoints;
         }
 

@@ -3,10 +3,10 @@ using EntityTags.Components;
 using Leopotam.EcsProto;
 using Moving.Aspects;
 using Moving.Components;
-using UI.Services;
+using UIView.Services;
 using Utils;
 
-namespace UI.Systems
+namespace UIView.Systems
 {
     public class ObjectIdViewPositionSystem<TService, TComponent> : IProtoRunSystem, IProtoInitSystem
         where TService : class, IViewPositionService

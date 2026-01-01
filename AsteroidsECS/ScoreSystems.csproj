@@ -46,7 +46,7 @@
     <Analyzer Include="F:\UnityEditor\6000.0.61f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Score\Systems\ScoreChangeAtDeathSystem.cs" />
+    <Compile Include="Assets\Scripts\Score\Systems\ScoreChangeByDestroySystem.cs" />
     <Compile Include="Assets\Scripts\Score\Systems\ScoreChangeSystem.cs" />
     <None Include="Assets\Scripts\Score\Systems\ScoreSystems.asmdef" />
     <Reference Include="UnityEngine">
@@ -864,6 +864,10 @@
     <ProjectReference Include="Common.csproj">
       <Project>{74ac4bdd-9db0-b5f6-fc52-0d12a91277ba}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="DestroyComponents.csproj">
+      <Project>{74f0a711-22ee-33ef-1c45-080c10eeba28}</Project>
+      <Name>DestroyComponents</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

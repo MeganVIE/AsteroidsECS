@@ -1,6 +1,6 @@
 namespace Score.Components
 {
-    public struct ScoreChangeAtDeathComponent
+    public struct ScoreChangeByDestroyComponent
     {
         public int Amount;
     }

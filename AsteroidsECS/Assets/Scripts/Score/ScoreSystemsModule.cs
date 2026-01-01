@@ -10,7 +10,7 @@ namespace Score
         public void Init(IProtoSystems systems)
         {
             systems
-                .AddSystem(new ScoreChangeAtDeathSystem(), 50)
+                .AddSystem(new ScoreChangeByDestroySystem(), 50)
                 .AddSystem(new ScoreChangeSystem(), 300);
         }
 

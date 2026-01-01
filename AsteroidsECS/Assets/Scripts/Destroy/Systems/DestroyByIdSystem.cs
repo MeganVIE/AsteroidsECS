@@ -2,7 +2,7 @@ using Destroy.Components;
 using EntityTags.Aspects;
 using EntityTags.Components;
 using Leopotam.EcsProto;
-using UI.Services;
+using UIView.Services;
 using Utils;
 
 namespace Destroy.Systems

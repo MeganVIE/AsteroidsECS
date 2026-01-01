@@ -1,5 +1,5 @@
 using UFO.Services;
-using UI.Services;
+using UIView.Services;
 
 namespace Asteroids.Services
 {

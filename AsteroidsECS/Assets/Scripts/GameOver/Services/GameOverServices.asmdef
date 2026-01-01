@@ -1,0 +1,6 @@
+{
+"name": "GameOverServices",
+"references": [
+  "UnityUIObjects"
+]
+}

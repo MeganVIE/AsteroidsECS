@@ -1,6 +1,6 @@
-using UI.UnityUI;
+using UnityUI;
 
-namespace UI.Services
+namespace GameOver.Services
 {
     public class GameOverService : IGameOverService
     {
@@ -19,10 +19,11 @@ namespace UI.Services
             IsRestartGame = false;
         }
 
-        public void GameOver()
+        public void GameOver(int score)
         {
             IsGameOver = true;
             _panel.SetActive(true);
+            _panel.SetScore(score);
         }
 
         private void OnRestartPressed()

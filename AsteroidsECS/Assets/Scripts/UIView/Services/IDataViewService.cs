@@ -1,6 +1,6 @@
 using Configs;
 
-namespace UI.Services
+namespace UIView.Services
 {
     public interface IDataViewService : IViewPositionService
     {

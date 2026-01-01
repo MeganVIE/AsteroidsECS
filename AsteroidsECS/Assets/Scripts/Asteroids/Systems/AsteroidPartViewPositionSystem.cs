@@ -1,6 +1,6 @@
 using Asteroids.Components;
 using Asteroids.Services;
-using UI.Systems;
+using UIView.Systems;
 
 namespace Asteroids.Systems
 {

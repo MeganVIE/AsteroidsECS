@@ -39,6 +39,7 @@ namespace Score.Systems
                 {
                     ScoreIncreaseComponent scoreIncreaseComponent = _scoreIncreaseAspect.Pool.Get(increaseEntity);
                     scoreComponent.Value += scoreIncreaseComponent.Amount;
+                    _scoreIncreaseAspect.Pool.Del(increaseEntity);
                 }
             }
         }

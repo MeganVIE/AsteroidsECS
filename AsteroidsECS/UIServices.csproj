@@ -46,13 +46,11 @@
     <Analyzer Include="F:\UnityEditor\6000.0.61f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\UI\Services\IViewClearService.cs" />
-    <Compile Include="Assets\Scripts\UI\Services\IDestroyItemService.cs" />
-    <Compile Include="Assets\Scripts\UI\Services\GameOverService.cs" />
-    <Compile Include="Assets\Scripts\UI\Services\IDataViewService.cs" />
-    <Compile Include="Assets\Scripts\UI\Services\IGameOverService.cs" />
-    <Compile Include="Assets\Scripts\UI\Services\IViewPositionService.cs" />
-    <None Include="Assets\Scripts\UI\Services\UIServices.asmdef" />
+    <Compile Include="Assets\Scripts\UIView\Services\IViewPositionService.cs" />
+    <Compile Include="Assets\Scripts\UIView\Services\IDataViewService.cs" />
+    <Compile Include="Assets\Scripts\UIView\Services\IDestroyItemService.cs" />
+    <Compile Include="Assets\Scripts\UIView\Services\IViewClearService.cs" />
+    <None Include="Assets\Scripts\UIView\Services\UIServices.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>F:\UnityEditor\6000.0.61f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

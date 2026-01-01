@@ -46,9 +46,13 @@ namespace Collisions.Systems
             {
                 CollisionTargetComponent collisionTargetComponent = _collisionTargetAspect.Pool.Get(entity);
                 ObjectType targetType = collisionTargetComponent.Target;
+                ref var entityHealthComponent = ref _healthAspect.Pool.Get(entity);
 
                 foreach (var targetEntity in _nonTargetIt)
                 {
+                    if (entityHealthComponent.Value <= 0)
+                        continue;
+                    
                     CollisionObjectTypeComponent collisionObjectTypeComponent = _collisionObjectTypeAspect.Pool.Get(targetEntity);
 
                     if (collisionObjectTypeComponent.ObjectType == targetType && HasCollision(entity, targetEntity))
@@ -56,9 +60,10 @@ namespace Collisions.Systems
                         ref var targetHealthComponent = ref _healthAspect.Pool.Get(targetEntity);
                         targetHealthComponent.Value--;
 
-                        ref var entityHealthComponent = ref _healthAspect.Pool.Get(entity);
-                        entityHealthComponent.Value--;
-                        break;
+                        if (targetType != ObjectType.Ship)
+                        {
+                            entityHealthComponent.Value--;
+                        }
                     }
                 }
             }

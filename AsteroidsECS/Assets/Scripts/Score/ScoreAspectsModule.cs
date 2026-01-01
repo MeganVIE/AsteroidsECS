@@ -16,7 +16,7 @@ namespace Score
             _aspects = new List<IProtoAspect>();
             
             _aspects.Add(new ScoreAspect());
-            _aspects.Add(new ScoreChangeAtDeathAspect());
+            _aspects.Add(new ScoreChangeByDestroyAspect());
             _aspects.Add(new ScoreIncreaseAspect());
             
             _aspects.ForEach(a => a.Init(_world));

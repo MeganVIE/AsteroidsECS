@@ -1,0 +1,12 @@
+{
+	"name": "GameOverSystems",
+	"references": [
+		"Leopotam.EcsProto",
+		"ShipComponents",
+		"ScoreAspects",
+		"GameOverServices",
+		"UtilsAndServices",
+		"ScoreComponents",
+		"Common"
+	]
+}

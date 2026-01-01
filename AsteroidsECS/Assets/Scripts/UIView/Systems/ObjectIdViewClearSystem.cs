@@ -1,8 +1,8 @@
 using Leopotam.EcsProto;
-using UI.Services;
+using UIView.Services;
 using Utils;
 
-namespace UI.Systems
+namespace UIView.Systems
 {
     public abstract class ObjectIdViewClearSystem<TService> : IProtoInitSystem, IProtoDestroySystem
         where TService : class, IViewClearService

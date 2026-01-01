@@ -18,6 +18,7 @@
   "HealthAspects",
   "HealthComponents",
   "CollisionsAspects",
-  "CollisionsComponents"
+  "CollisionsComponents",
+  "UIPanelsServices"
 ]
 }

@@ -1,4 +1,4 @@
-namespace UI.Services
+namespace UIView.Services
 {
     public interface IViewClearService
     {

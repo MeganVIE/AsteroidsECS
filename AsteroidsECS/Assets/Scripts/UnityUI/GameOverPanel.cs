@@ -1,14 +1,23 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.UnityUI
+namespace UnityUI
 {
     public class GameOverPanel : MonoBehaviour, IGameOverPanel
     {
         [SerializeField] private Button _button;
+        [SerializeField] private TextMeshProUGUI _scoreText;
         
         public Action RestartPressed { get; set; }
+
+        public void SetActive(bool value)
+        {
+            gameObject.SetActive(value);
+        }
+
+        public void SetScore(int value) => _scoreText.text = value.ToString();
 
         private void OnEnable()
         {
@@ -18,11 +27,6 @@ namespace UI.UnityUI
         private void OnRestartPressed()
         {
             RestartPressed?.Invoke();
-        }
-
-        public void SetActive(bool value)
-        {
-            gameObject.SetActive(value);
         }
     }
 }

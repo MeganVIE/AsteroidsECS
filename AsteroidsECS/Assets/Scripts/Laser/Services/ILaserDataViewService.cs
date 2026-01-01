@@ -1,5 +1,5 @@
 using Configs;
-using UI.Services;
+using UIView.Services;
 
 namespace Laser.Services
 {

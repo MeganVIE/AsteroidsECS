@@ -4,7 +4,8 @@ using CameraData.Services;
 using CameraData.Systems;
 using Collisions.Systems;
 using Destroy;
-using Destroy.Systems;
+using GameOver.Services;
+using GameOver.Systems;
 using Health.Systems;
 using Inputs;
 using Inputs.Services;
@@ -12,12 +13,10 @@ using Laser;
 using Leopotam.EcsProto;
 using Moving;
 using Score;
-using Score.Systems;
 using Ship;
 using UFO;
-using UI.Services;
-using UI.UnityUI;
 using UnityEngine;
+using UnityUI;
 using Utils;
 
 class EcsStartup : MonoBehaviour
@@ -63,6 +62,8 @@ class EcsStartup : MonoBehaviour
             .AddSystem(new CircleCollisionSystem(), -1)
             
             .AddSystem(new DamageHandleSystem(), 10)
+            
+            .AddSystem(new GameOverSystem(), 500)
 
             // Сервисы могут быть добавлены в любом месте.
             .AddService(new DeltaTimeService(), typeof(IDeltaTimeService))

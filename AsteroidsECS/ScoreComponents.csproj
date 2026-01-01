@@ -47,8 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Score\Components\ScoreComponent.cs" />
-    <Compile Include="Assets\Scripts\Score\Components\ScoreChangeAtDeathComponent.cs" />
     <Compile Include="Assets\Scripts\Score\Components\ScoreIncreaseComponent.cs" />
+    <Compile Include="Assets\Scripts\Score\Components\ScoreChangeByDestroyComponent.cs" />
     <None Include="Assets\Scripts\Score\Components\ScoreComponents.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>F:\UnityEditor\6000.0.61f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

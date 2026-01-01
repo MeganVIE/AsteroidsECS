@@ -1,12 +1,12 @@
-using UI.UnityUI;
+using UnityUI;
 
-namespace UI.Services
+namespace GameOver.Services
 {
     public interface IGameOverService
     {
         bool IsGameOver { get; }
         bool IsRestartGame { get; }
         void SetPanel(IGameOverPanel panel);
-        void GameOver();
+        void GameOver(int score);
     }
 }

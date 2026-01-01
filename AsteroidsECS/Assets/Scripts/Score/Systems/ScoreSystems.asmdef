@@ -5,6 +5,7 @@
   "ScoreAspects",
   "UtilsAndServices",
   "ScoreComponents",
-  "Common"
+  "Common",
+  "DestroyComponents"
 ]
 }

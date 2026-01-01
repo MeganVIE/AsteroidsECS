@@ -842,35 +842,11 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>F:\UnityEditor\6000.0.61f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.2D.Runtime">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="PsdPlugin">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
     </Reference>
-    <Reference Include="Leopotam.EcsProto">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Leopotam.EcsProto.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.2D.Common.Path.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.IK.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
@@ -878,29 +854,11 @@
     <Reference Include="Unity.2D.IK.Runtime">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Common.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
@@ -914,29 +872,11 @@
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Collections">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
-    </Reference>
     <Reference Include="PPv2URPConverters">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rendering.LightTransport.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEditorBridge.001">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
@@ -962,9 +902,6 @@
     <Reference Include="Unity.Collections.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
@@ -974,23 +911,104 @@
     <Reference Include="Unity.VisualScripting.Core.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Multiplayer.Center.Common">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Extras">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Common.Runtime">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.2D.Runtime">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem.ForUI">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Leopotam.EcsProto">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Leopotam.EcsProto.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rendering.LightTransport.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Multiplayer.Center.Common">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
@@ -1001,20 +1019,8 @@
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
@@ -1030,12 +1036,6 @@
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Runtime">
       <HintPath>H:\_work\AsteroidsECS\AsteroidsECS\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Runtime.dll</HintPath>
@@ -1053,6 +1053,10 @@
       <Project>{b66b6589-0a46-0f0e-bb7e-509266762f8b}</Project>
       <Name>BulletComponents</Name>
     </ProjectReference>
+    <ProjectReference Include="CameraDataSystems.csproj">
+      <Project>{eb85f8c8-e8bc-43db-2b3a-e734dd8794bf}</Project>
+      <Name>CameraDataSystems</Name>
+    </ProjectReference>
     <ProjectReference Include="AsteroidsSystems.csproj">
       <Project>{ee3e0f3c-c174-12db-f06d-53b61247b049}</Project>
       <Name>AsteroidsSystems</Name>
@@ -1061,29 +1065,101 @@
       <Project>{70919bb1-02fc-b8e2-41b3-6c8514862c1f}</Project>
       <Name>MovingSystems</Name>
     </ProjectReference>
-    <ProjectReference Include="ShipSystems.csproj">
-      <Project>{a685ece5-80ed-5fb7-251a-3fa9de6a4234}</Project>
-      <Name>ShipSystems</Name>
+    <ProjectReference Include="Common.csproj">
+      <Project>{74ac4bdd-9db0-b5f6-fc52-0d12a91277ba}</Project>
+      <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="CameraDataSystems.csproj">
-      <Project>{eb85f8c8-e8bc-43db-2b3a-e734dd8794bf}</Project>
-      <Name>CameraDataSystems</Name>
+    <ProjectReference Include="DestroySystems.csproj">
+      <Project>{b9407333-cb2c-75d5-45ab-e47cb0437ad5}</Project>
+      <Name>DestroySystems</Name>
     </ProjectReference>
-    <ProjectReference Include="DestroyComponents.csproj">
-      <Project>{74f0a711-22ee-33ef-1c45-080c10eeba28}</Project>
-      <Name>DestroyComponents</Name>
+    <ProjectReference Include="UISystems.csproj">
+      <Project>{3f521350-308b-1350-3622-520255f828c1}</Project>
+      <Name>UISystems</Name>
+    </ProjectReference>
+    <ProjectReference Include="DestroyAspects.csproj">
+      <Project>{618050d9-897d-8b84-f641-1845c131adf6}</Project>
+      <Name>DestroyAspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="LaserSystems.csproj">
+      <Project>{a9d8119d-5b93-ec3a-ce5c-da75a8b78b4e}</Project>
+      <Name>LaserSystems</Name>
+    </ProjectReference>
+    <ProjectReference Include="MovingAspects.csproj">
+      <Project>{a22ab819-b004-7e91-4646-78c606797852}</Project>
+      <Name>MovingAspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="GameOverServices.csproj">
+      <Project>{68175c1c-e5c5-db8f-21c6-f21981253280}</Project>
+      <Name>GameOverServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="CameraDataAspects.csproj">
+      <Project>{88f7046b-2157-a684-edef-2ee4da88fc5d}</Project>
+      <Name>CameraDataAspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="LaserServices.csproj">
+      <Project>{e782a6c0-f72f-c6e3-982d-91af679a5ae3}</Project>
+      <Name>LaserServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="UFOAspects.csproj">
+      <Project>{fb595627-be5f-c585-bbc2-f345a90baea6}</Project>
+      <Name>UFOAspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="EntityTagsComponents.csproj">
+      <Project>{a025e5bf-f0e0-b215-c35e-9eec011c0490}</Project>
+      <Name>EntityTagsComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="AsteroidsAspects.csproj">
+      <Project>{3ce96b67-3a78-16a3-9525-6cc11649dad4}</Project>
+      <Name>AsteroidsAspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="ShipServices.csproj">
+      <Project>{201593d0-cfd7-692a-3650-dc7d0cc63b1f}</Project>
+      <Name>ShipServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="BulletSystems.csproj">
+      <Project>{dac5aafb-b2af-22a6-917e-5887174cacdd}</Project>
+      <Name>BulletSystems</Name>
+    </ProjectReference>
+    <ProjectReference Include="GameOverSystems.csproj">
+      <Project>{826fcc36-2c71-3fa3-bbd4-ee3c87590df2}</Project>
+      <Name>GameOverSystems</Name>
+    </ProjectReference>
+    <ProjectReference Include="ScoreAspects.csproj">
+      <Project>{e3a7980f-7c1f-1bfd-93df-3d9b5a329d37}</Project>
+      <Name>ScoreAspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="ShipComponents.csproj">
+      <Project>{0a842978-08b6-5440-d1ef-78348a08680c}</Project>
+      <Name>ShipComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="InputsComponents.csproj">
+      <Project>{4cae6dfc-b1b0-01c4-5a4c-9f356008ac41}</Project>
+      <Name>InputsComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="UFOSystems.csproj">
+      <Project>{936fb7af-0715-5f33-5e9e-172ff25718c7}</Project>
+      <Name>UFOSystems</Name>
     </ProjectReference>
     <ProjectReference Include="HealthAspects.csproj">
       <Project>{3ed10d5b-a96e-c305-9174-53d582fb4c98}</Project>
       <Name>HealthAspects</Name>
     </ProjectReference>
+    <ProjectReference Include="UIServices.csproj">
+      <Project>{fe19fb5f-7876-579f-4b91-09a909a7b49f}</Project>
+      <Name>UIServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="DestroyComponents.csproj">
+      <Project>{74f0a711-22ee-33ef-1c45-080c10eeba28}</Project>
+      <Name>DestroyComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="ShipSystems.csproj">
+      <Project>{a685ece5-80ed-5fb7-251a-3fa9de6a4234}</Project>
+      <Name>ShipSystems</Name>
+    </ProjectReference>
     <ProjectReference Include="UFOComponents.csproj">
       <Project>{7aea08c7-bf47-5c5d-e708-7cb1f386a36b}</Project>
       <Name>UFOComponents</Name>
-    </ProjectReference>
-    <ProjectReference Include="Common.csproj">
-      <Project>{74ac4bdd-9db0-b5f6-fc52-0d12a91277ba}</Project>
-      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="ScoreComponents.csproj">
       <Project>{de6d1ac4-1d16-9d5e-05af-8285daa0ad71}</Project>
@@ -1097,61 +1173,17 @@
       <Project>{54e38a61-d59f-b21f-9d7a-5827fea8de45}</Project>
       <Name>UtilsAndServices</Name>
     </ProjectReference>
-    <ProjectReference Include="DestroySystems.csproj">
-      <Project>{b9407333-cb2c-75d5-45ab-e47cb0437ad5}</Project>
-      <Name>DestroySystems</Name>
-    </ProjectReference>
     <ProjectReference Include="InputsAspects.csproj">
       <Project>{b5df96cd-caa0-0fea-40df-446dc15ba4d3}</Project>
       <Name>InputsAspects</Name>
-    </ProjectReference>
-    <ProjectReference Include="DestroyAspects.csproj">
-      <Project>{618050d9-897d-8b84-f641-1845c131adf6}</Project>
-      <Name>DestroyAspects</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityUIObjects.csproj">
-      <Project>{e940b7e2-190b-97db-86ce-87b74053a240}</Project>
-      <Name>UnityUIObjects</Name>
-    </ProjectReference>
-    <ProjectReference Include="LaserSystems.csproj">
-      <Project>{a9d8119d-5b93-ec3a-ce5c-da75a8b78b4e}</Project>
-      <Name>LaserSystems</Name>
-    </ProjectReference>
-    <ProjectReference Include="MovingAspects.csproj">
-      <Project>{a22ab819-b004-7e91-4646-78c606797852}</Project>
-      <Name>MovingAspects</Name>
-    </ProjectReference>
-    <ProjectReference Include="CameraDataAspects.csproj">
-      <Project>{88f7046b-2157-a684-edef-2ee4da88fc5d}</Project>
-      <Name>CameraDataAspects</Name>
-    </ProjectReference>
-    <ProjectReference Include="LaserServices.csproj">
-      <Project>{e782a6c0-f72f-c6e3-982d-91af679a5ae3}</Project>
-      <Name>LaserServices</Name>
     </ProjectReference>
     <ProjectReference Include="MovingComponents.csproj">
       <Project>{89c653fc-dc58-cc63-0f59-dd8d35011468}</Project>
       <Name>MovingComponents</Name>
     </ProjectReference>
-    <ProjectReference Include="UFOAspects.csproj">
-      <Project>{fb595627-be5f-c585-bbc2-f345a90baea6}</Project>
-      <Name>UFOAspects</Name>
-    </ProjectReference>
     <ProjectReference Include="CollisionsComponents.csproj">
       <Project>{67218102-b326-6207-6bd8-76922001ff23}</Project>
       <Name>CollisionsComponents</Name>
-    </ProjectReference>
-    <ProjectReference Include="UIServices.csproj">
-      <Project>{fe19fb5f-7876-579f-4b91-09a909a7b49f}</Project>
-      <Name>UIServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="EntityTagsComponents.csproj">
-      <Project>{a025e5bf-f0e0-b215-c35e-9eec011c0490}</Project>
-      <Name>EntityTagsComponents</Name>
-    </ProjectReference>
-    <ProjectReference Include="AsteroidsAspects.csproj">
-      <Project>{3ce96b67-3a78-16a3-9525-6cc11649dad4}</Project>
-      <Name>AsteroidsAspects</Name>
     </ProjectReference>
     <ProjectReference Include="SpawnSystems.csproj">
       <Project>{ce27e7ab-fb47-be47-e6ec-faac9fd1b310}</Project>
@@ -1164,6 +1196,10 @@
     <ProjectReference Include="InputsServices.csproj">
       <Project>{22b08a47-4a52-74fa-07a7-21a5f054f533}</Project>
       <Name>InputsServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="CameraDataServices.csproj">
+      <Project>{7aaccdab-e33b-509f-9cae-6826c06ddc69}</Project>
+      <Name>CameraDataServices</Name>
     </ProjectReference>
     <ProjectReference Include="ShipAspects.csproj">
       <Project>{a02a06f1-f7dc-24c9-2a3d-5dc5f65f2746}</Project>
@@ -1181,25 +1217,17 @@
       <Project>{051220ad-793f-d4f4-f825-18df935564d5}</Project>
       <Name>CollisionsAspects</Name>
     </ProjectReference>
-    <ProjectReference Include="CameraDataServices.csproj">
-      <Project>{7aaccdab-e33b-509f-9cae-6826c06ddc69}</Project>
-      <Name>CameraDataServices</Name>
-    </ProjectReference>
     <ProjectReference Include="DataConfigs.csproj">
       <Project>{3809ea14-a636-eef2-fdb1-0ea8b8b8744f}</Project>
       <Name>DataConfigs</Name>
-    </ProjectReference>
-    <ProjectReference Include="ShipServices.csproj">
-      <Project>{201593d0-cfd7-692a-3650-dc7d0cc63b1f}</Project>
-      <Name>ShipServices</Name>
     </ProjectReference>
     <ProjectReference Include="UFOServices.csproj">
       <Project>{69c010cc-b0dd-9d05-856c-04ae1cdff7e3}</Project>
       <Name>UFOServices</Name>
     </ProjectReference>
-    <ProjectReference Include="BulletSystems.csproj">
-      <Project>{dac5aafb-b2af-22a6-917e-5887174cacdd}</Project>
-      <Name>BulletSystems</Name>
+    <ProjectReference Include="UnityUIObjects.csproj">
+      <Project>{e940b7e2-190b-97db-86ce-87b74053a240}</Project>
+      <Name>UnityUIObjects</Name>
     </ProjectReference>
     <ProjectReference Include="BulletServices.csproj">
       <Project>{d0ce9f0d-1dbd-d471-ccd8-fda603bfa30a}</Project>
@@ -1209,13 +1237,13 @@
       <Project>{a3a41e23-aeac-9147-d307-ab9f52b3f188}</Project>
       <Name>HealthComponents</Name>
     </ProjectReference>
-    <ProjectReference Include="InputsSystems.csproj">
-      <Project>{308ff572-b1bf-86be-f17f-6fedaea11a2d}</Project>
-      <Name>InputsSystems</Name>
-    </ProjectReference>
     <ProjectReference Include="AsteroidsComponents.csproj">
       <Project>{4f87758c-16de-d3b8-93b6-7a36cece9e38}</Project>
       <Name>AsteroidsComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="InputsSystems.csproj">
+      <Project>{308ff572-b1bf-86be-f17f-6fedaea11a2d}</Project>
+      <Name>InputsSystems</Name>
     </ProjectReference>
     <ProjectReference Include="DataCommon.csproj">
       <Project>{133af43b-9d93-be39-57c7-3715d67efc31}</Project>
@@ -1225,33 +1253,13 @@
       <Project>{09fae266-9bbc-4faa-2937-af2016427efa}</Project>
       <Name>EntityTagsAspects</Name>
     </ProjectReference>
-    <ProjectReference Include="ScoreAspects.csproj">
-      <Project>{e3a7980f-7c1f-1bfd-93df-3d9b5a329d37}</Project>
-      <Name>ScoreAspects</Name>
-    </ProjectReference>
     <ProjectReference Include="LaserComponents.csproj">
       <Project>{3222fea1-faa7-6a41-2074-6b347916e458}</Project>
       <Name>LaserComponents</Name>
     </ProjectReference>
-    <ProjectReference Include="ShipComponents.csproj">
-      <Project>{0a842978-08b6-5440-d1ef-78348a08680c}</Project>
-      <Name>ShipComponents</Name>
-    </ProjectReference>
-    <ProjectReference Include="UISystems.csproj">
-      <Project>{3f521350-308b-1350-3622-520255f828c1}</Project>
-      <Name>UISystems</Name>
-    </ProjectReference>
-    <ProjectReference Include="InputsComponents.csproj">
-      <Project>{4cae6dfc-b1b0-01c4-5a4c-9f356008ac41}</Project>
-      <Name>InputsComponents</Name>
-    </ProjectReference>
     <ProjectReference Include="CameraDataComponents.csproj">
       <Project>{5bd45c07-9154-8c82-af37-d45add0ded15}</Project>
       <Name>CameraDataComponents</Name>
-    </ProjectReference>
-    <ProjectReference Include="UFOSystems.csproj">
-      <Project>{936fb7af-0715-5f33-5e9e-172ff25718c7}</Project>
-      <Name>UFOSystems</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

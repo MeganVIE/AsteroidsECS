@@ -1,6 +1,6 @@
 using Data;
 
-namespace UI.Services
+namespace UIView.Services
 {
     public interface IViewPositionService
     {
