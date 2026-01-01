@@ -860,6 +860,10 @@
       <Project>{fe19fb5f-7876-579f-4b91-09a909a7b49f}</Project>
       <Name>UIServices</Name>
     </ProjectReference>
+    <ProjectReference Include="UFOServices.csproj">
+      <Project>{69c010cc-b0dd-9d05-856c-04ae1cdff7e3}</Project>
+      <Name>UFOServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

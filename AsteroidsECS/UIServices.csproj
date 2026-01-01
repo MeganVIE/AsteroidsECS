@@ -49,6 +49,7 @@
     <Compile Include="Assets\Scripts\UI\Services\IViewClearService.cs" />
     <Compile Include="Assets\Scripts\UI\Services\IDestroyItemService.cs" />
     <Compile Include="Assets\Scripts\UI\Services\GameOverService.cs" />
+    <Compile Include="Assets\Scripts\UI\Services\IDataViewService.cs" />
     <Compile Include="Assets\Scripts\UI\Services\IGameOverService.cs" />
     <Compile Include="Assets\Scripts\UI\Services\IViewPositionService.cs" />
     <None Include="Assets\Scripts\UI\Services\UIServices.asmdef" />
@@ -856,6 +857,10 @@
     <ProjectReference Include="UnityUIObjects.csproj">
       <Project>{e940b7e2-190b-97db-86ce-87b74053a240}</Project>
       <Name>UnityUIObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="DataConfigs.csproj">
+      <Project>{3809ea14-a636-eef2-fdb1-0ea8b8b8744f}</Project>
+      <Name>DataConfigs</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

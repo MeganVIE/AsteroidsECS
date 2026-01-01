@@ -9,7 +9,7 @@ namespace UFO.Services
     {
         private Dictionary<int, GameObject> _viewsByIds = new();
 
-        public void CreateView(int id, UFOConfig config)
+        public void CreateView(int id, EnemyConfig config)
         {
             _viewsByIds[id] = Object.Instantiate(config.ViewPrefab);
         }

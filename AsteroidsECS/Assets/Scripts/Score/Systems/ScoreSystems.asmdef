@@ -1,0 +1,10 @@
+{
+"name": "ScoreSystems",
+"references": [
+  "Leopotam.EcsProto",
+  "ScoreAspects",
+  "UtilsAndServices",
+  "ScoreComponents",
+  "Common"
+]
+}

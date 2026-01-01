@@ -3,6 +3,7 @@ using Bullet;
 using CameraData.Services;
 using CameraData.Systems;
 using Collisions.Systems;
+using Destroy;
 using Destroy.Systems;
 using Health.Systems;
 using Inputs;
@@ -10,6 +11,8 @@ using Inputs.Services;
 using Laser;
 using Leopotam.EcsProto;
 using Moving;
+using Score;
+using Score.Systems;
 using Ship;
 using UFO;
 using UI.Services;
@@ -51,14 +54,15 @@ class EcsStartup : MonoBehaviour
             
             .AddModule(new AsteroidsSystemsModule())
             .AddModule(new UFOSystemsModule())
+            
+            .AddModule(new DestroySystemsModule())
+            .AddModule(new ScoreSystemsModule())
 
             // Системы вне модулей могут быть зарегистрированы здесь.
             .AddSystem(new CameraDataInitSystem(), -100)
             .AddSystem(new CircleCollisionSystem(), -1)
             
-            .AddSystem(new DestroyOutsideScreenSystem())
-            .AddSystem(new DestroyByTimerSystem())
-            .AddSystem(new DamageHandleSystem(), 100)
+            .AddSystem(new DamageHandleSystem(), 10)
 
             // Сервисы могут быть добавлены в любом месте.
             .AddService(new DeltaTimeService(), typeof(IDeltaTimeService))

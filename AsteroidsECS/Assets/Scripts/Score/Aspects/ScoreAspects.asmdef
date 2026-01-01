@@ -1,0 +1,7 @@
+{
+"name": "ScoreAspects",
+"references": [
+  "Common",
+  "ScoreComponents"
+]
+}

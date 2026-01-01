@@ -46,9 +46,9 @@
     <Analyzer Include="F:\UnityEditor\6000.0.61f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Laser\Systems\LaserClearSystem.cs" />
     <Compile Include="Assets\Scripts\Laser\Systems\LaserAmountInitSystem.cs" />
     <Compile Include="Assets\Scripts\Laser\Systems\LaserAmountRechargeSystem.cs" />
-    <Compile Include="Assets\Scripts\Laser\Systems\LaserClearSystem.cs" />
     <Compile Include="Assets\Scripts\Laser\Systems\LaserDestroySystem.cs" />
     <Compile Include="Assets\Scripts\Laser\Systems\LaserCollisionSystem.cs" />
     <Compile Include="Assets\Scripts\Laser\Systems\LaserSpawnSystem.cs" />
@@ -862,10 +862,6 @@
       <Project>{3809ea14-a636-eef2-fdb1-0ea8b8b8744f}</Project>
       <Name>DataConfigs</Name>
     </ProjectReference>
-    <ProjectReference Include="UISystems.csproj">
-      <Project>{3f521350-308b-1350-3622-520255f828c1}</Project>
-      <Name>UISystems</Name>
-    </ProjectReference>
     <ProjectReference Include="UtilsAndServices.csproj">
       <Project>{54e38a61-d59f-b21f-9d7a-5827fea8de45}</Project>
       <Name>UtilsAndServices</Name>
@@ -941,6 +937,10 @@
     <ProjectReference Include="UIServices.csproj">
       <Project>{fe19fb5f-7876-579f-4b91-09a909a7b49f}</Project>
       <Name>UIServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="UISystems.csproj">
+      <Project>{3f521350-308b-1350-3622-520255f828c1}</Project>
+      <Name>UISystems</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

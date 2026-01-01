@@ -28,7 +28,7 @@ namespace Destroy.Systems
             _it = new(new[] { typeof(DestroyComponent), typeof(TComponent), typeof(ObjectIDComponent) });
             _it.Init(World);
 
-            InitialInit();
+            PostInit();
         }
         
         public void Run()
@@ -43,7 +43,7 @@ namespace Destroy.Systems
             }
         }
         
-        protected virtual void InitialInit() { }
+        protected virtual void PostInit() { }
 
         protected virtual void BeforeDestroy(ProtoEntity entity) { }
     }

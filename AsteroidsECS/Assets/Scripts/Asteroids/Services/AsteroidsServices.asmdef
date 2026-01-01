@@ -3,6 +3,7 @@
 "references": [
   "DataConfigs",
   "DataCommon",
-  "UIServices"
+  "UIServices",
+  "UFOServices"
 ]
 }

@@ -14,7 +14,7 @@ namespace Asteroids.Systems
         private MovableAspect _movableAspect;
         private SpawnAsteroidPartAspect _spawnAsteroidPartAspect;
         
-        protected override void InitialInit()
+        protected override void PostInit()
         {
             _movableAspect = World.GetAspect<MovableAspect>();
             _spawnAsteroidPartAspect = World.GetAspect<SpawnAsteroidPartAspect>();

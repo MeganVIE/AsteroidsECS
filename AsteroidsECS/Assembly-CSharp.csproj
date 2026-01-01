@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Inputs\InputsSystemsModule.cs" />
     <Compile Include="Assets\Scripts\Laser\LaserSystemsModule.cs" />
+    <Compile Include="Assets\Scripts\Score\ScoreSystemsModule.cs" />
     <Compile Include="Assets\Scripts\Inputs\InputsAspectsModule.cs" />
     <Compile Include="Assets\Scripts\Health\Systems\DamageHandleSystem.cs" />
     <Compile Include="Assets\Scripts\EcsStartup.cs" />
@@ -57,9 +58,12 @@
     <Compile Include="Assets\Scripts\Moving\MovingAspectsModule.cs" />
     <Compile Include="Assets\Scripts\Moving\MovingSystemsModule.cs" />
     <Compile Include="Assets\Scripts\Asteroids\AsteroidsAspectsModule.cs" />
+    <Compile Include="Assets\Scripts\Destroy\DestroySystemsModule.cs" />
     <Compile Include="Assets\Scripts\Asteroids\AsteroidsSystemsModule.cs" />
     <Compile Include="Assets\Scripts\GameAspectsModule.cs" />
+    <Compile Include="Assets\Scripts\Destroy\DestroyAspectsModule.cs" />
     <Compile Include="Assets\Scripts\Laser\LaserAspectsModule.cs" />
+    <Compile Include="Assets\Scripts\Score\ScoreAspectsModule.cs" />
     <Compile Include="Assets\Scripts\UFO\UFOSystemsModule.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -1041,6 +1045,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="ScoreSystems.csproj">
+      <Project>{54a9116a-2e3c-0744-66df-425f8515b204}</Project>
+      <Name>ScoreSystems</Name>
+    </ProjectReference>
     <ProjectReference Include="BulletComponents.csproj">
       <Project>{b66b6589-0a46-0f0e-bb7e-509266762f8b}</Project>
       <Name>BulletComponents</Name>
@@ -1076,6 +1084,10 @@
     <ProjectReference Include="Common.csproj">
       <Project>{74ac4bdd-9db0-b5f6-fc52-0d12a91277ba}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="ScoreComponents.csproj">
+      <Project>{de6d1ac4-1d16-9d5e-05af-8285daa0ad71}</Project>
+      <Name>ScoreComponents</Name>
     </ProjectReference>
     <ProjectReference Include="AsteroidsServices.csproj">
       <Project>{2236f4f9-516d-2dc0-d158-e00b0d8e5d36}</Project>
@@ -1140,6 +1152,10 @@
     <ProjectReference Include="AsteroidsAspects.csproj">
       <Project>{3ce96b67-3a78-16a3-9525-6cc11649dad4}</Project>
       <Name>AsteroidsAspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="SpawnSystems.csproj">
+      <Project>{ce27e7ab-fb47-be47-e6ec-faac9fd1b310}</Project>
+      <Name>SpawnSystems</Name>
     </ProjectReference>
     <ProjectReference Include="BulletAspects.csproj">
       <Project>{dbca1c35-e444-122b-c3cf-4990276cd35e}</Project>
@@ -1208,6 +1224,10 @@
     <ProjectReference Include="EntityTagsAspects.csproj">
       <Project>{09fae266-9bbc-4faa-2937-af2016427efa}</Project>
       <Name>EntityTagsAspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="ScoreAspects.csproj">
+      <Project>{e3a7980f-7c1f-1bfd-93df-3d9b5a329d37}</Project>
+      <Name>ScoreAspects</Name>
     </ProjectReference>
     <ProjectReference Include="LaserComponents.csproj">
       <Project>{3222fea1-faa7-6a41-2074-6b347916e458}</Project>

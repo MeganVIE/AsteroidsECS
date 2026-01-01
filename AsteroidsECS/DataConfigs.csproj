@@ -46,6 +46,7 @@
     <Analyzer Include="F:\UnityEditor\6000.0.61f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Configs\EnemyConfig.cs" />
     <Compile Include="Assets\Scripts\Configs\BulletConfig.cs" />
     <Compile Include="Assets\Scripts\Configs\AsteroidConfig.cs" />
     <Compile Include="Assets\Scripts\Configs\ShipConfig.cs" />

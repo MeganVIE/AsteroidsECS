@@ -6,21 +6,16 @@
   "AsteroidsServices",
   "AsteroidsComponents",
   "AsteroidsAspects",
-  "EntityTagsAspects",
-  "MovingAspects",
-  "HealthAspects",
   "UtilsAndServices",
   "DataConfigs",
   "Common",
   "DataCommon",
-  "EntityTagsComponents",
-  "MovingComponents",
-  "HealthComponents",
-  "CollisionsAspects",
-  "CollisionsComponents",
   "UISystems",
   "CameraDataComponents",
   "CameraDataAspects",
-  "UIServices"
+  "UIServices",
+  "SpawnSystems",
+  "MovingAspects",
+  "MovingComponents"
 ]
 }

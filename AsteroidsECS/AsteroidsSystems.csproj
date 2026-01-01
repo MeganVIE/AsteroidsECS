@@ -46,13 +46,13 @@
     <Analyzer Include="F:\UnityEditor\6000.0.61f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidClearSystem.cs" />
-    <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidPartClearSystem.cs" />
     <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidViewPositionSystem.cs" />
     <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidPartsDestroySystem.cs" />
     <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidSpawnSystem.cs" />
+    <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidPartClearSystem.cs" />
     <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidPartViewPositionSystem.cs" />
     <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidsDestroySystem.cs" />
+    <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidClearSystem.cs" />
     <Compile Include="Assets\Scripts\Asteroids\Systems\AsteroidPartSpawnSystem.cs" />
     <None Include="Assets\Scripts\Asteroids\Systems\AsteroidsSystems.asmdef" />
     <Reference Include="UnityEngine">
@@ -871,18 +871,6 @@
       <Project>{3ce96b67-3a78-16a3-9525-6cc11649dad4}</Project>
       <Name>AsteroidsAspects</Name>
     </ProjectReference>
-    <ProjectReference Include="EntityTagsAspects.csproj">
-      <Project>{09fae266-9bbc-4faa-2937-af2016427efa}</Project>
-      <Name>EntityTagsAspects</Name>
-    </ProjectReference>
-    <ProjectReference Include="MovingAspects.csproj">
-      <Project>{a22ab819-b004-7e91-4646-78c606797852}</Project>
-      <Name>MovingAspects</Name>
-    </ProjectReference>
-    <ProjectReference Include="HealthAspects.csproj">
-      <Project>{3ed10d5b-a96e-c305-9174-53d582fb4c98}</Project>
-      <Name>HealthAspects</Name>
-    </ProjectReference>
     <ProjectReference Include="UtilsAndServices.csproj">
       <Project>{54e38a61-d59f-b21f-9d7a-5827fea8de45}</Project>
       <Name>UtilsAndServices</Name>
@@ -899,26 +887,6 @@
       <Project>{133af43b-9d93-be39-57c7-3715d67efc31}</Project>
       <Name>DataCommon</Name>
     </ProjectReference>
-    <ProjectReference Include="EntityTagsComponents.csproj">
-      <Project>{a025e5bf-f0e0-b215-c35e-9eec011c0490}</Project>
-      <Name>EntityTagsComponents</Name>
-    </ProjectReference>
-    <ProjectReference Include="MovingComponents.csproj">
-      <Project>{89c653fc-dc58-cc63-0f59-dd8d35011468}</Project>
-      <Name>MovingComponents</Name>
-    </ProjectReference>
-    <ProjectReference Include="HealthComponents.csproj">
-      <Project>{a3a41e23-aeac-9147-d307-ab9f52b3f188}</Project>
-      <Name>HealthComponents</Name>
-    </ProjectReference>
-    <ProjectReference Include="CollisionsAspects.csproj">
-      <Project>{051220ad-793f-d4f4-f825-18df935564d5}</Project>
-      <Name>CollisionsAspects</Name>
-    </ProjectReference>
-    <ProjectReference Include="CollisionsComponents.csproj">
-      <Project>{67218102-b326-6207-6bd8-76922001ff23}</Project>
-      <Name>CollisionsComponents</Name>
-    </ProjectReference>
     <ProjectReference Include="UISystems.csproj">
       <Project>{3f521350-308b-1350-3622-520255f828c1}</Project>
       <Name>UISystems</Name>
@@ -934,6 +902,18 @@
     <ProjectReference Include="UIServices.csproj">
       <Project>{fe19fb5f-7876-579f-4b91-09a909a7b49f}</Project>
       <Name>UIServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="SpawnSystems.csproj">
+      <Project>{ce27e7ab-fb47-be47-e6ec-faac9fd1b310}</Project>
+      <Name>SpawnSystems</Name>
+    </ProjectReference>
+    <ProjectReference Include="MovingAspects.csproj">
+      <Project>{a22ab819-b004-7e91-4646-78c606797852}</Project>
+      <Name>MovingAspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="MovingComponents.csproj">
+      <Project>{89c653fc-dc58-cc63-0f59-dd8d35011468}</Project>
+      <Name>MovingComponents</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,22 @@
+{
+"name": "SpawnSystems",
+"references": [
+  "Leopotam.EcsProto",
+  "Common",
+  "UFOServices",
+  "DataConfigs",
+  "EntityTagsAspects",
+  "MovingAspects",
+  "CollisionsAspects",
+  "HealthAspects",
+  "ScoreAspects",
+  "UtilsAndServices",
+  "DataCommon",
+  "EntityTagsComponents",
+  "MovingComponents",
+  "ScoreComponents",
+  "HealthComponents",
+  "CollisionsComponents",
+  "UIServices"
+]
+}
